@@ -5,7 +5,7 @@ class Register extends Component{
         return (
             <div className="container">
                 <form>
-                    <div style={{padding:"19px",paddingLeft:"43px"}}>
+                    <div className="title1">
                         <font color="green"><h1><b>Fundoo</b></h1></font>
                         <h1><b>Create Your Fundoo Account</b></h1>
                     </div>

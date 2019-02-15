@@ -3,16 +3,13 @@ import { withRouter } from "react-router-dom";
 import DashboardInput from "../components/dashboardInput";
 //import { Button } from "@material-ui/core";
 class Dashboard extends Component {
-   
-    
     render() {
         return (
             <div>
-                <div className="container" style={{ backgroundColor: "white", color: "black" }}>
+                <div className="container" >
                 </div>
                 <div>
-                    <DashboardInput props={this.props} />
-                    
+                    <DashboardInput props={this.props} /> 
                 </div>
             </div>
         );

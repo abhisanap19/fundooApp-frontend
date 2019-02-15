@@ -4,7 +4,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { Button } from "@material-ui/core";
 import TextField from "@material-ui/core/TextField";
-import { forgotPassword }  from "../services/userService";
+import { forgotPassword } from "../services/userService";
 class ForgotPasswordInput extends Component {
   constructor(props) {
     super(props);
@@ -29,29 +29,20 @@ class ForgotPasswordInput extends Component {
     ) {
       toast("Invalid Email", { position: toast.POSITION.BOTTOM_CENTER });
     } else {
-       // console.log('31--in component--username is:',this.state.username);
-       forgotPassword(this.state.userName);
+      // console.log('31--in component--username is:',this.state.username);
+      forgotPassword(this.state.userName);
     }
   };
   register = e => {
     e.preventDefault();
     this.props.history.push("/registration");
   };
-  
+
   render() {
     return (
       <div>
         <div>
-          <div
-            style={{
-              display: "flex",
-              width: "80%",
-              flexDirection: "row",
-              justifyContent: "center",
-              marginLeft: "39px",
-              marginRight: "178px"
-            }}
-          >
+          <div className="femail">
             <TextField
               id="outlined-email-input"
               label="Enter your Email"
@@ -63,39 +54,11 @@ class ForgotPasswordInput extends Component {
             />
           </div>
 
-          <div style={{ paddingTop: "10px" }}>
-            <Button
-              style={{
-                backgroundColor: "Royalblue",
-                color: "white",
-                padding: "10px 20px",
-                margin: "19px auto",
-                marginLeft: "125px",
-                border: "none",
-                cursor: "pointer",
-                width: "40%",
-                boxAlign: "center"
-              }}
-              type="submit"
-              onClick={this.handleSubmit}
-            >
+          <div className="fsubmit">
+            <Button id="fButton" type="submit" onClick={this.handleSubmit}>
               <b>Submit</b>
             </Button>
-            <Button
-              style={{
-                backgroundColor: "white",
-                color: "RoyalBlue",
-                padding: "10px 20px",
-                margin: "19px auto",
-                marginLeft: "101px",
-                border: "none",
-                cursor: "pointer",
-                width: "50%",
-                boxAlign: "center"
-              }}
-              type="submit"
-              onClick={this.register}
-            >
+            <Button id="fCreate" type="submit" onClick={this.register}>
               <b>CREATE ACCOUNT</b>
             </Button>
           </div>

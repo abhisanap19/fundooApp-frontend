@@ -7,22 +7,20 @@ import "react-toastify/dist/ReactToastify.css";
 //import classNames from 'classnames';
 //import Input from '@material-ui/core/Input';
 //import InputLabel from '@material-ui/core/InputLabel';
-import InputAdornment from '@material-ui/core/InputAdornment';
+import InputAdornment from "@material-ui/core/InputAdornment";
 //import FormHelperText from '@material-ui/core/FormHelperText';
 //import FormControl from '@material-ui/core/FormControl';
 //import MenuItem from '@material-ui/core/MenuItem';
-import Visibility from '@material-ui/icons/Visibility';
-import VisibilityOff from '@material-ui/icons/VisibilityOff';
+import Visibility from "@material-ui/icons/Visibility";
+import VisibilityOff from "@material-ui/icons/VisibilityOff";
 import TextField from "@material-ui/core/TextField";
 import { Button } from "@material-ui/core";
-import IconButton from '@material-ui/core/IconButton';
+import IconButton from "@material-ui/core/IconButton";
 //import Visibility from '@material-ui/icons/Visibility';
 //import VisibilityOff from '@material-ui/icons/VisibilityOff';
 //import Card from '@material-ui/core/Card';
 //import CardActions from '@material-ui/core/CardActions';
 import { userRegister } from "../services/userService";
-
-
 
 class RegisterInput extends Component {
   constructor(props) {
@@ -33,14 +31,12 @@ class RegisterInput extends Component {
       userName: "",
       password: "",
       confirmPassword: "",
-      showPassword:false,
+      showPassword: false,
       toast: false
     };
     this.baseState = this.state;
   }
 
-
-  
   handlefirstNameChange = event => {
     const firstName = event.target.value;
     this.setState({ firstName: firstName });
@@ -97,35 +93,30 @@ class RegisterInput extends Component {
       });
     } else {
       event.preventDefault();
-      userRegister(this.state.firstName, this.state.lastName, this.state.userName, this.state.password);
+      var data = {
+        firstName: this.state.firstName,
+        lastName: this.state.lastName,
+        email: this.state.userName,
+        password: this.state.password
+      };
+      userRegister(data);
     }
   };
 
-  resetForm = (event) => {
-    this.setState(this.baseState)
+  resetForm = event => {
+    this.setState(this.baseState);
     event.preventDefault();
-    this.props.history.push('/registration');
-}
+    this.props.history.push("/registration");
+  };
 
-
-handleClickShowPassword = () => {
-  this.setState(state => ({ showPassword: !state.showPassword }));
-};
+  handleClickShowPassword = () => {
+    this.setState(state => ({ showPassword: !state.showPassword }));
+  };
 
   render() {
     return (
-
       <div>
-        
-        <div
-          style={{
-            display: "flex",
-            flexDirection: "row",
-            justifyContent: "space-between",
-            marginLeft: "39px",
-            marginRight: "178px"
-          }}
-        >
+        <div className="flname">
           <TextField
             id=""
             label="First Name"
@@ -137,7 +128,6 @@ handleClickShowPassword = () => {
           />
 
           <TextField
-            
             label="Last Name"
             name="firstName"
             value={this.state.lastName}
@@ -147,17 +137,8 @@ handleClickShowPassword = () => {
           />
         </div>
 
-        <div
-          style={{
-            display: "flex",
-            flexDirection: "row",
-            justifyContent: "space-between",
-            marginLeft: "39px",
-            marginRight: "178px"
-          }}
-        >
+        <div className="remail">
           <TextField
-            
             label="Email"
             type="email"
             value={this.state.userName}
@@ -167,17 +148,8 @@ handleClickShowPassword = () => {
           />
         </div>
 
-        <div
-          style={{
-            display: "flex",
-            flexDirection: "row",
-            justifyContent: "space-between",
-            marginLeft: "39px",
-            marginRight: "178px"
-          }}
-        >
+        <div className="rpassword">
           <TextField
-            
             label="Password"
             type="password"
             value={this.state.password}
@@ -185,7 +157,7 @@ handleClickShowPassword = () => {
             margin="normal"
             variant="outlined"
             endAdornment={
-            <InputAdornment position="end">
+              <InputAdornment position="end">
                 <IconButton
                   aria-label="Toggle password visibility"
                   onClick={this.handleClickShowPassword}
@@ -204,17 +176,9 @@ handleClickShowPassword = () => {
             margin="normal"
             variant="outlined"
           />
-          
-          
         </div>
 
-        <div
-          style={{
-            display: "flex",
-            flexDirection: "row",
-            justifyContent: "space-between"
-          }}
-        >
+        <div className="rbutton">
           <Button id="Button" onClick={this.handleSubmit}>
             REGISTER
           </Button>
@@ -223,10 +187,8 @@ handleClickShowPassword = () => {
           </Button>
         </div>
         <ToastContainer />
-        
       </div>
     );
   }
 }
 export default withRouter(RegisterInput);
-

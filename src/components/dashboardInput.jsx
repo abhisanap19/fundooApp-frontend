@@ -5,21 +5,15 @@ import Toolbar from "@material-ui/core/Toolbar";
 import IconButton from "@material-ui/core/IconButton";
 import Typography from "@material-ui/core/Typography";
 import InputBase from "@material-ui/core/InputBase";
-//import Badge from '@material-ui/core/Badge';
 import MenuItem from "@material-ui/core/MenuItem";
 import Menu from "@material-ui/core/Menu";
 import { fade } from "@material-ui/core/styles/colorManipulator";
 import { withStyles } from "@material-ui/core/styles";
-//import MenuIcon from '@material-ui/icons/Menu';
 import SearchIcon from "@material-ui/icons/Search";
 import AccountCircle from "@material-ui/icons/AccountCircle";
-//import MailIcon from '@material-ui/icons/Mail';
-//import NotificationsIcon from '@material-ui/icons/Notifications';
 import MoreIcon from "@material-ui/icons/MoreVert";
 import SideNevigation from "../components/sideNevigation";
-import ComplexCard from "../components/cards"
-//import Avatar from '@material-ui/core/Avatar';
-
+import ComplexCard from "./Notes";
 const styles = theme => ({
   root: {
     width: "100%",
@@ -29,7 +23,6 @@ const styles = theme => ({
   grow: {
     flexGrow: 1
   },
-
   menuButton: {
     marginLeft: -12,
     marginRight: 20,
@@ -37,7 +30,7 @@ const styles = theme => ({
   },
   title: {
     display: "none",
-    [theme.breakpoints.up("sm")]: {
+    [theme.breakpoints.up("sm")]:{
       display: "block",
       color: "black",
       paddingLeft: "39px"
@@ -46,14 +39,13 @@ const styles = theme => ({
   search: {
     position: "center",
     borderRadius: theme.shape.borderRadius,
-    backgroundColor: fade(theme.palette.common.black, 0.15),
+    backgroundColor:fade(theme.palette.common.black, 0.15),
     "&:hover": {
-      backgroundColor: fade(theme.palette.common.black, 0.25)
+      backgroundColor:fade(theme.palette.common.black, 0.25)
     },
     marginRight: theme.spacing.unit * 2,
-
     width: "100%",
-    [theme.breakpoints.up("sm")]: {
+    [theme.breakpoints.up("sm")]:{
       marginLeft: theme.spacing.unit * 3,
       width: "50%"
     }
@@ -92,7 +84,7 @@ const styles = theme => ({
   },
   sectionMobile: {
     display: "flex",
-    [theme.breakpoints.up("md")]: {
+    [theme.breakpoints.up("md")]:{
       display: "none"
     }
   }
@@ -101,7 +93,7 @@ const styles = theme => ({
 class DashboardInput extends React.Component {
   state = {
     anchorEl: null,
-    mobileMoreAnchorEl: null,
+   mobileMoreAnchorEl: null,
     left: true
   };
 
@@ -121,12 +113,6 @@ class DashboardInput extends React.Component {
   handleMobileMenuClose = () => {
     this.setState({ mobileMoreAnchorEl: null });
   };
-
-  // toggleDrawer = (side, open) => () => {
-  //   this.setState({
-  //     [side]: open
-  //   });
-  // };
 
   handleDrawerOpen = () => {
     this.setState({ open: true });
@@ -157,7 +143,6 @@ class DashboardInput extends React.Component {
 
     const renderMenu = (
       <Menu
-      
         anchorEl={anchorEl}
         anchorOrigin={{ vertical: "top", horizontal: "right" }}
         transformOrigin={{ vertical: "top", horizontal: "right" }}
@@ -168,7 +153,6 @@ class DashboardInput extends React.Component {
         <MenuItem onClick={this.register}>ADD ACCOUNT</MenuItem>
       </Menu>
     );
-
     const renderMobileMenu = (
       <Menu
         anchorEl={mobileMoreAnchorEl}
@@ -185,14 +169,12 @@ class DashboardInput extends React.Component {
         </MenuItem>
       </Menu>
     );
-
     return (
       <div>
       <div className={classes.root}>
          <AppBar
           position="static"
-          color="inherit"
-         
+          color="inherit" 
         >
           <Toolbar>
             <IconButton
@@ -262,7 +244,7 @@ class DashboardInput extends React.Component {
             </div>
             <div
               style={{
-                marginLeft: "24px"
+                marginLeft:"24px"
               }}
             >
               <img src={require("../assets/images/setting.svg")} alt="" title="settings"/>
@@ -310,5 +292,4 @@ class DashboardInput extends React.Component {
 DashboardInput.propTypes = {
   classes: PropTypes.object.isRequired
 };
-
 export default withStyles(styles)(DashboardInput);

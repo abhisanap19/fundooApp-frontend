@@ -12,18 +12,10 @@ class VerifyEmailInput extends Component
     render() {
         return (
             <div>
-                 <div style={{paddingTop:"10px", paddingLeft:"153px"}}>
-                    <Button style=
-                    {{
-                        backgroundColor:"RoyalBlue",
-                        color: "white",
-                        padding: "10px 20px",
-                        margin: "9px auto",
-                        border: "none",
-                        cursor: "pointer",
-                        width: "70%",
-                        boxAlign: "center"
-                    }} type="submit" onClick={this.handleSubmit}>
+                 <div className="verifyRoot">
+                    <Button 
+                     id="verify"
+                     type="submit" onClick={this.handleSubmit}>
                     <b>GO TO LOGIN</b>
                      </Button>
                  </div>

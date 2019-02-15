@@ -3,19 +3,8 @@ import LoginInput from "../components/loginInput";
 class Login extends Component {
   render() {
     return (
-      <div
-        style={{
-          width: "464px",
-          height: "478px",
-          margin: "70px auto",
-          border: "1px solid gray",
-          borderRadius: "15px",
-          padding: "30px",
-          paddingTop: "10px",
-          backgroundColor: "white"
-        }}
-      >
-        <div style={{ textAlign: "center"}}>
+      <div className="login">
+        <div className="titles">
           <font color="green">
             <h1>
               <b>Fundoo</b>
@@ -27,7 +16,7 @@ class Login extends Component {
           </font>
         </div>
         <div>
-          <LoginInput  />
+          <LoginInput />
         </div>
       </div>
     );

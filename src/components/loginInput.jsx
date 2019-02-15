@@ -59,16 +59,7 @@ class LoginInput extends Component {
     return (
       <div>
         <div>
-          <div
-            style={{
-              display: "flex",
-              width: "80%",
-              flexDirection: "row",
-              justifyContent: "center",
-              marginLeft: "49px",
-              marginRight: "178px"
-            }}
-          >
+          <div className="username">
             <TextField
               id="outlined-name"
               label="Email"
@@ -80,17 +71,8 @@ class LoginInput extends Component {
               variant="outlined"
             />
           </div>
-
-          <div
-            style={{
-              width: "80%",
-              display: "flex",
-              flexDirection: "row",
-              justifyContent: "center",
-              marginLeft: "49px",
-              marginRight: "178px"
-            }}
-          >
+          
+          <div className="loginPass">
             <TextField
               id="outlined-password-input"
               label="Enter your Password"
@@ -102,19 +84,9 @@ class LoginInput extends Component {
             />
           </div>
 
-          <div style={{ paddingTop: "10px" }}>
+          <div className="signIn1">
             <Button
-              style={{
-                backgroundColor: "Royalblue",
-                color: "white",
-                padding: "10px 20px",
-                margin: "19px auto",
-                marginLeft: "161px",
-                border: "none",
-                cursor: "pointer",
-                width: "30%",
-                boxAlign: "center"
-              }}
+             id="signIn2"
               type="submit"
               onClick={this.handleSubmit}
             >
@@ -122,22 +94,17 @@ class LoginInput extends Component {
             </Button>
 
             <div
-              style={{
-                display: "flex",
-                padding: "50px",
-                paddingTop: "20px",
-                justifyContent: "space-between"
-              }}
+             className="createAcc1"
             >
               <Button
-                style={{ backgroundColor: "white", color: "RoyalBlue" }}
+               id="createAcc1"
                 type="submit"
                 onClick={this.register}
               >
                 <b>CREATE ACCOUNT</b>
               </Button>
               <Button
-                style={{ backgroundColor: "white", color: "RoyalBlue" }}
+                id="createAcc1"
                 type="submit"
                 onClick={this.forgetPassword}
               >

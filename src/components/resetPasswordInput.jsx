@@ -30,23 +30,23 @@ class ResetPasswordInput extends Component {
       toast("Password cannot be empty", {
         position: toast.POSITION.BOTTOM_CENTER
       });
-    } else if (this.state.newpassword === "") {
+    }else if (this.state.newpassword === "") {
       toast("Confirm Password cannot be empty", {
         position: toast.POSITION.BOTTOM_CENTER
       });
-    } else if (this.state.password.length < 8) {
+    }else if (this.state.password.length < 8) {
       toast("Password must be of atleast 8 characters long", {
         position: toast.POSITION.BOTTOM_CENTER
       });
-    } else if (this.state.newpassword.length < 8) {
+    }else if (this.state.newpassword.length < 8) {
       toast("Confirm Password must be of atleast 8 characters long", {
         position: toast.POSITION.BOTTOM_CENTER
       });
-    } else if (this.state.password !== this.state.newpassword) {
+    }else if (this.state.password !== this.state.newpassword) {
       toast("Password and Confirm password must be same", {
         position: toast.POSITION.BOTTOM_CENTER
       });
-    } else {
+    }else {
       event.preventDefault();
       let current_url = window.location.pathname;
       let verify_user_token = current_url.substr(15);
@@ -59,14 +59,7 @@ class ResetPasswordInput extends Component {
       <div>
         <div>
           <div
-            style={{
-              width: "80%",
-              display: "flex",
-              flexDirection: "row",
-              justifyContent: "center",
-              marginLeft: "47px",
-              marginRight: "178px"
-            }}
+          className="resetpass"
           >
             <TextField
               label="Enter new Password"
@@ -79,14 +72,7 @@ class ResetPasswordInput extends Component {
           </div>
 
           <div
-            style={{
-              width: "80%",
-              display: "flex",
-              flexDirection: "row",
-              justifyContent: "center",
-              marginLeft: "47px",
-              marginRight: "178px"
-            }}
+            className="resetpass"
           >
             <TextField
               label="Confirm new Password"
@@ -98,19 +84,9 @@ class ResetPasswordInput extends Component {
             />
           </div>
 
-          <div style={{ paddingTop: "10px" }}>
+          <div className="resetP">
             <Button
-              style={{
-                backgroundColor: "Royalblue",
-                color: "white",
-                padding: "10px 20px",
-                margin: "19px auto",
-                marginLeft: "131px",
-                border: "none",
-                cursor: "pointer",
-                width: "38%",
-                boxAlign: "center"
-              }}
+              id="resetButton"
               type="submit"
               onClick={this.handleSubmit}
             >

@@ -1,23 +1,15 @@
 import axios from 'axios';
 import {  toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-function userRegister(firstName, lastName, userName, password) {
-    axios.post('/registration',
-        {
-            firstName: firstName,
-            lastName: lastName,
-            email: userName,
-            password: password
-        })
+function userRegister(data) {
+    axios.post('/registration',data)
         .then(function (response) {
             const token1 = response.data;
             const token2 = token1.substring(34)
-            localStorage.setItem('verifyToken', token2);
-            toast('Please check email to verify your email');  
+            localStorage.setItem('verifyToken', token2); 
         })
         .catch(function (err) {
             console.log(err);
-            toast('User with this Username already exists!!');
         });
 }
 
@@ -28,7 +20,7 @@ function checkToken(token){
     }})
         .then(function (response) {
             toast('User verified successfully');
-             window.location.href = '/login'
+            //  window.location.href = '/login'
         })
         .catch(function (err) {
             console.log(err);
@@ -73,10 +65,7 @@ function forgotPassword(userName) {
 }
 
 
-function resetPassword(password,token) {
-    console.log('inside reset paswd password--',password);
-    console.log('inside reset paswd token--',token);
-    
+function resetPassword(password,token) {   
     axios.post(`/resetpassword/${token}`,{'password': password},{
      headers: {
         'token': token

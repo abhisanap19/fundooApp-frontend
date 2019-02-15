@@ -7,7 +7,7 @@ import dashboard from './pages/dashboard';
 import forgotPassword from './pages/forgotPassword';
 import resetPassword from './pages/resetPassword';
 import VerifyEmail from './pages/verifyEmail';
-import Cards from './pages/complex';
+//import Cards from './pages/complex';
 
 
 
@@ -23,8 +23,6 @@ class App extends Component {
             <Route path="/forgotPassword" component={forgotPassword}></Route>
             <Route path="/resetpassword" component={resetPassword}></Route>
             <Route path="/verifyEmail" component={VerifyEmail}></Route>
-            <Route path="/card" component={Cards}></Route>
-           
           </div>
         </Router>
       </div>

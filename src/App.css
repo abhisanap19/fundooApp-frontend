@@ -8,6 +8,210 @@
   border-radius: 15px;
   background-color:white; 	
 }
+/********************************************login************************************/
+.login{
+  width: 464px;
+  height: 478px;
+  margin: 70px auto;
+  border: 1px solid gray;
+  border-radius: 15px;
+  padding: 30px;
+  padding-top: 10px;
+  background-color: white;
+}
+.titles{
+  text-align: center
+}
+.username{
+  display: flex;
+  width: 80%;
+  flex-direction:row;
+  justify-content:center;
+  margin-left: 49px;
+  margin-right:178px;
+}
+.loginPass{
+  width: 80%;
+  display: flex;
+  flex-direction:row;
+  justify-content: center;
+  margin-left:49px;
+  margin-right: 178px
+}
+.signIn1{
+  padding-top:10px
+}
+#signIn2{
+  background-color: Royalblue;
+  color: white;
+  padding: 10px 20px;
+  margin: 19px auto;
+  margin-left:161px;
+  border: none;
+  cursor: pointer;
+  width: 30%;
+  box-align: center
+}
+.createAcc1{
+  display: flex;
+  padding:50px;
+  padding-top:20px;
+  justify-content:space-between;
+}
+
+#createAcc1{
+  background-color: white; 
+  color:RoyalBlue
+}
+/*******************************************register****************************************/
+.title1{
+  padding:19px;
+  padding-left:43px
+}
+.flname{
+  display:flex;
+  flex-direction:row;
+  justify-content:space-between;
+  margin-left:39px;
+  margin-right:178px
+}
+.remail{
+  display:flex;
+  flex-direction: row;
+  justify-content:space-between;
+  margin-left: 39px;
+  margin-right: 178px
+}
+.rpassword{
+  display:flex;
+  flex-direction:row;
+  justify-content:space-between;
+  margin-left:39px;
+  margin-right:178px;
+}
+.rbutton{
+  display: flex;
+  flex-direction:row;
+  justify-content:space-between
+}
+/******************************************reset******************************************/
+.reset{
+  width: 423px;
+  height: 391px;
+  margin: 70px auto;
+  border: 1px solid gray;
+  border-radius: 15px;
+  padding: 30px;
+  padding-top: 10px;
+  background-color: white;
+}
+.resettitle{
+  text-align: center;
+  color: black
+}
+.resetpass{
+  width:80%;
+  display:flex;
+  flex-direction:row;
+  justify-content:center;
+  margin-left:47px;
+  margin-right:178px;
+}
+#resetButton{
+  background-color:Royalblue;
+  color: white;
+  padding:10px 20px;
+  margin:19px auto;
+  margin-left:131px;
+  border: none;
+  cursor: pointer;
+  width: 38%;
+  box-align:center;
+}
+.resetP{
+  padding-top: 10px
+}
+/*************************************forgot password*************************************************/
+
+.forgot{
+  width:433px;
+  height:347px;
+  margin:70px auto;
+  border:1px solid gray;
+  border-radius:15px;
+  padding:30px;
+  padding-top:10px;
+  background-color:white;
+}
+
+.forgottitle{
+  text-align:center;
+   color:black
+}
+.femail{
+  display:flex;
+  width: 80%;
+  flex-direction:row;
+  justify-content:center;
+  margin-left:39px;
+  margin-right: 178px;
+}
+#fButton{
+  background-color:Royalblue;
+  color: white;
+  padding: 10px 20px;
+  margin: 19px auto;
+  margin-left:125px;
+  border: none;
+  cursor: pointer;
+  width: 40%;
+  box-align:center;
+}
+#fCreate{
+  background-color:white;
+  color:RoyalBlue;
+  padding: 10px 20px;
+  margin: 19px auto;
+  margin-left:101px;
+  border:none;
+  cursor:pointer;
+  width:50%;
+  box-align:center;
+}
+.fsubmit{
+  padding-top:10px
+}
+
+/****************************************verifyEmail*************************************/
+.verifyEmail{
+  width:700px; 
+  margin: 70px auto; 
+  border: 1px solid black;
+  border-radius:15px; 
+  padding:30px; 
+  padding-top:10px; 
+  background-color:white;
+}
+.verifyTitle{
+  text-align: center;
+   color:black
+}
+.verifyRoot{
+  padding-top:10px;
+   padding-left:153px;
+}
+#verify{
+  background-color:RoyalBlue;
+  color: white;
+  padding: 10px 20px;
+  margin: 9px auto;
+  border: none;
+  cursor:pointer;
+  width:70%;
+  box-align: center;
+}
+
+
 
 /* Full-width inputs */
 input[type=text]{
@@ -43,6 +247,8 @@ input[type=password]{
   display: flex;
   align-content:center;
   justify-content: center;
+  background-color: "white";
+  color: "black"
 }
 .container1 {
   padding: 35px;
@@ -190,6 +396,8 @@ padding-left: 1px;
   margin-top: 16px,
 }
 
+
+/**************************Dashboard****************************************/
 .menu{
   width: 200px,
 }
@@ -215,21 +423,6 @@ padding-left: 1px;
  background-color: "red";
 }
 
-/* .MuiDrawer-paper-75 {
-  top: 74px;
-  flex: 1 0 auto;
-  height: 100%;
-  margin-top: 74px;
-  display: flex;
-  z-index: 1200;
-  outline: none;
-  position: fixed;
-  overflow-y: auto;
-  flex-direction: column;
-  -webkit-overflow-scrolling: touch;
-} */
-
-
 .MuiDrawer-paper-76 {
   top: 89px;
   flex: 1 0 auto;
@@ -253,7 +446,8 @@ padding-left: 1px;
 .avatar{
   margin: 10,
 }
-/******************************************************************/
+
+
 .appbar {
   width: 100%;
   transition: width 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
@@ -278,5 +472,29 @@ element.style {
   touch-action: none;
 
 }
+.show{
+   justify-content: center;
+}
+.notesCard{
+  justify-content: center
+}
+.takeNote{
+  margin-top: -36px;
+  margin-left: -139px;
+}
+.titleNote{
+  margin-top: -36px;
+  margin-left: -139px;
+}
+.cardlist{
+  margin-left: 300px;
+  margin-top: 52px;
+}
+.closeButton{
+  margin-left: 418px;
+}
 
 
+
+
+/********************************************************************************/
