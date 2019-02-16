@@ -1,9 +1,10 @@
 import React, { Component } from "react";
 import ResetPasswordInput from "../components/resetPasswordInput";
+import { Card } from "@material-ui/core";
 class ResetPassword extends Component {
   render() {
     return (
-      <div className="reset" >
+      <Card className="reset" >
         <div className="resettitle">
           <font color="green">
             <h1>
@@ -19,7 +20,7 @@ class ResetPassword extends Component {
         <div>
           <ResetPasswordInput />
         </div>
-      </div>
+      </Card>
     );
   }
 }

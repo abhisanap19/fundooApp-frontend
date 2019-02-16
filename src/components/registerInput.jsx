@@ -136,7 +136,6 @@ class RegisterInput extends Component {
             variant="outlined"
           />
         </div>
-
         <div className="remail">
           <TextField
             label="Email"

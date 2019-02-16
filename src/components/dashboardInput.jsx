@@ -6,6 +6,7 @@ import IconButton from "@material-ui/core/IconButton";
 import Typography from "@material-ui/core/Typography";
 import InputBase from "@material-ui/core/InputBase";
 import MenuItem from "@material-ui/core/MenuItem";
+//import DropdownButton from "@material-ui/core/      ";
 import Menu from "@material-ui/core/Menu";
 import { fade } from "@material-ui/core/styles/colorManipulator";
 import { withStyles } from "@material-ui/core/styles";
@@ -13,6 +14,8 @@ import SearchIcon from "@material-ui/icons/Search";
 import AccountCircle from "@material-ui/icons/AccountCircle";
 import MoreIcon from "@material-ui/icons/MoreVert";
 import SideNevigation from "../components/sideNevigation";
+import DropdownButton from 'react-bootstrap/DropdownButton'
+import Dropdown from 'react-bootstrap/Dropdown'
 import ComplexCard from "./Notes";
 const styles = theme => ({
   root: {
@@ -60,6 +63,7 @@ const styles = theme => ({
     justifyContent: "center",
     color: "black"
   },
+
   inputRoot: {
     color: "black",
     width: "100%"
@@ -142,16 +146,16 @@ class DashboardInput extends React.Component {
     const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
 
     const renderMenu = (
-      <Menu
+      <DropdownButton
         anchorEl={anchorEl}
         anchorOrigin={{ vertical: "top", horizontal: "right" }}
         transformOrigin={{ vertical: "top", horizontal: "right" }}
         open={isMenuOpen}
         onClose={this.handleMenuClose}
       >
-        <MenuItem onClick={this.login}>SIGN OUT</MenuItem>
-        <MenuItem onClick={this.register}>ADD ACCOUNT</MenuItem>
-      </Menu>
+        <Dropdown.item onClick={this.login}>SIGN OUT</Dropdown.item>
+        <Dropdown.item onClick={this.register}>ADD ACCOUNT</Dropdown.item>
+      </DropdownButton>
     );
     const renderMobileMenu = (
       <Menu

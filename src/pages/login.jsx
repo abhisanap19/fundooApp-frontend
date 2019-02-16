@@ -1,9 +1,10 @@
 import React, { Component } from "react";
+import Card from '@material-ui/core/Card';
 import LoginInput from "../components/loginInput";
 class Login extends Component {
   render() {
     return (
-      <div className="login">
+      <Card className="login">
         <div className="titles">
           <font color="green">
             <h1>
@@ -18,7 +19,7 @@ class Login extends Component {
         <div>
           <LoginInput />
         </div>
-      </div>
+      </Card>
     );
   }
 }

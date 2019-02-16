@@ -22,5 +22,4 @@ class VerifyEmailInput extends Component
             </div>
         )}
 }
-
 export default VerifyEmailInput;

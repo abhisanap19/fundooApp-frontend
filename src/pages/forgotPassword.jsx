@@ -1,9 +1,10 @@
 import React, { Component } from "react";
+import Card from '@material-ui/core/Card';
 import ForgotPasswordInput from "../components/forgotPasswordInput";
 class ForgotPassword extends Component {
   render() {
     return (
-      <div
+      <Card
        className="forgot"
       >
         <div className="forgottitle">
@@ -19,7 +20,7 @@ class ForgotPassword extends Component {
         <div>
           <ForgotPasswordInput />
         </div>
-      </div>
+      </Card>
     );
   }
 }

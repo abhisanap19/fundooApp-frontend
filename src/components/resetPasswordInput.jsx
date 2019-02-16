@@ -70,7 +70,6 @@ class ResetPasswordInput extends Component {
               variant="outlined"
             />
           </div>
-
           <div
             className="resetpass"
           >
@@ -99,5 +98,4 @@ class ResetPasswordInput extends Component {
     );
   }
 }
-
 export default withRouter(ResetPasswordInput);

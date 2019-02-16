@@ -1,20 +1,25 @@
  /* Bordered form */
- form {
+ .form {
   align-content: center;
   padding-left: 50px;
   justify-content: center;
   padding-bottom: 30px;
-  border: 1px solid gray;
-  border-radius: 15px;
+ 
   background-color:white; 	
+}
+.container {
+  padding: 35px;
+  display: flex;
+  align-content:center;
+  justify-content: center;
+  background-color: "white";
+  color: "black"
 }
 /********************************************login************************************/
 .login{
   width: 464px;
   height: 478px;
   margin: 70px auto;
-  border: 1px solid gray;
-  border-radius: 15px;
   padding: 30px;
   padding-top: 10px;
   background-color: white;
@@ -99,8 +104,6 @@
   width: 423px;
   height: 391px;
   margin: 70px auto;
-  border: 1px solid gray;
-  border-radius: 15px;
   padding: 30px;
   padding-top: 10px;
   background-color: white;
@@ -137,8 +140,6 @@
   width:433px;
   height:347px;
   margin:70px auto;
-  border:1px solid gray;
-  border-radius:15px;
   padding:30px;
   padding-top:10px;
   background-color:white;
@@ -186,8 +187,6 @@
 .verifyEmail{
   width:700px; 
   margin: 70px auto; 
-  border: 1px solid black;
-  border-radius:15px; 
   padding:30px; 
   padding-top:10px; 
   background-color:white;
@@ -240,21 +239,6 @@ input[type=password]{
   
   box-sizing: border-box;
 
-}
-
-.container {
-  padding: 35px;
-  display: flex;
-  align-content:center;
-  justify-content: center;
-  background-color: "white";
-  color: "black"
-}
-.container1 {
-  padding: 35px;
-  display: flex;
-  align-content:center;
-  justify-content: center;
 }
 
 /* Set a style for all buttons */
@@ -422,12 +406,11 @@ padding-left: 1px;
   width: '100%';
  background-color: "red";
 }
-
-.MuiDrawer-paper-76 {
-  top: 89px;
+.MuiDrawer-paper-77 {
+  top: 73px;
   flex: 1 0 auto;
   height: 100%;
-  margin-top: 89px;
+  margin-top: 74px;
   display: flex;
   z-index: 1200;
   outline: none;
@@ -436,7 +419,6 @@ padding-left: 1px;
   flex-direction: column;
   -webkit-overflow-scrolling: touch;
 }
-
 .gb_0a.gb_He {
   padding-right: 4px;
 }
@@ -483,8 +465,8 @@ element.style {
   margin-left: -139px;
 }
 .titleNote{
-  margin-top: -36px;
-  margin-left: -139px;
+  margin-left:5px;
+  
 }
 .cardlist{
   margin-left: 300px;

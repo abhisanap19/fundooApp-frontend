@@ -5,7 +5,6 @@ import classNames from 'classnames';
 import { withStyles } from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';
 import List from '@material-ui/core/List';
-//import Typography from '@material-ui/core/Typography';
 import Divider from '@material-ui/core/Divider';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
@@ -16,7 +15,6 @@ import InboxIcon from '@material-ui/icons/MoveToInbox';
 import MailIcon from '@material-ui/icons/Mail';
 
 const drawerWidth = 240;
-
 const styles = theme => ({
   root: {
     display: 'flex',
@@ -33,17 +31,22 @@ const styles = theme => ({
   drawerPaper: {
     width: drawerWidth,
   },
+  contentShift: {
+    transition: theme.transitions.create('margin', {
+      easing: theme.transitions.easing.easeOut,
+      duration: theme.transitions.duration.enteringScreen,
+    }),
+    marginLeft: 0,
+  },
 });
 
 class PersistentDrawer extends React.Component {
   state = {
     open: false,
   };
-
   handleDrawerOpen = () => {
     this.setState({ open: true });
   };
-
   handleDrawerClose = () => {
     this.setState({ open: false });
   };
@@ -56,9 +59,11 @@ class PersistentDrawer extends React.Component {
               color="inherit"
               aria-label="Open drawer"
               onClick={this.handleDrawerOpen}
-              className={classNames(classes.menuButton, open )} 
+              className={classNames(classes.menuButton,open)} 
             >
               <MenuIcon />
+            </IconButton>
+            <IconButton onClick={this.handleDrawerClose}>
             </IconButton>
         <Drawer
           className={classes.drawer}
@@ -70,8 +75,7 @@ class PersistentDrawer extends React.Component {
           }}
         >
          
-            <IconButton onClick={this.handleDrawerClose}>
-            </IconButton>
+            
           <List>
             {['Notes', 'Reminders'].map((text, index) => (
               <ListItem button key={text}>

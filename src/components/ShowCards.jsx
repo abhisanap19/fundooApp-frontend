@@ -29,22 +29,18 @@ class ShowCards extends Component {
     this.handleReminder = this.handleReminder.bind(this);
   }
 
-  handleLabel(val) {
-    console.log("value===", val);
-
+  handleLabel(val){
+    console.log("value===",val);
     this.setState({
       label: val
     });
   }
-
   handleReminder(rem) {
     this.setState({
       reminder: rem
     });
-
     console.log("rem---", rem);
   }
-
   addNotes() {
     this.setState({
       title: "",
