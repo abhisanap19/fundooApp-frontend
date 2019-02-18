@@ -1,4 +1,3 @@
-
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
@@ -74,8 +73,7 @@ class PersistentDrawer extends React.Component {
             paper: classes.drawerPaper,
           }}
         >
-         
-            
+
           <List>
             {['Notes', 'Reminders'].map((text, index) => (
               <ListItem button key={text}>

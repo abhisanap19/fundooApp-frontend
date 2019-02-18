@@ -17,3 +17,8 @@ class VerifyEmail extends Component {
     }
 }
 export default VerifyEmail;
+
+
+
+
+

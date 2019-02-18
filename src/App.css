@@ -454,29 +454,55 @@ element.style {
   touch-action: none;
 
 }
+
+/************************************Notes********************************************/
 .show{
-   justify-content: center;
-}
-.notesCard{
-  justify-content: center
-}
-.takeNote{
-  margin-top: -36px;
-  margin-left: -139px;
-}
-.titleNote{
-  margin-left:5px;
+  justify-content: center;
   
 }
+.display{
+  margin-left: 136px;
+  margin-top: 15px
+}
+.notesCard{
+ justify-content: center;
+}
+.takeNote{
+ margin-top: -36px;
+ margin-left: -476px;
+}
+.titleNote{
+ margin-left:5px;
+ width:378px
+ 
+}
 .cardlist{
-  margin-left: 300px;
-  margin-top: 52px;
+ margin-left: 352px;
+ margin-top: 52px;
 }
 .closeButton{
-  margin-left: 418px;
+ margin-left: 256px;
 }
-
-
-
-
-/********************************************************************************/
+.showcardlist{
+  display: flex;
+  flex-direction:row;
+  justify-content:center;
+  margin-left: 24px;
+}
+.in{
+  margin-left: -476px;
+  width:478px
+}
+.pin{
+  margin-left: 500px;
+  margin-top: -52px
+}
+.inp{
+  margin-left: 502px;
+  margin-top: 33px;
+  padding-right: 72px
+}
+.move{
+  margin-left: 216px;
+  margin-top: 30px
+}

@@ -5,22 +5,20 @@ import Toolbar from "@material-ui/core/Toolbar";
 import IconButton from "@material-ui/core/IconButton";
 import Typography from "@material-ui/core/Typography";
 import InputBase from "@material-ui/core/InputBase";
-import MenuItem from "@material-ui/core/MenuItem";
-//import DropdownButton from "@material-ui/core/      ";
-import Menu from "@material-ui/core/Menu";
 import { fade } from "@material-ui/core/styles/colorManipulator";
 import { withStyles } from "@material-ui/core/styles";
 import SearchIcon from "@material-ui/icons/Search";
 import AccountCircle from "@material-ui/icons/AccountCircle";
-import MoreIcon from "@material-ui/icons/MoreVert";
 import SideNevigation from "../components/sideNevigation";
-import DropdownButton from 'react-bootstrap/DropdownButton'
-import Dropdown from 'react-bootstrap/Dropdown'
 import ComplexCard from "./Notes";
+import { MenuItem } from "@material-ui/core";
+import ClickAwayListener from '@material-ui/core/ClickAwayListener';
+import Paper from '@material-ui/core/Paper';
+import Popper from '@material-ui/core/Popper';
+import MenuList from '@material-ui/core/MenuList';
+import Grow from '@material-ui/core/Grow';
 const styles = theme => ({
   root: {
-    width: "100%",
-    BackgroundColor: "red",
     display: "flex"
   },
   grow: {
@@ -96,35 +94,20 @@ const styles = theme => ({
 
 class DashboardInput extends React.Component {
   state = {
-    anchorEl: null,
-   mobileMoreAnchorEl: null,
-    left: true
+
+    left: true,
+    open:false
+  };
+  handleToggle = () => {
+    this.setState(state => ({ open: !state.open }));
   };
 
-  handleProfileMenuOpen = event => {
-    this.setState({ anchorEl: event.currentTarget });
-  };
-
-  handleMenuClose = () => {
-    this.setState({ anchorEl: null });
-    this.handleMobileMenuClose();
-  };
-
-  handleMobileMenuOpen = event => {
-    this.setState({ mobileMoreAnchorEl: event.currentTarget });
-  };
-
-  handleMobileMenuClose = () => {
-    this.setState({ mobileMoreAnchorEl: null });
-  };
-
-  handleDrawerOpen = () => {
-    this.setState({ open: true });
-  };
-  handleDrawerClose = () => {
+  handleClose = event => {
+    if (this.anchorEl.contains(event.target)) {
+      return;
+    }
     this.setState({ open: false });
   };
-  
   register = e => {
     e.preventDefault();
     this.props.props.history.push("/registration");
@@ -140,39 +123,8 @@ class DashboardInput extends React.Component {
 }
 
   render(){
-    const { anchorEl, mobileMoreAnchorEl } = this.state;
     const { classes } = this.props;
-    const isMenuOpen = Boolean(anchorEl);
-    const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
-
-    const renderMenu = (
-      <DropdownButton
-        anchorEl={anchorEl}
-        anchorOrigin={{ vertical: "top", horizontal: "right" }}
-        transformOrigin={{ vertical: "top", horizontal: "right" }}
-        open={isMenuOpen}
-        onClose={this.handleMenuClose}
-      >
-        <Dropdown.item onClick={this.login}>SIGN OUT</Dropdown.item>
-        <Dropdown.item onClick={this.register}>ADD ACCOUNT</Dropdown.item>
-      </DropdownButton>
-    );
-    const renderMobileMenu = (
-      <Menu
-        anchorEl={mobileMoreAnchorEl}
-        anchorOrigin={{ vertical: "top", horizontal: "right" }}
-        transformOrigin={{ vertical: "top", horizontal: "right" }}
-        open={isMobileMenuOpen}
-        onClose={this.handleMenuClose}
-      >
-        <MenuItem onClick={this.handleProfileMenuOpen}>
-          <IconButton color="inherit">
-            <AccountCircle  />
-          </IconButton>   
-          <p>Profile</p>
-        </MenuItem>
-      </Menu>
-    );
+    const { open } = this.state;
     return (
       <div>
       <div className={classes.root}>
@@ -182,8 +134,7 @@ class DashboardInput extends React.Component {
         >
           <Toolbar>
             <IconButton
-            title="Main Menu"
-              onClick={this.handleDrawerOpen}
+              title="Main Menu"
               className={classes.menuButton}
               color="inherit"
               aria-label="Open drawer"
@@ -253,33 +204,50 @@ class DashboardInput extends React.Component {
             >
               <img src={require("../assets/images/setting.svg")} alt="" title="settings"/>
             </div>
-            <div className={classes.grow} />
-            <div className={classes.sectionDesktop}>
-              <IconButton
-                aria-owns={isMenuOpen ? "material-appbar" : undefined}
-                aria-haspopup="true"
-                onClick={this.handleProfileMenuOpen}
-                color="inherit"
-                title="FundooNotes Account"
+
+            <div>
+            <div
+              style={{
+                marginLeft: "108px"
+              }}
+            >
+          <IconButton
+            buttonRef={node => {
+              this.anchorEl = node;
+            }}
+            aria-owns={open ? 'menu-list-grow' : undefined}
+            aria-haspopup="true"
+            onClick={this.handleToggle}
+          >
+           <AccountCircle/>
+          </IconButton>
+          </div>
+          <Popper open={open} anchorEl={this.anchorEl} transition disablePortal>
+            {({ TransitionProps, placement }) => (
+              <Grow
+                {...TransitionProps}
+                id="menu-list-grow"
+                style={{ transformOrigin: placement === 'bottom' ? 'center top' : 'center bottom' }}
               >
-                <AccountCircle />
-              </IconButton>
-            </div>
-            <div className={classes.sectionMobile}>
-              <IconButton
-                aria-haspopup="true"
-                onClick={this.handleMobileMenuOpen}
-                color="inherit"
-              >
-                <MoreIcon />
-              </IconButton>
-            </div>
+                <Paper>
+                  <ClickAwayListener onClickAway={this.handleClose}>
+                    <MenuList>
+                      <MenuItem onClick={this.handleClose}>Profile</MenuItem>
+                      <MenuItem onClick={this.handleClose}>My account</MenuItem>
+                      <MenuItem onClick={this.handleClose}>Logout</MenuItem>
+                    </MenuList>
+                  </ClickAwayListener>
+                </Paper>
+              </Grow>
+            )}
+          </Popper>
+          </div>
           </Toolbar>
         </AppBar>
-        {renderMenu}
-        {renderMobileMenu}
         
       </div>
+
+
       <div style={
         {
           display:"flex"

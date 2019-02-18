@@ -17,41 +17,18 @@ class Notes extends Component {
   }
   render() {
     return !this.state.open ? (
-      <div
-        className="show"
-        style={{
-          marginLeft: "136px",
-          marginTop: "15px"
-        }}
-      >
-        <div
-          style={{
-            marginLeft: "156px",
-            marginTop: "30px"
-          }}
-        >
+      <div className="display">
+        <div className="move">
           <Card className="notesCard">
-            <div
-              style={{
-                marginLeft: "502px",
-                marginTop: "33px",
-                paddingRight: "243px"
-              }}
-            >
+            <div className="inp">
               <InputBase
                 className="takeNote"
-                style={{ marginLeft: "-476px" }}
                 type="email"
                 onClick={event => this.openCard()}
                 placeholder="Take a notes..."
               />
             </div>
-            <div
-              style={{
-                marginLeft: "663px",
-                marginTop: "-52px"
-              }}
-            >
+            <div className="pin">
               <div>
                 <IconButton>
                   <img src={require("../assets/images/newlist.svg")} alt="" />
