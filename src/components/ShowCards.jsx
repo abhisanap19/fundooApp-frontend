@@ -6,7 +6,7 @@ import {
   Toolbar,
   Button
 } from "@material-ui/core";
-import { ToastContainer, toast } from "react-toastify";
+import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 class ShowCards extends Component {
@@ -52,24 +52,19 @@ class ShowCards extends Component {
 
     this.setState({ open: false });
   };
-
+  
   addNotes() {
     this.setState({
       title: "",
       description: ""
     });
-    if (this.state.title === "" && this.state.description === "") {
-      console.log("reminder----", this.state.reminder);
+      console.log("reminder----",this.state.reminder);
       this.props.changeCard();
-    } else {
-      toast("Title And Description not empty", {
-        position: toast.POSITION.TOP_CENTER
-      });
-    }
   }
   isPinned(event, note, key) {
     //pinnedNote(note, key);
   }
+
   render() {
     return (
       <div className="show">
