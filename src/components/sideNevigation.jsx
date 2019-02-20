@@ -37,7 +37,6 @@ class PersistentDrawer extends React.Component {
           open={open}
           className="drawerPaper"
         >
-
           <List>
             {['Notes', 'Reminders'].map((text, index) => (
               <ListItem button key={text}>

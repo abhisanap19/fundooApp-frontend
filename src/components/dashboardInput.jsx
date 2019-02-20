@@ -20,11 +20,12 @@ class DashboardInput extends React.Component {
     left: true,
     open: false
   };
+
   handleToggle = () => {
     this.setState(state => ({ open: !state.open }));
   };
 
-  handleClose = event => {
+  handleClose = event =>{
     if (this.anchorEl.contains(event.target)) {
       return;
     }
@@ -55,7 +56,7 @@ class DashboardInput extends React.Component {
         }
       }>
         <div className="root">
-          <AppBar position="static" color="inherit">
+          <AppBar position="fixed" color="inherit">
             <Toolbar>
               <IconButton
                 title="Main Menu"
@@ -94,7 +95,6 @@ class DashboardInput extends React.Component {
                   title="refresh"
                 />
               </div>
-
               <div className="appList">
                 <img
                   src={require("../assets/images/grid.svg")}
@@ -109,7 +109,6 @@ class DashboardInput extends React.Component {
                   title="settings"
                 />
               </div>
-
               <div>
                 <div className="iconButton">
                   <IconButton

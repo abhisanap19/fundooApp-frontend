@@ -541,8 +541,6 @@ element.style {
   display:flex
 }
 
-
-
 /*****************************************side nevigation*******************************/
 
 .menuButton{
@@ -566,7 +564,7 @@ element.style {
 }
 .display{
   margin-left: 136px;
-  margin-top: 15px
+  margin-top: 85px
 }
 .notesCard{
  justify-content: center;
@@ -582,10 +580,10 @@ element.style {
 }
 .cardlist{
  margin-left: 352px;
- margin-top: 52px;
+ margin-top: 122px;
 }
 .closeButton{
- margin-left: 256px;
+ margin-left: 140px;
 }
 .showcardlist{
   display: flex;
@@ -609,4 +607,18 @@ element.style {
 .move{
   margin-left: 216px;
   margin-top: 30px
+}
+.Sign{
+  display: flex;
+  flex-direction: column;
+}
+.colorPalleteCard {
+  position: absolute;
+  max-width: 116px;
+  padding: 3px;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  z-index: 2;
+  transition: 5s;
 }

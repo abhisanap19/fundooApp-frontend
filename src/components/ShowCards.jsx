@@ -8,14 +8,19 @@ import {
 } from "@material-ui/core";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-
+//import {addNote} from '../services/noteService'
+import ReminderComponent from "./reminder";
+import CollaboratorComponent from './collaborator'
+import ColorComponent from './color'
+import ArchiveComponent from './archive'
+import ImageComponent from './image'
 class ShowCards extends Component {
-  constructor() {
+  constructor(){
     super();
-    this.state = {
-      nextLine: true,
-      title: "",
-      description: "",
+    this.state={
+      nextLine:true,
+      title:"",
+      description:"",
       reminder: "",
       collaborator: "",
       color: "",
@@ -23,7 +28,8 @@ class ShowCards extends Component {
       pin: false,
       trash: false,
       label: [],
-      openCard: false
+      openCard: false,
+      toast:false
     };
     this.handleLabel = this.handleLabel.bind(this);
     this.handleReminder = this.handleReminder.bind(this);
@@ -35,6 +41,7 @@ class ShowCards extends Component {
       label: val
     });
   }
+
   handleReminder(rem) {
     this.setState({
       reminder: rem
@@ -53,6 +60,7 @@ class ShowCards extends Component {
     this.setState({ open: false });
   };
   
+
   addNotes() {
     this.setState({
       title: "",
@@ -64,6 +72,7 @@ class ShowCards extends Component {
   isPinned(event, note, key) {
     //pinnedNote(note, key);
   }
+  
 
   render() {
     return (
@@ -109,45 +118,25 @@ class ShowCards extends Component {
           <div className="toolbarAndClose">
             <Toolbar className="CardToolbar">
               <div>
-                <img
-                  src={require("../assets/images/reminder.svg")}
-                  alt=""
-                  title="remind me"
-                />
+                <ReminderComponent/>
               </div>
               <div className="showcardlist">
-                <img
-                  src={require("../assets/images/collaborator.svg")}
-                  alt=""
-                  title="collaborator"
-                />
+                <CollaboratorComponent/>
               </div>
               <div className="showcardlist">
-                <img
-                  src={require("../assets/images/changeColor.svg")}
-                  alt=""
-                  title="change color"
-                />
+                <ColorComponent/>
               </div>
               <div className="showcardlist">
-                <img
-                  src={require("../assets/images/saveimage.svg")}
-                  alt=""
-                  title="Add image"
-                />
+                <ImageComponent/>
               </div>
               <div className="showcardlist">
-                <img
-                  src={require("../assets/images/archive.svg")}
-                  alt=""
-                  title="Archive"
-                />
+                <ArchiveComponent/>
               </div>
               <div className="closeButton">
-                <Button onClick={event => this.addNotes(event)}>Close</Button>
+              <Button onClick={(event) => this.addNotes(event)}>Close</Button>
               </div>
             </Toolbar>
-            <ToastContainer />
+            <ToastContainer/>
           </div>
         </Card>
       </div>
