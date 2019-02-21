@@ -18,7 +18,6 @@ class ReminderComponent extends Component {
             date: event.target.value
         });
         console.log("date", event.target.value);
-
     }
     handleTime = (event) => {
         this.setState({
@@ -37,7 +36,7 @@ class ReminderComponent extends Component {
     }
     dateSaveOfShowCard(event) {
         var d = this.state.date + "," + this.state.time;
-        console.log("Date and time in showcard= " + d);
+        //console.log("Date and time in showcard= " + d);
         this.setState({
             reminder: d,
             open: !this.state.open,
@@ -138,10 +137,7 @@ class ReminderComponent extends Component {
                         </Paper>
                     </Popper>
                 </Card>
-
-
             </div>
-
         );
     }
 }

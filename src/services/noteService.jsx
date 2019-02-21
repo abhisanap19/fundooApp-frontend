@@ -1,14 +1,19 @@
-import axios from 'axios';
-import { toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
-function addNote(data) {
-    axios.post('/addNote',data)
-        .then(function (response) {
-            console.log(response);
-            toast("note saved Successfully!!");
-        })
-        .catch(function (err) {
-            console.log(err);
-        });
+import axios from 'axios'
+export function createNote(data) {
+    console.log("create note:",data);
+    return axios('/createNote', {
+        
+        method: "POST",
+        data:data
+    })
 }
-export { addNote}
+
+export function getNotes() {
+    return axios('/getNotes', {
+        method: "GET",
+        
+    }).then(function (response) {
+        const result = response.data.data;
+        return result;
+    })
+} 

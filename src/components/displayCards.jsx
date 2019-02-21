@@ -5,10 +5,6 @@ import ColorComponent from './color';
 import CollaboratorComponent from './collaborator';
 import ImageComponent from './image';
 import ReminderComponent from './reminder';
-// import MoreComponent from './more';
-// import EditNotes from './EditNote';
-// import Delete from './deleteNote';
-
 class DisplayCard extends Component {
     constructor() {
         super();
@@ -19,7 +15,6 @@ class DisplayCard extends Component {
             reminder:""
         }
         this.handleEdit = this.handleEdit.bind(this);
-        
         this.handleReminder = this.handleReminder.bind(this);
         this.openPop = this.openPop.bind(this);
         this.handleLabel = this.handleLabel.bind(this);
@@ -32,7 +27,6 @@ class DisplayCard extends Component {
         })
 
     }
-
     openPop() {
         this.setState({
             open: !this.state.open
@@ -42,31 +36,18 @@ class DisplayCard extends Component {
     handleEdit() {
         this.setState({ edit: !this.state.edit })
     }
-    isPinned(event, note, key) {
-        pinnedNote(note, key);
-
-
-    }
+   
     handleReminder(rem) {
        
         this.setState({
             reminder: rem
         })
     }
-   
-
     render() {
-
         const stl = this.props.gridNote ?  'Showlist' :'ShowCard'
-     
-
         return (
-
-
             <Card className={stl}
                 style={{ backgroundColor: this.props.show.Colors }}>
-
-
                 <div className="titleAndPin">
                     <div>
                         <InputBase className="titleNote"
@@ -75,18 +56,9 @@ class DisplayCard extends Component {
                             onChange={(event) => this.setState({ title: event.target.value })}
                             
                         >
-
                         </InputBase>
                     </div>
-                    {this.props.show.Pinned ?
-                        <div>
-                            <IconButton
-                                onClick={(event) => this.isPinned(event, this.props.show, this.props.index)}>
-                                <img src={require('../../assets/fillpin.svg')}
-                                    alt="" />
-                            </IconButton>
-                        </div>
-                        :
+
                         <div>
                             <IconButton
                                 onClick={(event) => this.isPinned(event, this.props.show, this.props.index)}>
@@ -138,14 +110,6 @@ class DisplayCard extends Component {
 
                 <div className="toolbarAndClose">
 
-                    {this.props.show.Trash ?
-                        (
-                            <Delete note={this.props.show}
-                                index={this.props.index} />
-
-                        )
-                        : (
-
                             <Toolbar className="CardToolbar">
                                 <div>
                                     <ReminderComponent r={this.handleReminder}
@@ -169,23 +133,10 @@ class DisplayCard extends Component {
                                         show={this.props.show}
                                         index={this.props.index} />
                                 </div>
-
-                                <div>
-                                    <MoreComponent note={this.props.show} index={this.props.index}
-                                        lblVal={this.handleLabel} />
-                                </div>
-
                             </Toolbar>
                         )}
-                    <EditNotes open={this.state.edit}
-                        show={this.props.show}
-                        index={this.props.index}
-                        close={this.handleEdit} />
                 </div>
-
             </Card>
-
-
         );
     }
 }

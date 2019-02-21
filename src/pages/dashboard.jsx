@@ -10,7 +10,7 @@ class Dashboard extends Component {
                 <div className="container1" >
                 </div>
                 <div>
-                    <DashboardInput props={this.props} /> 
+                    <DashboardInput props={this.props}/> 
                 </div>
             </div>
         );

@@ -7,7 +7,8 @@ import InputBase from "@material-ui/core/InputBase";
 import SearchIcon from "@material-ui/icons/Search";
 import AccountCircle from "@material-ui/icons/AccountCircle";
 import SideNevigation from "../components/sideNevigation";
-import ComplexCard from "./Notes";
+import ShowCards from "./ShowCards";
+import Cards from "./cards";
 import { MenuItem } from "@material-ui/core";
 import ClickAwayListener from "@material-ui/core/ClickAwayListener";
 import Paper from "@material-ui/core/Paper";
@@ -87,26 +88,12 @@ class DashboardInput extends React.Component {
                 <div className="searchField">
                   <InputBase placeholder="Search…" className="inputRoot" />
                 </div>
-              </div>
-              <div className="appList">
-                <img
-                  src={require("../assets/images/download.svg")}
-                  alt=""
-                  title="refresh"
-                />
-              </div>
+              </div> 
               <div className="appList">
                 <img
                   src={require("../assets/images/grid.svg")}
                   alt=""
                   title="List View"
-                />
-              </div>
-              <div className="appList">
-                <img
-                  src={require("../assets/images/setting.svg")}
-                  alt=""
-                  title="settings"
                 />
               </div>
               <div>
@@ -145,10 +132,10 @@ class DashboardInput extends React.Component {
                             <MenuItem onClick={this.handleClose}>
                               Profile
                             </MenuItem>
-                            <MenuItem onClick={this.handleClose}>
-                              My account
+                            <MenuItem onClick={this.login}>
+                              Add account
                             </MenuItem>
-                            <MenuItem onClick={this.handleClose}>
+                            <MenuItem onClick={this.login}>
                               Logout
                             </MenuItem>
                           </MenuList>
@@ -163,11 +150,12 @@ class DashboardInput extends React.Component {
         </div>
 
         <div className="dash">
-          <ComplexCard />
+          <ShowCards />
+         <Cards/>
         </div>
+        
       </div>
     );
   }
 }
-
 export default DashboardInput;
