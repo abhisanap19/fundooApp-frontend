@@ -471,11 +471,11 @@ element.style {
   flex-grow: 1
 }
 
-.menuButton{
+/* .menuButton{
   margin-left: -12px;
   margin-right: 20px;
   color: black
-}
+} */
 
 .title{
   display: block;
@@ -486,7 +486,7 @@ element.style {
 .search{
   position: center;
   border-radius: 4px;
-  background-color:rgba(0, 0, 0, 0.15);
+  background-color:rgba(0,0,0,0.04);
   margin-right:16px;
   margin-left:24px;
     width: 50% 
@@ -544,7 +544,7 @@ element.style {
 /*****************************************side nevigation*******************************/
 
 .menuButton{
-  margin-right:33px
+  margin-right:44px
 }
 .hide{
   display: none;
@@ -596,7 +596,7 @@ element.style {
   width:478px
 }
 .pin{
-  margin-left: 500px;
+  margin-left: 471px;
   margin-top: -52px
 }
 .inp{

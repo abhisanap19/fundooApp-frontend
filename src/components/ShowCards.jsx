@@ -49,9 +49,9 @@ class ShowCards extends Component {
       const data = {
         title: this.state.title,
         description: this.state.description,
-        remindMe: this.state.reminder,
+        reminder: this.state.reminder,
         color: this.state.color,
-        img: this.state.image,
+        image: this.state.image,
         archive: this.state.archive,
         pinned: this.state.pin,
         trash: this.state.trash
@@ -63,11 +63,10 @@ class ShowCards extends Component {
           });
           this.props.getNotes(this.state.newNote);
         })
-
         .catch(error => {
           alert(error);
         });
-
+        
       this.setState({
         title: "",
         description: "",

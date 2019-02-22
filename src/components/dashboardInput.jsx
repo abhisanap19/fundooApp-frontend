@@ -17,15 +17,20 @@ import MenuList from "@material-ui/core/MenuList";
 import Grow from "@material-ui/core/Grow";
 
 class DashboardInput extends React.Component {
-  state = {
+  constructor() {
+    super();
+  this.state = {
     left: true,
     open: false
   };
-
+  this.getNewNote = this.getNewNote.bind(this);
+}
   handleToggle = () => {
     this.setState(state => ({ open: !state.open }));
   };
-
+  getNewNote(newCard) {
+    this.noteToCards.current.displayNewCard(newCard);
+  };
   handleClose = event =>{
     if (this.anchorEl.contains(event.target)) {
       return;
@@ -51,22 +56,13 @@ class DashboardInput extends React.Component {
   render() {
     const { open } = this.state;
     return (
-      <div styles={
-        {
-          display: "flex"
-        }
-      }>
+     
         <div className="root">
           <AppBar position="fixed" color="inherit">
             <Toolbar>
-              <IconButton
-                title="Main Menu"
-                className="menuButton"
-                color="inherit"
-                aria-label="Open drawer"
-              >
+             
                 <SideNevigation />
-              </IconButton>
+            
               <div className="keepImage">
                 <img src={require("../assets/images/keep_48dp.png")} alt="" />
               </div>
@@ -147,10 +143,8 @@ class DashboardInput extends React.Component {
               </div>
             </Toolbar>
           </AppBar>
-        </div>
-
         <div className="dash">
-          <ShowCards />
+          <ShowCards getNewNote={this.getNewNote} />
          <Cards/>
         </div>
         

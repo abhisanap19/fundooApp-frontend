@@ -8,7 +8,7 @@ class CollaboratorComponent extends Component {
         }
         this.openCollaborator=this.openCollaborator.bind(this);
     }
-
+    
     openCollaborator(event,note,key){
 
         this.setState({
@@ -22,12 +22,10 @@ class CollaboratorComponent extends Component {
     render() {
         return (
             <div>
-              
                 <IconButton onClick={(event)=>this.openCollaborator(event,this.props.show,this.props.index)}>
                     <img src={require('../assets/images/collaborator.svg')}
                         alt="" />
                 </IconButton>
-              
             </div>
 
         );

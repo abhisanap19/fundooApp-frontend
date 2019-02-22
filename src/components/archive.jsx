@@ -8,7 +8,6 @@ class ArchiveComponent extends Component {
         }
     }
     isArchive(event,note,key){
-       
     }
     render() {
         return (

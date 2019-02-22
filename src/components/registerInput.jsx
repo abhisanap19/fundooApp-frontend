@@ -2,24 +2,13 @@ import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-//import InputLabel from '@material-ui/core/InputLabel';
-//import InputAdornment from '@material-ui/core/InputAdornment';
-//import classNames from 'classnames';
-//import Input from '@material-ui/core/Input';
-//import InputLabel from '@material-ui/core/InputLabel';
 import InputAdornment from "@material-ui/core/InputAdornment";
-//import FormHelperText from '@material-ui/core/FormHelperText';
-//import FormControl from '@material-ui/core/FormControl';
-//import MenuItem from '@material-ui/core/MenuItem';
 import Visibility from "@material-ui/icons/Visibility";
 import VisibilityOff from "@material-ui/icons/VisibilityOff";
 import TextField from "@material-ui/core/TextField";
 import { Button } from "@material-ui/core";
 import IconButton from "@material-ui/core/IconButton";
-//import Visibility from '@material-ui/icons/Visibility';
-//import VisibilityOff from '@material-ui/icons/VisibilityOff';
-//import Card from '@material-ui/core/Card';
-//import CardActions from '@material-ui/core/CardActions';
+
 import { userRegister } from "../services/userService";
 
 class RegisterInput extends Component {

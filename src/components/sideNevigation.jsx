@@ -40,7 +40,7 @@ class PersistentDrawer extends React.Component {
           <List>
             {['Notes', 'Reminders'].map((text, index) => (
               <ListItem button key={text}>
-                <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
+                <ListItemIcon>{index % 2 === 0 ? <img src={require("../assets/images/bulb.svg")} alt=""/> : <img src={require("../assets/images/bellIcon.svg")} alt=""/>}</ListItemIcon>
                 <ListItemText primary={text} />
               </ListItem>
             ))}
@@ -70,6 +70,5 @@ class PersistentDrawer extends React.Component {
     );
   }
 }
-
 
 export default(PersistentDrawer);
