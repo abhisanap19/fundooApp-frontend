@@ -104,7 +104,7 @@ class RegisterInput extends Component {
 
   render() {
     return (
-      <div>
+      <div >
         <div className="flname">
           <TextField
             id=""
@@ -118,7 +118,7 @@ class RegisterInput extends Component {
 
           <TextField
             label="Last Name"
-            name="firstName"
+            name="lastName"
             value={this.state.lastName}
             onChange={this.handlelastNameChange}
             margin="normal"

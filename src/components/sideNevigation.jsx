@@ -48,9 +48,9 @@ class PersistentDrawer extends React.Component {
           <Divider/>
           <List>
           <List>
-            {['Edit labels'].map((text, index) =>(
+            {['Edit labels'].map((text, index)=>(
               <ListItem button key={text}>
-                <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
+                <ListItemIcon>{index % 2 === 0 ? <img src={require("../assets/images/mode_edit_grey_24x24.png")} alt="" color="grey"/> : <MailIcon />}</ListItemIcon>
                 <ListItemText primary={text} />
               </ListItem>
             ))}
@@ -60,7 +60,7 @@ class PersistentDrawer extends React.Component {
           <List>
             {['Archive', 'Bin'].map((text, index) => (
               <ListItem button key={text}>
-                <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
+                <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <img src={require("../assets/images/delete_grey_24x24.png")} alt="" />}</ListItemIcon>
                 <ListItemText primary={text} />
               </ListItem>
             ))}
