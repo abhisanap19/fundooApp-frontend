@@ -13,7 +13,7 @@ export function getNotes() {
         method: "GET",
         
     }).then(function (response) {
-        const result = response.data.data;
+        const result = response.data;
         return result;
     })
 } 

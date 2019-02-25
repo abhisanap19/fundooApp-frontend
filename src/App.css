@@ -659,3 +659,14 @@ element.style {
   display: flex;
   justify-content: space-between;
 }
+.display1{
+  margin-left: 300px;
+  display: flex;
+  flex-wrap: wrap;
+}
+.dash1{
+display:flex;
+margin-top: 100px;
+margin-left: 304px;
+ 
+}

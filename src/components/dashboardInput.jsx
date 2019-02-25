@@ -23,8 +23,10 @@ class DashboardInput extends React.Component {
     left: true,
     open: false
   };
+  this.noteToCards = React.createRef();
   this.getNewNote = this.getNewNote.bind(this);
 }
+
   handleToggle = () => {
     this.setState(state => ({ open: !state.open }));
   };
@@ -145,9 +147,10 @@ class DashboardInput extends React.Component {
           </AppBar>
         <div className="dash">
           <ShowCards getNewNote={this.getNewNote} />
-         <Cards/>
         </div>
-        
+        <div className="dash1"> 
+        <Cards ref={this.noteToCards}/>
+          </div>       
       </div>
     );
   }

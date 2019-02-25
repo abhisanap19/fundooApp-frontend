@@ -61,7 +61,7 @@ class ShowCards extends Component {
           this.setState({
             newNote: result.data.data
           });
-          this.props.getNotes(this.state.newNote);
+          this.props.getNewNote(this.state.newNote);
         })
         .catch(error => {
           alert(error);
