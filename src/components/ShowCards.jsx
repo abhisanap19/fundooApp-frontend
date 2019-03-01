@@ -54,7 +54,8 @@ class ShowCards extends Component {
         image: this.state.image,
         archive: this.state.archive,
         pinned: this.state.pin,
-        trash: this.state.trash
+        trash: this.state.trash,
+        userId:localStorage.getItem("Sender")
       };
       createNote(data)
         .then(result => {

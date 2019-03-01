@@ -36,7 +36,7 @@ function userLogin(userName, password) {
         })
         .then(function (response) {
             localStorage.setItem('token', response.data.token);
-            localStorage.setItem('userName', userName);
+            localStorage.setItem('Sender', userName);
             
             window.location.href = '/dashboard'
         })
