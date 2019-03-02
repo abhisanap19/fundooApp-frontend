@@ -7,6 +7,7 @@ function userRegister(data) {
             const token1 = response.data;
             const token2 = token1.substring(34)
             localStorage.setItem('verifyToken', token2); 
+            toast('User registered successfully');
         })
         .catch(function (err) {
             console.log(err);
@@ -36,8 +37,8 @@ function userLogin(userName, password) {
         })
         .then(function (response) {
             localStorage.setItem('token', response.data.token);
-            localStorage.setItem('Sender', userName);
-            
+            localStorage.setItem("Id",userName);  
+            toast('Login successful..');
             window.location.href = '/dashboard'
         })
         .catch(function (err) {

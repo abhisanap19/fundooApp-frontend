@@ -21,7 +21,8 @@ class DashboardInput extends React.Component {
     super();
   this.state = {
     left: true,
-    open: false
+    open: false,
+    cardStyle:false
   };
   this.noteToCards = React.createRef();
   this.getNewNote = this.getNewNote.bind(this);
@@ -58,13 +59,10 @@ class DashboardInput extends React.Component {
   render() {
     const { open } = this.state;
     return (
-     
         <div className="root">
           <AppBar position="fixed" color="inherit">
-            <Toolbar>
-             
+            <Toolbar> 
                 <SideNevigation />
-            
               <div className="keepImage">
                 <img src={require("../assets/images/keep_48dp.png")} alt="" />
               </div>
@@ -149,7 +147,8 @@ class DashboardInput extends React.Component {
           <ShowCards getNewNote={this.getNewNote} />
         </div>
         <div className="dash1"> 
-        <Cards ref={this.noteToCards}/>
+        <Cards ref={this.noteToCards}
+         noteProps={this.state.cardStyle}/>
           </div>       
       </div>
     );

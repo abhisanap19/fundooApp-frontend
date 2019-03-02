@@ -22,6 +22,7 @@ class ShowCards extends Component {
       title: "",
       description: "",
       reminder: "",
+      collaborator:"",
       color: "",
       image: "",
       pin: false,
@@ -50,12 +51,13 @@ class ShowCards extends Component {
         title: this.state.title,
         description: this.state.description,
         reminder: this.state.reminder,
+        collaborator:this.state.collaborator,
         color: this.state.color,
         image: this.state.image,
         archive: this.state.archive,
         pinned: this.state.pin,
         trash: this.state.trash,
-        userId:localStorage.getItem("Sender")
+        userID:localStorage.getItem("Email")
       };
       createNote(data)
         .then(result => {
@@ -72,6 +74,7 @@ class ShowCards extends Component {
         title: "",
         description: "",
         reminder: "",
+        collaborator:"",
         color: "",
         image: "",
         archive: false,
@@ -188,8 +191,7 @@ class ShowCards extends Component {
               </div>
               <div className="closeButton">
                 <Button onClick={this.handleToggle}>
-                Close
-                
+                Close     
                 </Button>
                
               </div>

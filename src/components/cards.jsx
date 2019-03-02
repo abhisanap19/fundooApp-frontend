@@ -39,7 +39,6 @@ class Cards extends Component {
       label: false
     };
     this.cardsToDialogBox = React.createRef();
-
     this.handleClick = this.handleClick.bind(this);
   }
   async handleClick(note) {
@@ -59,34 +58,28 @@ class Cards extends Component {
         alert(error);
       });
   }
-
-  displayNewCard(newCard) {
+  displayNewCard(newCard){
     this.setState({
       notes: [...this.state.notes, newCard]
     });
   }
+
   render() {
     let cardsView = this.props.noteProps ? "cards" : "listCards";
-  
     return (
       <MuiThemeProvider theme={theme}>
-      
           <Card
             className={cardsView}
             style={{
-           
               borderRadius: "10px",
               border: "1px solid #dadce0"
             }}
           >
             <div>
               <div onClick={this.handleClick}>
-            
               </div>
             </div>
-
             <div  />
-
             <Toolbar className="CardToolbar">
               <div>
                 <ReminderComponent />
@@ -104,11 +97,10 @@ class Cards extends Component {
                 <ArchiveComponent />
               </div>
             </Toolbar>
-          </Card>
-        
-        
+          </Card>   
       </MuiThemeProvider>
     );
   }
 }
+
 export default Cards;
