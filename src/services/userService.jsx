@@ -20,8 +20,9 @@ function checkToken(token){
         'token': token
     }})
         .then(function (response) {
+            console.log(response);
             toast('User verified successfully');
-            //  window.location.href = '/login'
+          window.location.href = '/login'
         })
         .catch(function (err) {
             console.log(err);
@@ -37,8 +38,11 @@ function userLogin(userName, password) {
         })
         .then(function (response) {
             localStorage.setItem('token', response.data.token);
-            localStorage.setItem("Id",userName);  
+            localStorage.setItem('username', response.data.userName);
+            localStorage.setItem('emailId', userName);
+            //localStorage.setItem("Id",userName);  
             toast('Login successful..');
+            localStorage.setItem('token1', true);
             window.location.href = '/dashboard'
         })
         .catch(function (err) {
@@ -72,6 +76,7 @@ function resetPassword(password,token) {
         'token': token
     }})
     .then(function (response) {
+        console.log(response);
         toast('Password changed successfully');
             window.location.href = '/login'
     })
@@ -80,5 +85,7 @@ function resetPassword(password,token) {
         toast('Please Try Again..');
     });
 }
+
+
 
 export { userRegister, userLogin, forgotPassword, checkToken, resetPassword }

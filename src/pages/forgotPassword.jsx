@@ -5,7 +5,7 @@ class ForgotPassword extends Component {
   render() {
     return (
       <Card
-       className="forgot"
+        className="forgot"
       >
         <div className="forgottitle">
           <font color="green">

@@ -381,8 +381,8 @@ padding-left: 1px;
 }
 
 
-/**************************Dashboard****************************************/
-.container1{
+/*************************Dashboard***************************************/
+/* .container1{
   display: flex;
   align-content:center;
   justify-content: center;
@@ -477,7 +477,7 @@ element.style {
   color: black
 } */
 
-.title{
+/* .title{
   display: block;
   color: black;
   padding-left: 39px;
@@ -539,11 +539,11 @@ element.style {
 }
 .dash{
   display:flex
-}
+} */ 
 
 /*****************************************side nevigation*******************************/
 
-.menuButton{
+/* .menuButton{
   margin-right:44px
 }
 .hide{
@@ -555,10 +555,10 @@ element.style {
 }
 .drawerPaper{
   width:240px,
-}
+} */
 
 /************************************Notes********************************************/
-.show{
+/* .show{
   justify-content: center;
   
 }
@@ -621,9 +621,9 @@ element.style {
   flex-wrap: wrap;
   z-index: 2;
   transition: 5s;
-}
+} */
 /*******************************************************************/
-#createNoteParent {
+/* #createNoteParent {
   margin-left: 5px
 }
 .createNote {
@@ -669,4 +669,575 @@ display:flex;
 margin-top: 100px;
 margin-left: 304px;
  
+} */
+
+
+
+
+#appbar {
+  background-color: white;
+  box-shadow: 0 0;
+  border-bottom: 1px solid lightgray;
+}
+
+#refresh {
+  width: "5px";
+  height: "5px";
+}
+
+.title {
+  margin-left: 10px;
+  margin-right: 38px
+}
+
+#searchBar {
+  border: 1px solid rgba(0, 0, 0, 0);
+  border-radius: 4px;
+  max-height: 50px;
+  line-height: 2;
+  margin-top: 11px;
+  background: rgba(0, 0, 0, 0.04)
+}
+
+#searchInputBase {
+  font-family: Roboto, sans-serif;
+  font-style: normal;
+  font-size: 16px;
+  width: 500px;
+}
+
+.userProfileDetails {
+  display: flex;
+  flex-direction: row
+}
+
+#userProfileIcon {
+  margin-left: 200px;
+}
+
+#account {
+  font-family: bold;
+  font-size: 15px;
+  margin-bottom: 5px
+}
+
+#menu {
+  color: "gray"
+}
+
+#noteMenu {
+  font-family: Google Sans, Roboto, Arial, sans-serif;
+  height: 30px;
+  font-size: .875rem;
+  font-weight: 550;
+  color: #424242;
+}
+
+#reminderMenu {
+  font-family: Google Sans, Roboto, Arial, sans-serif;
+  height: 30px;
+  font-size: .875rem;
+  font-weight: 550;
+  color: #424242;
+}
+
+#archiveMenu {
+  font-family: Google Sans, Roboto, Arial, sans-serif;
+  height: 30px;
+  font-size: .875rem;
+  font-weight: 550;
+  color: #424242;
+}
+
+#labelMenu {
+  font-family: Google Sans, Roboto, Arial, sans-serif;
+  height: 30px;
+  font-size: .875rem;
+  font-weight: 550;
+  color: #424242;
+}
+
+#trashIcon {
+  font-family: Google Sans, Roboto, Arial, sans-serif;
+  height: 30px;
+  font-size: .875rem;
+  font-weight: 550;
+  color: #202124;
+}
+
+.yellow {
+  background-color: #feefc3;
+  color: white;
+  border-bottom-right-radius: 20px;
+  border-top-right-radius: 20px
+}
+
+.white {
+  background-color: white;
+  color: #feefc3;
+}
+
+#username {
+  color: gainsboro;
+  font-size: 12px;
+}
+
+.createNote {
+  height: 30px;
+  width: 500px;
+  margin-left: 100px;
+  margin-top: 100px;
+  text-align: left;
+  padding: 11px;
+  border: 1px solid #dadce0;
+}
+
+.createNote1 {
+  height: 100px;
+  width: 500px;
+  margin-left: 100px;
+  margin-top: 100px;
+  border-radius: 10px;
+  text-align: left;
+  padding: 11px;
+  border: 1px solid #dadce0;
+}
+
+#settingsMenuItem {
+  border-bottom-right-radius: 0px;
+  border-top-right-radius: 0px;
+  height: 5px;
+  width: 118px;
+  font-size: 14px;
+}
+
+.settingsPopper {
+  margin-top: 20px;
+}
+
+.titleInput {
+  margin-right: 200px;
+  width: 460px;
+}
+
+.staticCreateNote {
+  display: flex;
+  flex-direction: row
+}
+
+.noteInputBase {
+  margin-top: 0px;
+  width: 460px;
+}
+
+.setFixedMargin {
+  margin-left: 307px;
+  max-width: 800px;
+}
+
+.colorPalleteCard {
+  position: absolute;
+  max-width: 116px;
+  padding: 3px;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  z-index: 2;
+  transition: 5s;
+}
+
+/* .colorPalleteCard:hover{
+position: absolute;
+padding: 10px;
+max-width: 136px;
+display: flex;
+justify-content: space-between;
+flex-wrap: wrap;
+z-index: 2;
+} */
+
+.colorPalleteCard div IconButton {
+  margin: 5px;
+}
+
+.cards {
+  width: 240px;
+  margin-top: 20px;
+  padding-top: 15px;
+  text-align: left;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.cards:hover .cardTools {
+  visibility: visible;
+  box-shadow: 2px 2px 2px 2px solid gray
+}
+
+.cards:hover .pinIcon {
+  visibility: visible
+}
+
+.cardsInGrid {
+  margin-right: 10px;
+  margin-left: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px
+}
+
+.CardsView {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap
+}
+
+.listCards {
+  width: 500px;
+  margin-left: 100px;
+  margin-top: 50px;
+  text-align: left;
+  padding: 11px;
+}
+
+.afterSlide {
+  margin-left: 50px;
+  transition: margin-left 0.25s;
+}
+
+.beforeSlide {
+  transition: 0.25s
+}
+
+.cardToolsClose {
+  display: flex;
+  justify-content: space-between;
+}
+
+.cardTools {
+  width: 200px;
+  display: flex;
+  justify-content: space-between;
+  /* visibility: hidden; */
+}
+
+.listCards:hover .cardTools {
+  visibility: visible
+}
+
+.pinIcon {
+  visibility: hidden;
+}
+
+.listCards:hover .pinIcon {
+  visibility: visible
+}
+
+#createNotetools {
+  display: flex;
+  flex-direction: row
+}
+
+.createNotePinIcon {
+  display: flex;
+  flex-direction: row
+}
+
+div .listRemindr {
+  padding-left: 15px
+}
+
+div .currentDate {
+  display: flex;
+  justify-content: space-between;
+}
+
+.pickDateTime {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.moreOptionsPopper {
+  margin-top: -95px;
+  z-index: -1
+}
+
+.addDrawingOptions {
+  margin-left: -8px;
+  font-family: arial;
+  font-size: 15px;
+  color: gray
+}
+
+#moreOptionsMenu {
+  font-family: arial;
+  font-size: 15px;
+  height: 8px;
+}
+
+#editLabelTextField {
+  font-family: 'Roboto', arial, sans-serif;
+  font-size: 14px;
+  font-weight: 550;
+  width: 182px;
+  height: 45px;
+  color: black;
+  padding-bottom: 0px;
+  padding-top: 0px;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.editCloseButton {
+  margin-left: 195px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.editTitleInput {
+  width: 550px;
+}
+
+.editNote {
+  width: 550px;
+}
+
+.editDialog {
+  display: flex;
+  flex-direction: row;
+}
+
+#doneButton {
+  margin-left: 300px
+}
+
+#appBarIcons {
+  display: flex;
+  line-height: 3
+}
+
+#appBarMenuAndTitle {
+  display: flex;
+  line-height: 3
+}
+
+@media only screen and (min-width:320px) and (max-width:535px) {
+  #appBarIcons {
+      display: flex;
+      line-height: 3
+  }
+  #appBarMenuAndTitle {
+      display: flex;
+      line-height: 3
+  }
+  #userProfileIcon {
+      margin-left: 0px
+  }
+  #searchBar {
+      background: none;
+      border: none
+  }
+  #searchInputBase {
+      display: none
+  }
+  .setFixedMargin {
+      margin-left: auto;
+      max-width: 800px;
+  }
+  .createNote {
+      margin-left: 5px
+  }
+  .createNote1 {
+      margin-left: 5px
+  }
+  #createNoteParent {
+      margin-left: 5px
+  }
+  /* #cardsViewDiv {
+      margin-left: -90px
+  } */
+  #cardViewIcon {
+      display: none
+  }
+  .listCards {
+      width: 500px;
+      margin-left: 7px;
+      margin-top: 50px;
+      text-align: left;
+      padding: 11px;
+  }
+  .cards {
+      width: 500px;
+      margin-top: 20px;
+      margin-left: 7px;
+      padding-top: 15px;
+      text-align: left;
+      padding: 10px;
+      border-radius: 10px;
+  }
+  /* .CardsView {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap
+  } */
+}
+
+@media only screen and (min-width:536px) and (max-width:600px) {
+  #appBarIcons {
+      display: flex;
+      line-height: 3
+  }
+  #appBarMenuAndTitle {
+      display: flex;
+      line-height: 3
+  }
+  #userProfileIcon {
+      margin-left: 0px
+  }
+  #searchBar {
+      background: none;
+      border: none
+  }
+  #searchInputBase {
+      display: none
+  }
+  .setFixedMargin {
+      margin-left: auto;
+      max-width: 800px;
+  }
+  .createNote {
+      width: auto;
+      margin-left: 5px
+  }
+  .createNote1 {
+      width: auto;
+      margin-left: 5px
+  }
+  #createNoteParent {
+      margin-left: 5px
+  }
+  /* #cardsViewDiv {
+      margin-left: -90px
+  } */
+  #cardViewIcon {
+      display: none
+  }
+  .listCards {
+      width: auto;
+      margin-left: 7px;
+      margin-top: 50px;
+      text-align: left;
+      padding: 11px;
+  }
+  .cards {
+      width: auto;
+      margin-top: 20px;
+      margin-left: 7px;
+      padding-top: 15px;
+      text-align: left;
+      padding: 10px;
+      border-radius: 10px;
+  }
+  /* .CardsView {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap
+  } */
+}
+
+@media only screen and (min-width:601px) and (max-width:774px) {
+  #appBarIcons {
+      display: flex;
+      line-height: 3
+  }
+  #appBarMenuAndTitle {
+      display: flex;
+      line-height: 3
+  }
+  #userProfileIcon {
+      margin-left: 0px
+  }
+  #searchBar {
+      background: none;
+      border: none
+  }
+  #searchInputBase {
+      display: none
+  }
+  .setFixedMargin {
+      margin-left: auto;
+      max-width: 800px;
+      margin-right: auto
+  }
+  .createNote {
+      margin-left: auto;
+      max-width: 530px;
+      margin-right: auto;
+  }
+  .createNote1 {
+      margin-left: auto;
+      max-width: 530px;
+      margin-right: auto;
+  }
+  #createNoteParent {
+      margin-left: auto
+  }
+  /* #cardsViewDiv {
+      margin-left: -90px
+  } */
+ 
+  .listCards {
+      width: auto;
+      margin-left: auto;
+      margin-top: 50px;
+      text-align: left;
+      padding: 11px;
+  }
+  .cards {
+      width: 240px;
+      margin-top: 20px;
+      margin-left: 5px;
+      padding-top: 15px;
+      text-align: left;
+      padding: 10px;
+      border-radius: 10px;
+  }
+  .CardsView {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap
+  }
+}
+
+/* .App {
+  text-align: center;
+} */
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 40vmin;
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+      transform: rotate(0deg);
+  }
+  to {
+      transform: rotate(360deg);
+  }
 }

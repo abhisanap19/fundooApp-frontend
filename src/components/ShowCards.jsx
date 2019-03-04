@@ -1,207 +1,177 @@
-import React, { Component } from "react";
-import {
-  Card,
-  InputBase,
-  IconButton,
-  Toolbar,
-  Button
-} from "@material-ui/core";
-import { ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
-import ReminderComponent from "./reminder";
-import CollaboratorComponent from "./collaborator";
-import ColorComponent from "./color";
-import ArchiveComponent from "./archive";
-import ImageComponent from "./image";
-import { createNote } from "../services/noteService";
-class ShowCards extends Component {
-  constructor() {
-    super();
-    this.state = {
-      nextLine: true,
-      title: "",
-      description: "",
-      reminder: "",
-      collaborator:"",
-      color: "",
-      image: "",
-      pin: false,
-      trash: false,
-      archive: false,
-      openNote: false,
-      toast: false,
-      newNote: {}
-    };
-    
-    this.handleReminder = this.handleReminder.bind(this);
-    this.handleTitle = this.handleTitle.bind(this);
-    this.handleDescription = this.handleDescription.bind(this);
-    this.handleToggle = this.handleToggle.bind(this);
-    this.handleColor = this.handleColor.bind(this);
-    this.handleArchive = this.handleArchive.bind(this);
-    this.handlePinned = this.handlePinned.bind(this);
-  }
 
-  handleToggle() {
-    this.setState({ openNote: !this.state.openNote });
-    console.log("opened:", this.state);
-   
-    if (this.state.title !== "" || this.state.description !== "") {
-      const data = {
-        title: this.state.title,
-        description: this.state.description,
-        reminder: this.state.reminder,
-        collaborator:this.state.collaborator,
-        color: this.state.color,
-        image: this.state.image,
-        archive: this.state.archive,
-        pinned: this.state.pin,
-        trash: this.state.trash,
-        userID:localStorage.getItem("Email")
-      };
-      createNote(data)
-        .then(result => {
-          this.setState({
-            newNote: result.data.data
-          });
-          this.props.getNewNote(this.state.newNote);
-        })
-        .catch(error => {
-          alert(error);
-        });
-        
-      this.setState({
-        title: "",
-        description: "",
-        reminder: "",
-        collaborator:"",
-        color: "",
-        image: "",
-        archive: false,
-        pin: false,
-        trash: false
-      });
+import React, { Component } from 'react';
+import { Input, Card, createMuiTheme, MuiThemeProvider } from '@material-ui/core'
+import Tools from './Tools';
+import { Button } from '@material-ui/core';
+import { createNote } from '../services/noteService'
+import EditPin from './editPin';
+const theme = createMuiTheme({
+    overrides: {
+        MuiPaper: {
+            rounded: {
+                borderRadius: "10px",
+            },
+            elevation1: {
+                boxShadow: "0 3px 5px rgba(0,0,0,0.20)"
+            }
+        },
+    },
+    typography: {
+        useNextVariants: true,
+    },
+})
+class CreateNotes extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            openNote: false,
+            title: "",
+            description: "",
+            color: "rgb(255, 255, 255)",
+            reminder: "",
+            pinned: false,
+            image: "",
+            archive: false,
+            trash: false,
+            newNote: {}
+
+        }
+        this.handleTitle = this.handleTitle.bind(this);
+        this.handleDescription = this.handleDescription.bind(this);
+        this.handleToggle = this.handleToggle.bind(this);
+        this.handleColor = this.handleColor.bind(this);
+        this.handleArchive = this.handleArchive.bind(this);
+        this.handleReminder = this.handleReminder.bind(this);
+        this.handlePinned = this.handlePinned.bind(this);
+
     }
-  }
+    handleToggle() {
+        this.setState({ openNote: !this.state.openNote });
+        console.log("pinned", this.state);
 
-  handleTitle(evt) {
-    this.setState({ title: evt.target.value });
-  }
+        if (this.state.title !== '' || this.state.description !== '' || this.state.color !== "rgb(255, 255, 255)") {
+            const note = {
+                title: this.state.title,
+                description: this.state.description,
+                reminder: this.state.reminder,
+                color: this.state.color,
+                image: this.state.image,
+                archive: this.state.archive,
+                pinned: this.state.pinned,
+                trash: this.state.trash,
+            }
 
-  handleDescription(evt) {
-    this.setState({ description: evt.target.value });
-  }
+            createNote(note)
+                .then((result) => {
+                    this.setState({
+                        newNote: result.data.data
+                    })
+                    this.props.getNewNote(this.state.newNote)
+                })
 
-  handleReminder(value) {
-    this.setState({ reminder: value });
-  }
+                .catch((error) => {
+                    alert(error);
+                })
 
-  handleColor(value) {
-    this.setState({ color: value });
-  }
+            this.setState({
+                title: "",
+                description: "",
+                reminder:"",
+                color: "rgb(255, 255, 255)",
+                image: "",
+                archive: false,
+                pinned: false,
+                trash: false,
+            })
 
-  handleArchive(value) {
-    this.setState({ archive: value });
-  }
+        }
 
-  handlePinned(value) {
-    this.setState({ pin: value });
-  }
+    }
 
-  render() {
-    return !this.state.openNote ? (
-      <div className="display">
-        <div className="move">
-          <Card className="notesCard">
-            <div className="inp">
-              <InputBase
-                className="takeNote"
-                type="email"
-                onClick={this.handleToggle}
-                placeholder="Take a notes..."
-              />
-            </div>
-            <div className="pin">
-              <div>
-                <IconButton>
-                  <img src={require("../assets/images/newlist.svg")} alt="" />
-                </IconButton>
-                <IconButton>
-                  <img src={require("../assets/images/image.svg")} alt="" />
-                </IconButton>
-              </div>
-            </div>
-          </Card>
-        </div>
-      </div>
-    ) : (
-      <div className="show">
-        <Card className="cardlist">
-          <div className="titleAndPin">
-            <div>
-              <InputBase
-                className="titleNote"
-                placeholder="Title"
-                value={this.state.title}
-                onChange={this.handleTitle}
-              />
-            </div>
-            <div>
-              {" "}
-              <div className="pin">
-                <IconButton
-                  pinStatus={this.state.pinned}
-                  cardPropsToPin={this.handlePinned}
-                >
-                  <img
-                    src={require("../assets/images/pin.svg")}
-                    alt=""
-                    title="pin note"
-                  />
-                </IconButton>
-              </div>
-            </div>
-          </div>
+    handleTitle(evt) {
+        this.setState({ title: evt.target.value })
+    }
 
-          <div className="inp">
-            <InputBase
-              className="in"
-              placeholder="Take a note..."
-              value={this.state.description}
-              onChange={this.handleDescription}
-            />
-          </div>
+    handleDescription(evt) {
+        this.setState({ description: evt.target.value })
+    }
 
-          <div className="toolbarAndClose">
-            <Toolbar className="CardToolbar">
-              <div>
-                <ReminderComponent />
-              </div>
-              <div className="showcardlist">
-                <CollaboratorComponent />
-              </div>
-              <div className="showcardlist">
-                <ColorComponent />
-              </div>
-              <div className="showcardlist">
-                <ImageComponent />
-              </div>
-              <div className="showcardlist">
-                <ArchiveComponent />
-              </div>
-              <div className="closeButton">
-                <Button onClick={this.handleToggle}>
-                Close     
-                </Button>
-               
-              </div>
-            </Toolbar>
-            <ToastContainer />
-          </div>
-        </Card>
-     
-      </div>
-    );
-  }
+    handleReminder(value) {
+        this.setState({ reminder: value })
+    }
+
+    handleColor(value) {
+        this.setState({ color: value });
+    }
+
+    handleArchive(value) {
+        this.setState({ archive: value });
+    }
+
+    handlePinned(value) {
+        this.setState({ pinned: value });
+    }
+   
+
+    render() {
+        return (!this.state.openNote ?
+
+            <MuiThemeProvider theme={theme}>
+                <div id="createNoteParent">
+                    <Card className="createNote">
+                        <div className="staticCreateNote">
+                            <Input
+                                className="noteInputBase"
+                                multiline
+                                disableUnderline={true}
+                                placeholder="Take a Note ...."
+                                readOnly={true}
+                                onClick={this.handleToggle}
+                                value=""
+                            />
+                            <img src={require('../assests/images/imageUpload.svg')} alt="upload pic icon" />
+                        </div>
+                    </Card>
+                </div>
+            </MuiThemeProvider>
+            :
+            <MuiThemeProvider theme={theme}>
+                <div id="createNoteParent">
+                    <Card className="createNote1" style={{ backgroundColor: this.state.color }}>
+                        <div className="createNotePinIcon">
+                            <Input
+                                className="titleInput"
+                                disableUnderline={true}
+                                placeholder="Title"
+                                value={this.state.title}
+                                onChange={this.handleTitle}
+                            />
+                            <div>
+                                <EditPin
+                                    pinStatus={this.state.pinned}
+                                    cardPropsToPin={this.handlePinned} />
+                            </div>
+                        </div>
+
+                        <Input
+                            className="noteInputBase"
+                            multiline
+                            disableUnderline={true}
+                            placeholder="Take a Note ...."
+                            value={this.state.description}
+                            onChange={this.handleDescription}
+                        />
+                        <div className="cardToolsClose" >
+                            <Tools
+                                createNotePropsToTools={this.handleColor}
+                                archiveNote={this.handleArchive}
+                                archiveStatus={this.state.archive} />
+                            <Button onClick={this.handleToggle}>Close</Button>
+                        </div>
+                    </Card>
+                </div>
+            </MuiThemeProvider>
+        )
+    }
 }
-export default ShowCards;
+export default CreateNotes;
