@@ -1,9 +1,6 @@
 import React, { Component } from 'react';
 import { Drawer } from '@material-ui/core';
 import { MenuItem } from '@material-ui/core';
-//import EditLabel from './editLabel';
-//import { getLabels } from '../services/labelServices';
-
 class DrawerMenu extends Component {
 
     constructor() {
@@ -60,20 +57,6 @@ class DrawerMenu extends Component {
     }
 
     render() {
-       // let displayLabels = this.state.label;
-        // if (this.state.label !== "") {
-        //     displayLabels = this.state.label.map((key) =>
-        //         <MenuItem style={{ display: "flex", flexDirection: "row",color: "#202124",fontFamily: "Google Sans, Roboto, Arial, sans-serif", fontSize: ".875rem" }} onClick={()=>this.displaySearchLabels(key.label)} key={key.label}>
-
-        //             <img src={require('../assests/images/labelIcon.svg')} alt="label icon" style={{ marginRight: "50px" }} />
-
-        //             <div style={{  marginRight: "50px",  marginBottom: "10px", marginTop: "10px",fontWeight:"550" }}>
-        //                 {key.label}
-        //             </div>
-        //         </MenuItem>
-        //     )
-        // }
-
         return (
             <div>
                 <Drawer
@@ -81,7 +64,7 @@ class DrawerMenu extends Component {
                     open={this.props.appBarProps}
                     width={250}
                 >
-                    <MenuItem id="noteMenu" onClick={() => this.handleNotes()}>
+                    <MenuItem id="noteMenu" onClick={()=>this.handleNotes()}>
                         <img src={require('../assests/images/note.svg')} alt="note icon"
                             style={{ marginRight: "50px" }} />
                         Notes
@@ -125,13 +108,6 @@ class DrawerMenu extends Component {
                     </MenuItem>
 
                 </Drawer>
-
-                {/* <EditLabel
-                    newLabels={this.newLabels}
-                    label={this.state.label}
-                    showLabels={this.showLabels}
-                    drawerPropstoEditLabels={this.state.open}
-                    labelToggle={this.handleEditLabel} /> */}
             </div>
         )
     }

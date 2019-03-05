@@ -62,8 +62,7 @@ class AppbarComponent extends Component {
         super(props);
         this.state = {
             open: false,
-            searchNote: ""
-
+            searchNote:""
         }
         this.handleAppbar = this.handleAppbar.bind(this);
         this.handleSearchBar = this.handleSearchBar.bind(this);

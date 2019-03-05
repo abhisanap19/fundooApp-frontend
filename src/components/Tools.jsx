@@ -5,8 +5,7 @@ import ColorPallete from './color'
 import UploadImage from './image'
 import Archive from './archive'
 import MoreOptions from './moreOptions'
-
-
+import Collaborator from './collaborator'
 class Tools extends Component {
     constructor(props) {
         super(props);
@@ -28,7 +27,7 @@ class Tools extends Component {
                     <Reminder parentToolsProps={setNoteTime}
                         reminder={this.props.reminder}
                         note={this.props.note} />
-
+                      <Collaborator/>
 
                     <ColorPallete
                         handleToggle={this.handleToggle}

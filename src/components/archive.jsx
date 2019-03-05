@@ -11,8 +11,7 @@ class Archive extends Component {
             open: false,
             isArchived: false
         }
-        // this.handleClick = this.handleClick.bind(this);
-        // this.handleArchive=this.handleArchive.bind(this);
+       
     }
 
     componentWillMount() {
@@ -27,9 +26,6 @@ class Archive extends Component {
         this.props.archiveNote(this.state.isArchived, this.props.noteID)
 
     }
-    // handleClick() {
-    //     this.setState({ open: !this.state.open })
-    // }
     render() {
         return (
             this.state.isArchived ?

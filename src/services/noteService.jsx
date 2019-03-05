@@ -11,7 +11,6 @@ export function getNotes() {
         return result;
     })
 }   
-
 export function createNote(data) {
     console.log("create note call",data);
     
@@ -111,7 +110,7 @@ export function deleteNoteForever(url,data) {
 
 
 
-export function otherArray(notesData) {
+export function otherArray(notesData){
     let otherArr = [];
     for (let i = 0; i < notesData; i++) {
         if (!notesData[i].note.pinned && !notesData[i].note.archive && !notesData[i].note.trash) {

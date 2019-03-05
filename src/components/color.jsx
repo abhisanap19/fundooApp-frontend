@@ -42,7 +42,7 @@ class ColorPallete extends Component {
         })
     }
     handleColor(evt) {
-        console.log("sasasas", this.props.noteID)
+        console.log("fghty", this.props.noteID)
         this.props.toolsPropsToColorpallete(evt.target.value, this.props.noteID);
 
     }

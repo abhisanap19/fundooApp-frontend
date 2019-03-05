@@ -39,26 +39,22 @@ class UserProfile extends Component {
     }
 
     render() {
-
         const { anchorEl, open, placement } = this.state;
         const userDetails = localStorage.getItem('username');
-        
-        const initial = userDetails.substring(0, 1)
-
+        const initial = userDetails.substring(0, 1)                                                                                                                                                                                                                                                                                                      
         if (localStorage.getItem('token1') !== "true")
             return (
                 window.location.href = '/'
             )
         else {
             return (
-
                 <div>
                     <Popper open={open} anchorEl={anchorEl} placement={placement} transition>
                         {({ TransitionProps }) => (
                             <Fade {...TransitionProps} timeout={350}>
                                 <Paper>
 
-                                    <div style={{ width: "350px", padding: "10px" }}>
+                                    <div style={{ width: "250px", padding: "10px" }}>
                                         <div className="userProfileDetails">
                                             <IconButton id="avatar">
                                                 <Tooltip title="Change Profile">

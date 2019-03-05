@@ -79,13 +79,8 @@ class Dashboard extends Component {
                 <div className="setFixedMargin">
                     <div id="dashboard">
                         <ShowCards getNewNote={this.getNewNote} />
-
                         <Cards
-
                             noteProps={this.state.cardStyles}
-
-
-
                             searchNote={this.state.searchNote}
                             ref={this.noteToCards} />
                     </div>

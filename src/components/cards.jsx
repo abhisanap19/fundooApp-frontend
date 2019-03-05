@@ -6,7 +6,7 @@ import { getNotes, updateColor, updatePin, setReminder, isTrashed, updateArchive
 import EditPin from './editPin';
 import ClockIcon from './clockIcon';
 import { otherArray} from '../services/noteService';
-import SearchedNotes from './SearchedNotes';
+//import SearchedNotes from './SearchedNotes';
 import DialogBox from './Dialog';
 const theme = createMuiTheme({
     overrides: {
@@ -61,10 +61,9 @@ class Cards extends Component {
         await this.setState({ open: true })
         this.cardsToDialogBox.current.getData(note);
     }
-    closeEditBox() {
+    closeEditBox(){
         this.setState({ open: false })
     }
-  
     componentDidMount() {
         getNotes()
             .then((result) => {
@@ -72,7 +71,6 @@ class Cards extends Component {
                     notes: result
                 })
                 console.log("get notes", result);
-
             })
             .catch((error) => {
                 alert(error)
@@ -282,33 +280,6 @@ class Cards extends Component {
 
         let cardsView = this.props.noteProps ? "cards" : "listCards";
 
-        if ((this.props.searchNote !== "" || this.state.label) && (!this.props.navigateArchived
-            && !this.props.navigateReminder && !this.props.navigateTrashed)) {
-
-            let searchNote;
-            if (this.props.searchNote !== "") {
-
-                searchNote = this.state.notes.filter(
-                    obj => obj.note.title.includes(this.props.searchNote) ||
-                        obj.note.description.includes(this.props.searchNote)
-                )
-            } else {
-                searchNote = this.state.notes.filter(
-                    obj => obj.note.label.length > 0 && obj.note.label.find((item) => item === this.props.labelValue))
-            }
-
-            return (
-                <SearchedNotes
-                    searchNote={searchNote}
-                    getColor={this.getColor}
-                    noteProps={this.props.noteProps}
-                    reminder={this.reminderNote}
-                    trashNote={this.trashNote}
-                    archiveNote={this.archiveNote}
-                />
-            )
-        }
-        else {
             let otherArr = otherArray(this.state.notes);
             return (
                 <MuiThemeProvider theme={theme}>
@@ -421,8 +392,8 @@ class Cards extends Component {
 
                 </MuiThemeProvider>
 
-            )
-        }
+        )
+     
     }
 
 }
