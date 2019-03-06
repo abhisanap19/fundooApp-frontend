@@ -1,15 +1,15 @@
-
 import React, { Component } from 'react';
 import { Input, Card, createMuiTheme, MuiThemeProvider } from '@material-ui/core'
 import Tools from './Tools';
 import { Button } from '@material-ui/core';
-import { createNote } from '../services/noteService'
+import { createNote } from '../services/noteServices'
 import EditPin from './editPin';
 const theme = createMuiTheme({
     overrides: {
         MuiPaper: {
             rounded: {
                 borderRadius: "10px",
+
             },
             elevation1: {
                 boxShadow: "0 3px 5px rgba(0,0,0,0.20)"
@@ -28,9 +28,9 @@ class CreateNotes extends Component {
             title: "",
             description: "",
             color: "rgb(255, 255, 255)",
-            reminder: "",
+            remindMe: "",
             pinned: false,
-            image: "",
+            img: "",
             archive: false,
             trash: false,
             newNote: {}
@@ -53,9 +53,9 @@ class CreateNotes extends Component {
             const note = {
                 title: this.state.title,
                 description: this.state.description,
-                reminder: this.state.reminder,
+                remindMe: this.state.remindMe,
                 color: this.state.color,
-                image: this.state.image,
+                img: this.state.img,
                 archive: this.state.archive,
                 pinned: this.state.pinned,
                 trash: this.state.trash,
@@ -76,9 +76,9 @@ class CreateNotes extends Component {
             this.setState({
                 title: "",
                 description: "",
-                reminder:"",
+                remindMe:"",
                 color: "rgb(255, 255, 255)",
-                image: "",
+                img: "",
                 archive: false,
                 pinned: false,
                 trash: false,
@@ -97,7 +97,7 @@ class CreateNotes extends Component {
     }
 
     handleReminder(value) {
-        this.setState({ reminder: value })
+        this.setState({ remindMe: value })
     }
 
     handleColor(value) {
@@ -129,6 +129,7 @@ class CreateNotes extends Component {
                                 onClick={this.handleToggle}
                                 value=""
                             />
+
                             <img src={require('../assests/images/imageUpload.svg')} alt="upload pic icon" />
                         </div>
                     </Card>
@@ -145,6 +146,8 @@ class CreateNotes extends Component {
                                 placeholder="Title"
                                 value={this.state.title}
                                 onChange={this.handleTitle}
+
+
                             />
                             <div>
                                 <EditPin
@@ -160,6 +163,8 @@ class CreateNotes extends Component {
                             placeholder="Take a Note ...."
                             value={this.state.description}
                             onChange={this.handleDescription}
+
+
                         />
                         <div className="cardToolsClose" >
                             <Tools
@@ -168,10 +173,13 @@ class CreateNotes extends Component {
                                 archiveStatus={this.state.archive} />
                             <Button onClick={this.handleToggle}>Close</Button>
                         </div>
+
                     </Card>
                 </div>
             </MuiThemeProvider>
+
         )
     }
+
 }
 export default CreateNotes;

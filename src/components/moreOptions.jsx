@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { MenuItem, Popper, Paper, Fade, Tooltip, ClickAwayListener, createMuiTheme, MuiThemeProvider } from '@material-ui/core';
-
+import AddLabelsOnNote from './addLabelsOnNote';
 
 const theme = createMuiTheme({
     overrides: {
@@ -82,7 +82,7 @@ class MoreOptions extends Component {
                         )}
                     </Popper>
 
-                  
+                    <AddLabelsOnNote ref={this.moreOptionsToAddLabels} noteID={this.props.noteID} addLabelToNote={this.props.addLabelToNote} anchorEl={this.state.anchorEl} />
                 </div>
             </MuiThemeProvider>
         )

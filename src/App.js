@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route } from 'react-router-dom'
 import './App.css';
 import login from './pages/login';
 import register from './pages/register';
-import dashboard from './pages/dashboard';
+import Notes from './pages/Note';
 import forgotPassword from './pages/forgotPassword';
 import resetPassword from './pages/resetPassword';
 import VerifyEmail from './pages/verifyEmail';
@@ -19,7 +19,7 @@ class App extends Component {
           <div className="App">
             <Route path="/login" component={login}></Route>
             <Route path="/registration" component={register}></Route>
-            <Route path="/dashboard" component={dashboard}></Route>
+            <Route path="/dashboard" component={Notes}></Route>
             <Route path="/forgotPassword" component={forgotPassword}></Route>
             <Route path="/resetpassword" component={resetPassword}></Route>
             <Route path="/verifyEmail" component={VerifyEmail}></Route>

@@ -9,15 +9,15 @@ import TextField from "@material-ui/core/TextField";
 import { Button } from "@material-ui/core";
 import IconButton from "@material-ui/core/IconButton";
 
-import { userRegister } from "../services/userService";
+import { userRegister } from "../services/user_service";
 
 class RegisterInput extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      firstName: "",
-      lastName: "",
-      userName: "",
+      firstname: "",
+      lastname: "",
+      username: "",
       password: "",
       confirmPassword: "",
       showPassword: false,
@@ -26,17 +26,17 @@ class RegisterInput extends Component {
     this.baseState = this.state;
   }
 
-  handlefirstNameChange = event => {
-    const firstName = event.target.value;
-    this.setState({ firstName: firstName });
+  handlefirstnameChange = event => {
+    const firstname = event.target.value;
+    this.setState({ firstname: firstname });
   };
-  handlelastNameChange = event => {
-    const lastName = event.target.value;
-    this.setState({ lastName: lastName });
+  handlelastnameChange = event => {
+    const lastname = event.target.value;
+    this.setState({ lastname: lastname });
   };
-  handleuserNameChange = event => {
-    const userName = event.target.value;
-    this.setState({ userName: userName });
+  handleusernameChange = event => {
+    const username = event.target.value;
+    this.setState({ username: username });
   };
   handlepasswordChange = event => {
     const password = event.target.value;
@@ -48,20 +48,20 @@ class RegisterInput extends Component {
   };
   handleSubmit = event => {
     event.preventDefault();
-    if (this.state.firstName === "") {
+    if (this.state.firstname === "") {
       toast("First name cannot be empty", {
         position: toast.POSITION.BOTTOM_CENTER
       });
-    } else if (this.state.lastName === "") {
+    } else if (this.state.lastname === "") {
       toast("Last name cannot be empty", {
         position: toast.POSITION.BOTTOM_CENTER
       });
-    } else if (this.state.userName === "") {
+    } else if (this.state.username === "") {
       toast("Email cannot be empty", {
         position: toast.POSITION.BOTTOM_CENTER
       });
     } else if (
-      !/[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$/.test(this.state.userName)
+      !/[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$/.test(this.state.username)
     ) {
       toast("Invalid Email", { position: toast.POSITION.BOTTOM_CENTER });
     } else if (this.state.password === "") {
@@ -83,9 +83,9 @@ class RegisterInput extends Component {
     } else {
       event.preventDefault();
       var data = {
-        firstName: this.state.firstName,
-        lastName: this.state.lastName,
-        email: this.state.userName,
+        firstname: this.state.firstname,
+        lastname: this.state.lastname,
+        username: this.state.username,
         password: this.state.password
       };
       userRegister(data);
@@ -97,11 +97,9 @@ class RegisterInput extends Component {
     event.preventDefault();
     this.props.history.push("/registration");
   };
-
   handleClickShowPassword = () => {
     this.setState(state => ({ showPassword: !state.showPassword }));
   };
-
   render() {
     return (
       <div >
@@ -109,18 +107,18 @@ class RegisterInput extends Component {
           <TextField
             id=""
             label="First Name"
-            name="firstName"
-            value={this.state.firstName}
-            onChange={this.handlefirstNameChange}
+            name="firstname"
+            value={this.state.firstname}
+            onChange={this.handlefirstnameChange}
             margin="normal"
             variant="outlined"
           />
 
           <TextField
             label="Last Name"
-            name="lastName"
-            value={this.state.lastName}
-            onChange={this.handlelastNameChange}
+            name="lastname"
+            value={this.state.lastname}
+            onChange={this.handlelastnameChange}
             margin="normal"
             variant="outlined"
           />
@@ -129,8 +127,8 @@ class RegisterInput extends Component {
           <TextField
             label="Email"
             type="email"
-            value={this.state.userName}
-            onChange={this.handleuserNameChange}
+            value={this.state.username}
+            onChange={this.handleusernameChange}
             margin="normal"
             variant="outlined"
           />

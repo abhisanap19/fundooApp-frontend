@@ -21,7 +21,6 @@ class Login extends Component {
         </div>
       </Card>
     );
-  
   }
 }
 export default Login;

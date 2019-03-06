@@ -4,20 +4,20 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { Button } from "@material-ui/core";
 import TextField from "@material-ui/core/TextField";
-import { userLogin }  from "../services/userService";
+import { userLogin }  from "../services/user_service";
 
 class LoginInput extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      userName: "",
+      username: "",
       password: "",
       toast: false
     };
   }
-  handleuserNameChange = event => {
-    const userName = event.target.value;
-    this.setState({ userName: userName });
+  handleusernameChange = event => {
+    const username = event.target.value;
+    this.setState({ username: username });
   };
   handlepasswordChange = event => {
     const password = event.target.value;
@@ -25,8 +25,8 @@ class LoginInput extends Component {
   };
   handleSubmit = event => {
     event.preventDefault();
-    if (this.state.userName === "") {
-      toast("userName cannot be empty", {
+    if (this.state.username === "") {
+      toast("username cannot be empty", {
         position: toast.POSITION.BOTTOM_CENTER
       });
     } else if (this.state.password === "") {
@@ -34,17 +34,20 @@ class LoginInput extends Component {
         position: toast.POSITION.BOTTOM_CENTER
       });
     } else if (
-      !/[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$/.test(this.state.userName)
+      !/[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$/.test(this.state.username)
     ) {
-      toast("Invalid userName", { position: toast.POSITION.BOTTOM_CENTER });
+      toast("Invalid username", { position: toast.POSITION.BOTTOM_CENTER });
     } else if (this.state.password.length < 8) {
       toast("Password must be of atleast 8 characters long", {
         position: toast.POSITION.BOTTOM_CENTER
       });
     } else {
-      userLogin(this.state.userName, this.state.password);
-            this.setState({userName:''})
-            this.setState({password:''})
+      event.preventDefault();
+      var data = {
+        username: this.state.username,
+        password: this.state.password
+      };
+      userLogin(data);
     }
   };
   register = e => {
@@ -63,10 +66,10 @@ class LoginInput extends Component {
             <TextField
               id="outlined-name"
               label="Email"
-              name="userName"
+              name="username"
               type="text"
-              value={this.state.userName}
-              onChange={this.handleuserNameChange}
+              value={this.state.username}
+              onChange={this.handleusernameChange}
               margin="normal"
               variant="outlined"
             />

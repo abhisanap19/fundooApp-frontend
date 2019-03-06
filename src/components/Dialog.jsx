@@ -10,8 +10,6 @@ const theme = createMuiTheme({
             paperWidthSm: {
                 width: "600px",
                 height: "200px",
-                // paddingLeft: "20px",
-                // paddingRight: "10px",
                 margin: "0px",
             },
 

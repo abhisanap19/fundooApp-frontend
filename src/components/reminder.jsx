@@ -1,8 +1,9 @@
-
 import React, { Component } from 'react';
 import Popper from '@material-ui/core/Popper';
 import Fade from '@material-ui/core/Fade';
 import { MenuItem, Paper, Tooltip, ListItem, createMuiTheme, MuiThemeProvider, ClickAwayListener } from '@material-ui/core'
+import PickDateAndTime from './PickDateAndTime';
+
 const theme = createMuiTheme({
     overrides: {
         MuiMenuItem: {
@@ -52,9 +53,9 @@ class Reminder extends Component {
         console.log("before",note);
         
         var date = new Date().toDateString();
-        note.reminder = date+ ", 8 "+ampm;
-        console.log(note.reminder);
-        this.props.reminder(note.reminder,note._id)
+        note.remindMe = date+ ", 8 "+ampm;
+        console.log(note.remindMe);
+        this.props.reminder(note.remindMe,note._id)
     }
     setTomorrowReminder(note){
         this.handleClose();
@@ -63,24 +64,25 @@ class Reminder extends Component {
         var date = new Date().toDateString();
         date=date.replace(new Date().getDate().toString(),new Date().getDate()+1);
         date=date.replace(days[new Date().getDay()-1],days[new Date().getDay()]);
-        note.reminder = date+ ", 8 AM" ;
-        console.log(note.reminder);
-        this.props.reminder(note.reminder,note._id)
+        note.remindMe = date+ ", 8 AM" ;
+        console.log(note.remindMe);
+        this.props.reminder(note.remindMe,note._id)
     }
     setWeeklyReminder(note){
         this.handleClose();
         console.log("before",note);
         var date = new Date().toDateString();
         date=date.replace((new Date().getDate()),(new Date().getDate()+7));
-        note.reminder = date+ ", 8 AM" ;
-        console.log(note.reminder);
-        this.props.reminder(note.reminder,note._id)
+        note.remindMe = date+ ", 8 AM" ;
+        console.log(note.remindMe);
+        this.props.reminder(note.remindMe,note._id)
     }
 
 
     render() {
         const setAMPM = this.props.parentToolsProps;
         const { anchorEl, open, placement } = this.state;
+
         return (
             <MuiThemeProvider theme={theme}>
                 <div>
@@ -116,9 +118,12 @@ class Reminder extends Component {
 
                                         <MenuItem className="currentDate">
                                             <div>Home</div>
-                                            <div>Mumbai</div>
+                                            <div>Seawoods Darave (W)</div>
 
-                                        </MenuItem>    
+                                        </MenuItem>
+
+                                       <PickDateAndTime
+                                       />
                                         <MenuItem >Pick place</MenuItem>
                                        
                                     </div>

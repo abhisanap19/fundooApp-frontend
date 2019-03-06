@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import ShowCards from '../components/ShowCards';
-import AppbarComponent from '../components/AppBar';
-import Cards from '../components/cards';
-class Dashboard extends Component {
+import CreateNotes from '../components/CreateNotes';
+import AppbarComponent from '../components/Appbar';
+import Cards from '../components/Cards';
+class Note extends Component {
     constructor() {
         super();
         this.state = {
@@ -14,12 +14,17 @@ class Dashboard extends Component {
             searchNote: "",
             slideCards: false
         }
+
         this.noteToCards = React.createRef();
+
         this.handleCardStyle = this.handleCardStyle.bind(this);
         this.getNewNote = this.getNewNote.bind(this);
         this.handleNavigation = this.handleNavigation.bind(this);
         this.getSearchedNotes = this.getSearchedNotes.bind(this);
+        this.searchLabels = this.searchLabels.bind(this);
         this.slideCards = this.slideCards.bind(this);
+        this.makeLabelFalse = this.makeLabelFalse.bind(this);
+
     }
 
     searchLabels(value) {
@@ -78,9 +83,14 @@ class Dashboard extends Component {
                 />
                 <div className="setFixedMargin">
                     <div id="dashboard">
-                        <ShowCards getNewNote={this.getNewNote} />
+                        <CreateNotes getNewNote={this.getNewNote} />
+
                         <Cards
+                            labelValue={this.state.label}
                             noteProps={this.state.cardStyles}
+                            navigateReminder={this.state.reminder}
+                            navigateArchived={this.state.archive}
+                            navigateTrashed={this.state.trash}
                             searchNote={this.state.searchNote}
                             ref={this.noteToCards} />
                     </div>
@@ -89,4 +99,4 @@ class Dashboard extends Component {
         )
     }
 }
-export default Dashboard;
+export default Note;

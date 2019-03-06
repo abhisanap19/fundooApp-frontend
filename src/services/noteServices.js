@@ -1,16 +1,18 @@
-
 import axios from 'axios'
+
+
 export function getNotes() {
     return axios('/getNotes', {
         method: "GET",
         headers: {
             "access-token": localStorage.getItem("token")
         }
-    }).then(function (response){
+    }).then(function (response) {
         const result = response.data.data;
         return result;
     })
 }   
+
 export function createNote(data) {
     console.log("create note call",data);
     
@@ -108,14 +110,41 @@ export function deleteNoteForever(url,data) {
     })
 }
 
+export function saveLabel(url,data) {
+    return axios(url, {
+        method: "POST",
+        headers: {
+            "access-token": localStorage.getItem("token")
+        },
+        data:data
+    })
+}
 
-
-export function otherArray(notesData){
-    let otherArr = [];
-    for (let i = 0; i < notesData; i++) {
-        if (!notesData[i].note.pinned && !notesData[i].note.archive && !notesData[i].note.trash) {
-            otherArr.push(notesData[i]);
+export function saveCollabs(url,data) {
+    return axios(url, {
+        method: "POST",
+        headers: {
+            "access-token": localStorage.getItem("token")
+        },
+        data:data
+    })
+}
+export function getCollabDetails(url) {
+    return axios(url, {
+        method: "GET",
+        headers: {
+            "access-token": localStorage.getItem("token")
         }
-    }
-    return otherArr;
+    })
+}
+export function updateImages(url,data) {
+    return axios(url, {
+        method: "PUT",
+        headers: {
+            "access-token": localStorage.getItem("token"),
+            // 'content-type': 'multipart/form-data'
+
+        },
+        data:data
+    })
 }

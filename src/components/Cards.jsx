@@ -1,15 +1,20 @@
-
 import React, { Component } from 'react';
 import { Card, Chip, MuiThemeProvider, createMuiTheme, Tooltip, Avatar } from '@material-ui/core';
 import Tools from './Tools';
-import { getNotes, updateColor, updatePin, setReminder, isTrashed, updateArchiveStatus, deleteNoteForever, updateTitle, updateDescription} from '../services/noteService'
+import { getNotes, updateColor, updatePin, setReminder, isTrashed, updateArchiveStatus, deleteNoteForever, updateTitle, updateDescription, saveLabel, updateImages } from '../services/noteServices'
+import ArchivedNavigator from './menuDrawerNavigators/archivedNavigator';
+import ReminderNavigator from './menuDrawerNavigators/reminderNavigator';
+import TrashNavigator from './menuDrawerNavigators/trashNavigator';
 import EditPin from './editPin';
+import PinAndOthers from './pinAndOtherCards';
 import ClockIcon from './clockIcon';
-import { otherArray} from '../services/noteService';
-//import SearchedNotes from './SearchedNotes';
+import { archiveArray, otherArray, trashArray, remiderArray, pinArray } from '../services/cardServices';
+import SearchedNotes from './SearchedNotes';
 import DialogBox from './Dialog';
+
 const theme = createMuiTheme({
     overrides: {
+
         MuiPaper: {
             elevation1: {
                 boxShadow: "0px"
@@ -21,7 +26,7 @@ const theme = createMuiTheme({
                 marginTop: 15,
                 height: 20,
                 backgroundColor: "rgba(0, 0, 0, 0.10)",
-                padding: 2
+               // padding: 
             },
             deleteIcon: {
                 width: 20,
@@ -31,9 +36,6 @@ const theme = createMuiTheme({
         },
 
     },
-    // typography: {
-    //     useNextVariants: true,
-    // },
 })
 class Cards extends Component {
     constructor() {
@@ -55,14 +57,20 @@ class Cards extends Component {
         this.editTitle = this.editTitle.bind(this);
         this.editDescription = this.editDescription.bind(this);
         this.closeEditBox = this.closeEditBox.bind(this);
+        this.addLabelToNote = this.addLabelToNote.bind(this);
+        this.deleteLabelFromNote = this.deleteLabelFromNote.bind(this);
+        this.uploadImage = this.uploadImage.bind(this);
 
     }
     async handleClick(note) {
         await this.setState({ open: true })
         this.cardsToDialogBox.current.getData(note);
     }
-    closeEditBox(){
+    closeEditBox() {
         this.setState({ open: false })
+    }
+    displayLabelledCards() {
+        this.setState({ label: true })
     }
     componentDidMount() {
         getNotes()
@@ -71,6 +79,7 @@ class Cards extends Component {
                     notes: result
                 })
                 console.log("get notes", result);
+
             })
             .catch((error) => {
                 alert(error)
@@ -97,7 +106,29 @@ class Cards extends Component {
                 alert(error)
             });
     }
-   
+    uploadImage(value, noteId) {
+        console.log("image:------------", value);
+        let data = new FormData();
+        data.append('file', value);
+        data.append('noteID', noteId);
+        console.log("request", data);
+
+        updateImages('/uploadImage', data)
+            .then((result) => {
+                console.log("result", result.data.data)
+                let newArray = this.state.notes
+                for (let i = 0; i < newArray.length; i++) {
+                    if (newArray[i].note._id === noteId) {
+                        newArray[i].note.img = result.data.data;
+                        this.setState({
+                            notes: newArray
+                        })
+
+                    }
+                }
+
+            })
+    }
 
     editTitle(value, noteId) {
         const title = {
@@ -119,6 +150,8 @@ class Cards extends Component {
                 }
 
             })
+
+
     }
 
     editDescription(value, noteId) {
@@ -221,18 +254,18 @@ class Cards extends Component {
     }
 
     reminderNote(value, noteId) {
-        const reminder = {
+        const remindMe = {
             noteID: noteId,
-            reminder: value
+            remindMe: value
         }
-        setReminder('/reminder', reminder)
+        setReminder('/remindMe', remindMe)
             .then((result) => {
 
 
                 let newArray = this.state.notes
                 for (let i = 0; i < newArray.length; i++) {
                     if (newArray[i].note._id === noteId) {
-                        newArray[i].note.reminder = result.data.data;
+                        newArray[i].note.remindMe = result.data.data;
 
                         this.setState({
                             notes: newArray
@@ -270,7 +303,56 @@ class Cards extends Component {
                 alert(error)
             });
     }
-   
+
+
+    addLabelToNote(noteId, value) {
+        const addLabel = {
+            noteID: noteId,
+            label: value
+        }
+        saveLabel('/saveLabelToNote', addLabel)
+            .then((result) => {
+
+
+                let newArray = this.state.notes
+                for (let i = 0; i < newArray.length; i++) {
+                    if (newArray[i].note._id === noteId) {
+                        newArray[i].note.label = result.data.data;
+                        this.setState({
+                            notes: newArray
+                        })
+                    }
+                }
+            })
+            .catch((error) => {
+                alert(error)
+            });
+    }
+    deleteLabelFromNote(value, noteId) {
+        const deleteLabel = {
+            pull: true,
+            value: value,
+            noteID: noteId
+        }
+        saveLabel('/saveLabelToNote', deleteLabel)
+            .then((result) => {
+                let newArray = this.state.notes
+                for (let i = 0; i < newArray.length; i++) {
+                    if (newArray[i].note._id === noteId) {
+                        newArray[i].note.label = result.data.data;
+                        this.setState({
+                            notes: newArray
+                        })
+                    }
+                }
+            })
+    }
+
+
+    makeLabelFalse = () => {
+        this.setState({ label: false })
+    }
+
     displayNewCard(newCard) {
         this.setState({
             notes: [...this.state.notes, newCard]
@@ -280,9 +362,106 @@ class Cards extends Component {
 
         let cardsView = this.props.noteProps ? "cards" : "listCards";
 
+        if ((this.props.searchNote !== "" || this.state.label) && (!this.props.navigateArchived
+            && !this.props.navigateReminder && !this.props.navigateTrashed)) {
+
+            let searchNote;
+            if (this.props.searchNote !== "") {
+
+                searchNote = this.state.notes.filter(
+                    obj => obj.note.title.includes(this.props.searchNote) ||
+                        obj.note.description.includes(this.props.searchNote)
+                )
+            } else {
+                searchNote = this.state.notes.filter(
+                    obj => obj.note.label.length > 0 && obj.note.label.find((item) => item === this.props.labelValue))
+            }
+
+            return (
+                <SearchedNotes
+                    addLabelToNote={this.addLabelToNote}
+                    searchNote={searchNote}
+                    deleteLabelFromNote={this.deleteLabelFromNote}
+                    getColor={this.getColor}
+                    noteProps={this.props.noteProps}
+                    reminder={this.reminderNote}
+                    trashNote={this.trashNote}
+                    archiveNote={this.archiveNote}
+                    uploadImage={this.uploadImage}
+                />
+            )
+        }
+
+        else if (this.props.navigateArchived) {
+
+            return (
+                <ArchivedNavigator
+                    addLabelToNote={this.addLabelToNote}
+                    archiveArray={archiveArray(this.state.notes)}
+                    pinNote={this.pinNote}
+                    othersArray={otherArray}
+                    deleteLabelFromNote={this.deleteLabelFromNote}
+                    getColor={this.getColor}
+                    noteProps={this.props.noteProps}
+                    reminder={this.reminderNote}
+                    trashNote={this.trashNote}
+                    archiveNote={this.archiveNote}
+                    uploadImage={this.uploadImage} />
+            )
+        }
+        else if (this.props.navigateReminder) {
+
+            return (
+                <ReminderNavigator
+                    addLabelToNote={this.addLabelToNote}
+                    remiderArray={remiderArray(this.state.notes)}
+                    pinNote={this.pinNote}
+                    othersArray={otherArray(this.state.notes)}
+                    deleteLabelFromNote={this.deleteLabelFromNote}
+                    getColor={this.getColor}
+                    noteProps={this.props.noteProps}
+                    reminder={this.reminderNote}
+                    trashNote={this.trashNote}
+                    uploadImage={this.uploadImage} />
+            )
+        }
+        else if (this.props.navigateTrashed) {
+
+            return (
+                <TrashNavigator
+                    trashArray={trashArray(this.state.notes)}
+                    pinNote={this.pinNote}
+                    deleteLabelFromNote={this.deleteLabelFromNote}
+                    othersArray={otherArray(this.state.notes)}
+                    getColor={this.getColor}
+                    noteProps={this.props.noteProps}
+                    trashNote={this.trashNote}
+                    deleteNote={this.deleteNote} />
+            )
+        }
+        else {
+
             let otherArr = otherArray(this.state.notes);
             return (
                 <MuiThemeProvider theme={theme}>
+                    {pinArray(this.state.notes).length !== 0 ?
+                        <PinAndOthers
+                            createNotePropsToTools={this.getColor}
+                            addLabelToNote={this.addLabelToNote}
+                            deleteLabelFromNote={this.deleteLabelFromNote}
+                            pinArray={pinArray(this.state.notes)}
+                            pinNote={this.pinNote}
+                            othersArray={otherArray(this.state.notes)}
+                            getColor={this.getColor}
+                            noteProps={this.props.noteProps}
+                            reminder={this.reminderNote}
+                            trashNote={this.trashNote}
+                            archiveNote={this.archiveNote}
+                            uploadImage={this.uploadImage}
+                        />
+
+                        :
+
                         <div className="CardsView">
 
                             {Object.keys(otherArr).map((key) => {
@@ -295,11 +474,11 @@ class Cards extends Component {
                                         >
                                             <div >
                                                 <div>
-                                                    {otherArr[key].note.image !== "" ?
+                                                    {otherArr[key].note.img !== "" ?
                                                         <img style={{
                                                             maxWidth: "100%",
                                                             height: "auto"
-                                                        }} src={otherArr[key].note.image} alt="cardImage"></img>
+                                                        }} src={otherArr[key].note.img} alt="cardImage"></img>
                                                         : null}
                                                 </div>
                                                 <div style={{ display: "flex", justifyContent: "space-between" }}>
@@ -333,19 +512,19 @@ class Cards extends Component {
                                                     {otherArr[key].collab.length > 0 ?
                                                         // eslint-disable-next-line
                                                         otherArr[key].collab.map((collabKey, index) => {
-                                                            if (otherArr[key].owner.firstName !== "") {
+                                                            if (otherArr[key].owner.firstname !== "") {
 
                                                                 return (
                                                                     <div style={{ margin: "3px" }} key={index} >
-                                                                        {collabKey.userName !== localStorage.getItem('emailId') && otherArr[key].owner !== undefined ?
-                                                                            <Tooltip title={collabKey.firstName + " " + collabKey.lastName + " (" + collabKey.userName + ")"}>
+                                                                        {collabKey.username !== localStorage.getItem('emailId') && otherArr[key].owner !== undefined ?
+                                                                            <Tooltip title={collabKey.firstname + " " + collabKey.lastname + " (" + collabKey.username + ")"}>
                                                                                 <Avatar style={{ height: "30px", width: "30px", backgroundColor: "rgb(0,0,0,.10)" }}>
-                                                                                    {collabKey.firstName.substring(0, 1)}
+                                                                                    {collabKey.firstname.substring(0, 1)}
                                                                                 </Avatar>
                                                                             </Tooltip>
-                                                                            : <Tooltip title={otherArr[key].owner.firstName + " " + otherArr[key].owner.lastName + " (" + otherArr[key].owner.userName + ")"}>
+                                                                            : <Tooltip title={otherArr[key].owner.firstname + " " + otherArr[key].owner.lastname + " (" + otherArr[key].owner.username + ")"}>
                                                                                 <Avatar style={{ height: "30px", width: "30px", backgroundColor: "rgb(0,0,0,.10)" }}>
-                                                                                    {otherArr[key].owner.firstName.substring(0, 1)}
+                                                                                    {otherArr[key].owner.firstname.substring(0, 1)}
                                                                                 </Avatar>
                                                                             </Tooltip>
                                                                         }
@@ -358,27 +537,42 @@ class Cards extends Component {
                                                     }
                                                 </div>
 
-                                                {otherArr[key].note.reminder ?
+                                                {otherArr[key].note.remindMe ?
 
                                                     <Chip icon={<ClockIcon />}
-                                                        label={otherArr[key].note.reminder}
+                                                        label={otherArr[key].note.remindMe}
                                                         onDelete={() => this.reminderNote('', otherArr[key].note._id)}
                                                     />
+                                                    :
+                                                    null}
+
+                                                {otherArr[key].note.label.length > 0 ?
+                                                    otherArr[key].note.label.map((key1, index) =>
+                                                        <div key={index} >
+                                                            <Chip
+                                                                label={key1}
+                                                                onDelete={() => this.deleteLabelFromNote(key1, otherArr[key].note._id)}
+                                                            />
+                                                        </div>
+
+                                                    )
                                                     :
                                                     null}
                                             </div>
 
                                             <div className="noteicons">
                                                 <Tools createNotePropsToTools={this.getColor}
+                                                    deleteLabelFromNote={this.deleteLabelFromNote}
                                                     collab={otherArr[key].collab}
                                                     owner={otherArr[key].owner}
+                                                    addLabelToNote={this.addLabelToNote}
                                                     archiveNote={this.archiveNote}
                                                     noteID={otherArr[key].note._id}
                                                     archiveStatus={otherArr[key].note.archive}
                                                     reminder={this.reminderNote}
                                                     note={otherArr[key].note}
                                                     trashNote={this.trashNote}
-                                                  />
+                                                    uploadImage={this.uploadImage} />
                                             </div>
 
                                         </Card>
@@ -387,13 +581,13 @@ class Cards extends Component {
                             })}
 
                         </div>
-                    
+                    }
 
 
                 </MuiThemeProvider>
 
-        )
-     
+            )
+        }
     }
 
 }

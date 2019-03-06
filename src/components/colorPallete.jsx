@@ -1,4 +1,3 @@
-
 import React, { Component } from 'react';
 import { IconButton, Tooltip, Card, ClickAwayListener } from '@material-ui/core';
 
@@ -42,7 +41,7 @@ class ColorPallete extends Component {
         })
     }
     handleColor(evt) {
-        console.log("fghty", this.props.noteID)
+        console.log("sasasas", this.props.noteID)
         this.props.toolsPropsToColorpallete(evt.target.value, this.props.noteID);
 
     }
