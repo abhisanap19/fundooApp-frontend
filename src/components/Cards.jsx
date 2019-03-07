@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Card, Chip, MuiThemeProvider, createMuiTheme, Tooltip, Avatar } from '@material-ui/core';
+import { Card, Chip, Tooltip, Avatar } from '@material-ui/core';
 import Tools from './Tools';
 import { getNotes, updateColor, updatePin, setReminder, isTrashed, updateArchiveStatus, deleteNoteForever, updateTitle, updateDescription, saveLabel, updateImages } from '../services/noteServices'
 import ArchivedNavigator from './menuDrawerNavigators/archivedNavigator';
@@ -8,35 +8,9 @@ import TrashNavigator from './menuDrawerNavigators/trashNavigator';
 import EditPin from './editPin';
 import PinAndOthers from './pinAndOtherCards';
 import ClockIcon from './clockIcon';
-import { archiveArray, otherArray, trashArray, remiderArray, pinArray } from '../services/cardServices';
+import { archiveArray, otherArray, trashArray, remiderArray, pinArray } from '../services/noteServices';
 import SearchedNotes from './SearchedNotes';
 import DialogBox from './Dialog';
-
-const theme = createMuiTheme({
-    overrides: {
-
-        MuiPaper: {
-            elevation1: {
-                boxShadow: "0px"
-            }
-        },
-        MuiChip: {
-            root: {
-                fontSize: 10,
-                marginTop: 15,
-                height: 20,
-                backgroundColor: "rgba(0, 0, 0, 0.10)",
-               // padding: 
-            },
-            deleteIcon: {
-                width: 20,
-                height: 20,
-
-            }
-        },
-
-    },
-})
 class Cards extends Component {
     constructor() {
         super();
@@ -443,7 +417,7 @@ class Cards extends Component {
 
             let otherArr = otherArray(this.state.notes);
             return (
-                <MuiThemeProvider theme={theme}>
+                <div>
                     {pinArray(this.state.notes).length !== 0 ?
                         <PinAndOthers
                             createNotePropsToTools={this.getColor}
@@ -582,9 +556,7 @@ class Cards extends Component {
 
                         </div>
                     }
-
-
-                </MuiThemeProvider>
+                </div>
 
             )
         }

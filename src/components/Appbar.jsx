@@ -6,7 +6,6 @@ import UserProfile from './UserProfile';
 
 import DrawerMenu from './menuDrawer';
 import CardsView from './cardsView';
-
 const theme = createMuiTheme({
     overrides: {
         MuiDrawer: {
@@ -25,11 +24,6 @@ const theme = createMuiTheme({
                 flexDirection: "row"
 
             },
-            // appBarShift: {
-            //     marginLeft: 250,
-
-            // },
-
             colorPrimary: {
                 color: "gray",
                 fontSize: 25,
@@ -64,7 +58,6 @@ class AppbarComponent extends Component {
         this.state = {
             open: false,
             searchNote: ""
-
         }
         this.handleAppbar = this.handleAppbar.bind(this);
         this.handleSearchBar = this.handleSearchBar.bind(this);
@@ -130,7 +123,6 @@ class AppbarComponent extends Component {
                             </div>
                         </div>
                     </Toolbar>
-
                     <DrawerMenu
                         appBarProps={this.state.open}
                         handleNavigation={this.props.handleNavigation}

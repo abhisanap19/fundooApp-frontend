@@ -69,11 +69,9 @@ class ReminderNavigator extends Component {
                                                 onDelete={() => this.props.deleteLabelFromNote(key1, key.note._id)}
 
                                             />
-
                                         )
                                         :
                                         null}
-
                                 </div>
                                 <div className="noteicons">
                                     <Tools createNotePropsToTools={this.props.getColor}

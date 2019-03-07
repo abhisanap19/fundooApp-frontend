@@ -17,10 +17,7 @@ function userLogin(data) {
         .then(function (response) {
             localStorage.setItem('token', response.data.token);
             localStorage.setItem('username', response.data.username);
-            //localStorage.setItem('emailId', username);
-            console.log("profilepice",response.data);
-            localStorage.setItem("profilePic",response.data.profilePic); 
-
+            //localStorage.setItem('emailId', response.data.username);
             toast('Successfull Login!')
             localStorage.setItem('token1', true);
             window.location.href = 'dashboard'
@@ -34,60 +31,44 @@ function userLogin(data) {
         });
 }
 
-function userForgotPassword(username) {
-
-    axios.post('/forgotpasswd', {
-        username: username
+function forgotPassword(username) {
+    axios.post('/forgotpasswd',
+    {
+        'username': username, 
     })
-        .then(function (response) {
-            localStorage.setItem('forgotToken', response.data);
-            toast('e-Mail has been sent to your respective mail to reset your password with further instructions ')
-            window.location.href = '/';
-        })
-        .catch(function (err) {
-            toast('Invalid Username');
-            window.location.href = 'forgotpswd'
-        })
+    .then(function (response) {
+        console.log(' response is--',response.data);
+        const token1 = response.data;
+        const token2 = token1.substring(34);
+        localStorage.setItem('verifyUserToken', token2);
+        toast(' check your email..')
+    })
+    .catch(function (err) {
+        console.log(err);
+        toast('User Not Found..');
+    });
 }
 
-function userResetPassword(password) {
 
-    axios('/resetpswd', {
-        method: "POST",
-        headers: {
-            "access-token": window.location.pathname.substr(11)
-        },
-        data: {
-            password: password
-        }
-
+function resetPassword(password,token) {   
+    axios.post(`/resetpswd/${token}`,{'password': password},{
+     headers: {
+        'token': token
+    }})
+    .then(function (response) {
+        console.log(response);
+        toast('Password changed successfully');
+            window.location.href = '/login'
     })
-        .then(function (response) {
-            // localStorage.setItem('resetToken',response.data);  
-            toast(window.location.pathname.substr(11));
-            window.location.href = '/';
-
-        })
-        .catch(function (err) {
-            toast('Invalid Data');
-            window.location.href = 'resetpswd'
-
-        });
+    .catch(function (err) {
+        console.log(err);
+        toast('Please Try Again..');
+    });
 }
-function uploadProfilePic(url, data) {
-    return axios(url, {
-      method: "PUT",
-      headers: {
-        "access-token": localStorage.getItem("token")
-      },
-      data: data
-    })
-  }
 
 export {
     userRegister,
     userLogin,
-    userForgotPassword,
-    userResetPassword,
-    uploadProfilePic
+    forgotPassword,
+    resetPassword
 }

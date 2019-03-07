@@ -54,7 +54,7 @@ class PickDateAndTime extends Component {
                                                 style={{ marginRight: "10px", padding: "0px" }}
                                                 onClick={this.handleClick.bind(this)}
                                                 alt="pick date time icon" />
-                                            Pick Date And Time</ListItem>
+                           z                 Pick Date And Time</ListItem>
 
                                         <TextField
                                             type="datetime-local"

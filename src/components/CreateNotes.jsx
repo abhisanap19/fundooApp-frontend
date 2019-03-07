@@ -34,7 +34,6 @@ class CreateNotes extends Component {
             archive: false,
             trash: false,
             newNote: {}
-
         }
         this.handleTitle = this.handleTitle.bind(this);
         this.handleDescription = this.handleDescription.bind(this);
@@ -68,7 +67,6 @@ class CreateNotes extends Component {
                     })
                     this.props.getNewNote(this.state.newNote)
                 })
-
                 .catch((error) => {
                     alert(error);
                 })

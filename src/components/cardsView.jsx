@@ -20,24 +20,23 @@ class CardsView extends Component {
     }
 
     render() {
-        return(
+        return (
             this.state.view ?
-            <div>
-                <IconButton id="cardViewIcon">
-                    <Tooltip title="List View" onClick={this.handleCardsView}>
-                        <img src={require('../assests/images/view-agenda.svg')} alt="grid icon" />
-                    </Tooltip>
-                </IconButton>
-            </div>
-                :
                 <div>
-                <IconButton id="cardViewIcon">
-                    <Tooltip title="Grid View" onClick={this.handleCardsView}>
-                        <img src={require('../assests/images/view-grid.svg')} alt="grid icon" />
-                    </Tooltip>
-                </IconButton>
+                    <IconButton id="cardViewIcon">
+                        <Tooltip title="List View" onClick={this.handleCardsView}>
+                            <img src={require('../assests/images/view-agenda.svg')} alt="grid icon" />
+                        </Tooltip>
+                    </IconButton>
                 </div>
-
+                :
+            <div>
+                    <IconButton id="cardViewIcon">
+                        <Tooltip title="Grid View" onClick={this.handleCardsView}>
+                            <img src={require('../assests/images/view-grid.svg')} alt="grid icon" />
+                        </Tooltip>
+                    </IconButton>
+                </div>
         )
 
     }

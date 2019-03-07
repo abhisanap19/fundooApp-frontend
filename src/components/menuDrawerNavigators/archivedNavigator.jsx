@@ -83,7 +83,6 @@ class ArchivedNavigator extends Component {
                                         trashNote={this.props.trashNote}
                                         archiveStatus={key.note.archive}
                                         archiveNote={this.props.archiveNote}
-                                        uploadImage={this.props.uploadImage}
 
                                     />
 

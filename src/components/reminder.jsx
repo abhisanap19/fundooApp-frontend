@@ -53,9 +53,9 @@ class Reminder extends Component {
         console.log("before",note);
         
         var date = new Date().toDateString();
-        note.remindMe = date+ ", 8 "+ampm;
-        console.log(note.remindMe);
-        this.props.reminder(note.remindMe,note._id)
+        note.reminder = date+ ", 8 "+ampm;
+        console.log(note.reminder);
+        this.props.reminder(note.reminder,note._id)
     }
     setTomorrowReminder(note){
         this.handleClose();
@@ -64,18 +64,18 @@ class Reminder extends Component {
         var date = new Date().toDateString();
         date=date.replace(new Date().getDate().toString(),new Date().getDate()+1);
         date=date.replace(days[new Date().getDay()-1],days[new Date().getDay()]);
-        note.remindMe = date+ ", 8 AM" ;
-        console.log(note.remindMe);
-        this.props.reminder(note.remindMe,note._id)
+        note.reminder = date+ ", 8 AM" ;
+        console.log(note.reminder);
+        this.props.reminder(note.reminder,note._id)
     }
     setWeeklyReminder(note){
         this.handleClose();
         console.log("before",note);
         var date = new Date().toDateString();
         date=date.replace((new Date().getDate()),(new Date().getDate()+7));
-        note.remindMe = date+ ", 8 AM" ;
-        console.log(note.remindMe);
-        this.props.reminder(note.remindMe,note._id)
+        note.reminder = date+ ", 8 AM" ;
+        console.log(note.reminder);
+        this.props.reminder(note.reminder,note._id)
     }
 
 
