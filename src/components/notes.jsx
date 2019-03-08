@@ -7,7 +7,7 @@ import ReminderNavigator from './menuDrawerNavigators/reminderNavigator';
 import TrashNavigator from './menuDrawerNavigators/trashNavigator';
 import EditPin from './editPin';
 import PinAndOthers from './pinAndOtherCards';
-import ClockIcon from './clockIcon';
+
 import { archiveArray, otherArray, trashArray, remiderArray, pinArray } from '../services/noteServices';
 import SearchedNotes from './SearchedNotes';
 import DialogBox from './Dialog';
@@ -486,19 +486,19 @@ class Cards extends Component {
                                                     {otherArr[key].collab.length > 0 ?
                                                         // eslint-disable-next-line
                                                         otherArr[key].collab.map((collabKey, index) => {
-                                                            if (otherArr[key].owner.firstname !== "") {
+                                                            if (otherArr[key].owner.firstName !== "") {
 
                                                                 return (
                                                                     <div style={{ margin: "3px" }} key={index} >
-                                                                        {collabKey.username !== localStorage.getItem('emailId') && otherArr[key].owner !== undefined ?
-                                                                            <Tooltip title={collabKey.firstname + " " + collabKey.lastname + " (" + collabKey.username + ")"}>
+                                                                        {collabKey.userName !== localStorage.getItem('emailId') && otherArr[key].owner !== undefined ?
+                                                                            <Tooltip title={collabKey.firstName + " " + collabKey.lastName + " (" + collabKey.userName + ")"}>
                                                                                 <Avatar style={{ height: "30px", width: "30px", backgroundColor: "rgb(0,0,0,.10)" }}>
-                                                                                    {collabKey.firstname.substring(0, 1)}
+                                                                                    {collabKey.firstName.substring(0, 1)}
                                                                                 </Avatar>
                                                                             </Tooltip>
-                                                                            : <Tooltip title={otherArr[key].owner.firstname + " " + otherArr[key].owner.lastname + " (" + otherArr[key].owner.username + ")"}>
+                                                                            : <Tooltip title={otherArr[key].owner.firstName + " " + otherArr[key].owner.lastName + " (" + otherArr[key].owner.userName + ")"}>
                                                                                 <Avatar style={{ height: "30px", width: "30px", backgroundColor: "rgb(0,0,0,.10)" }}>
-                                                                                    {otherArr[key].owner.firstname.substring(0, 1)}
+                                                                                    {otherArr[key].owner.firstName.substring(0, 1)}
                                                                                 </Avatar>
                                                                             </Tooltip>
                                                                         }
@@ -513,7 +513,7 @@ class Cards extends Component {
 
                                                 {otherArr[key].note.remindMe ?
 
-                                                    <Chip icon={<ClockIcon />}
+                                                    <Chip 
                                                         label={otherArr[key].note.remindMe}
                                                         onDelete={() => this.reminderNote('', otherArr[key].note._id)}
                                                     />

@@ -32,7 +32,7 @@ class UserProfile extends Component {
     render() {
 
         const { anchorEl, open, placement } = this.state;
-        const userDetails = localStorage.getItem('username');
+        const userDetails = localStorage.getItem('userName');
         //const maidId = localStorage.getItem('emailId');
         const initial = userDetails.substring(0, 1)
 

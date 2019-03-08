@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Card, Chip, createMuiTheme, MuiThemeProvider } from '@material-ui/core';
 import EditPin from '../components/editPin';
 import Tools from '../components/Tools';
-import ClockIcon from '../components/clockIcon';
+
 
 const theme = createMuiTheme({
     overrides: {
@@ -59,7 +59,7 @@ class SearchedNotes extends Component {
 
                                     {key.note.remindMe !== "" ?
                                         <Chip
-                                            icon={<ClockIcon />} label={key.note.remindMe}
+                                             label={key.note.remindMe}
                                             onDelete={() => this.props.reminder("", key.note._id)} />
                                         :
                                         null}

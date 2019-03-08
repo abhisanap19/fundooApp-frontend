@@ -10,14 +10,14 @@ class LoginInput extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      username: "",
+      userName: "",
       password: "",
       toast: false
     };
   }
-  handleusernameChange = event => {
-    const username = event.target.value;
-    this.setState({ username: username });
+  handleuserNameChange = event => {
+    const userName = event.target.value;
+    this.setState({ userName: userName });
   };
   handlepasswordChange = event => {
     const password = event.target.value;
@@ -25,8 +25,8 @@ class LoginInput extends Component {
   };
   handleSubmit = event => {
     event.preventDefault();
-    if (this.state.username === "") {
-      toast("username cannot be empty", {
+    if (this.state.userName === "") {
+      toast("userName cannot be empty", {
         position: toast.POSITION.BOTTOM_CENTER
       });
     } else if (this.state.password === "") {
@@ -34,9 +34,9 @@ class LoginInput extends Component {
         position: toast.POSITION.BOTTOM_CENTER
       });
     } else if (
-      !/[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$/.test(this.state.username)
+      !/[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$/.test(this.state.userName)
     ) {
-      toast("Invalid username", { position: toast.POSITION.BOTTOM_CENTER });
+      toast("Invalid userName", { position: toast.POSITION.BOTTOM_CENTER });
     } else if (this.state.password.length < 8) {
       toast("Password must be of atleast 8 characters long", {
         position: toast.POSITION.BOTTOM_CENTER
@@ -44,7 +44,7 @@ class LoginInput extends Component {
     } else {
       event.preventDefault();
       var data = {
-        username: this.state.username,
+        userName: this.state.userName,
         password: this.state.password
       };
       userLogin(data);
@@ -66,10 +66,10 @@ class LoginInput extends Component {
             <TextField
               id="outlined-name"
               label="Email"
-              name="username"
+              name="userName"
               type="text"
-              value={this.state.username}
-              onChange={this.handleusernameChange}
+              value={this.state.userName}
+              onChange={this.handleuserNameChange}
               margin="normal"
               variant="outlined"
             />

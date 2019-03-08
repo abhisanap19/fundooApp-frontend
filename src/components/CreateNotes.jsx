@@ -42,7 +42,6 @@ class CreateNotes extends Component {
         this.handleArchive = this.handleArchive.bind(this);
         this.handleReminder = this.handleReminder.bind(this);
         this.handlePinned = this.handlePinned.bind(this);
-
     }
     handleToggle() {
         this.setState({ openNote: !this.state.openNote });

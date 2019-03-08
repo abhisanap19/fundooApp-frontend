@@ -9,32 +9,32 @@ function userRegister(data) {
         })
         .catch(function (err) {
             console.log(err);
-            toast('User with this Username already exists!!');
+            toast('User with this userName already exists!!');
         });
 }
+
 function userLogin(data) {
     axios.post('/login',data)
         .then(function (response) {
             localStorage.setItem('token', response.data.token);
-            localStorage.setItem('username', response.data.username);
-            //localStorage.setItem('emailId', response.data.username);
+            localStorage.setItem('userName', response.data.userName);
+            //localStorage.setItem('emailId', response.data.userName);
             toast('Successfull Login!')
             localStorage.setItem('token1', true);
             window.location.href = 'dashboard'
         })
         .catch(function (err) {
             console.log(err);
-
-            toast('Invalid Username or Password');
-            window.location.href = '/login';
+            toast('Invalid userName or Password');
+            //window.location.href = '/login';
 
         });
 }
 
-function forgotPassword(username) {
+function forgotPassword(userName) {
     axios.post('/forgotpasswd',
     {
-        'username': username, 
+        'userName': userName, 
     })
     .then(function (response) {
         console.log(' response is--',response.data);
@@ -48,7 +48,6 @@ function forgotPassword(username) {
         toast('User Not Found..');
     });
 }
-
 
 function resetPassword(password,token) {   
     axios.post(`/resetpswd/${token}`,{'password': password},{
@@ -66,7 +65,7 @@ function resetPassword(password,token) {
     });
 }
 
-export {
+export{
     userRegister,
     userLogin,
     forgotPassword,

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Card, Chip } from '@material-ui/core';
 import Tools from './Tools';
 import EditPin from './editPin';
-import ClockIcon from './clockIcon';
+
 
 
 class PinAndOthers extends Component {
@@ -37,7 +37,7 @@ class PinAndOthers extends Component {
                                     </div>
                                     {key.note.remindMe ?
 
-                                        <Chip icon={<ClockIcon />}
+                                        <Chip 
                                             label={key.note.remindMe}
                                             onDelete={() => this.props.reminder("", key.note._id)}
                                         />
@@ -101,7 +101,7 @@ class PinAndOthers extends Component {
 
                                     {key.note.remindMe ?
 
-                                        <Chip icon={<ClockIcon />}
+                                        <Chip 
                                             label={key.note.remindMe}
                                             onDelete={() => this.props.reminder("", key.note._id)}
                                         />

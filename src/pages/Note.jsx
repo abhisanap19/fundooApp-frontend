@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import CreateNotes from '../components/CreateNotes';
 import AppbarComponent from '../components/Appbar';
-import Cards from '../components/Cards';
+import Cards from '../components/notes';
 class Note extends Component {
     constructor() {
         super();

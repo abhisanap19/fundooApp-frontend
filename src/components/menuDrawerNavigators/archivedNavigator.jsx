@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Card, Chip, MuiThemeProvider, createMuiTheme } from '@material-ui/core';
 import EditPin from '../editPin';
 import Tools from '../Tools';
-import ClockIcon from '../clockIcon';
+
 
 const theme = createMuiTheme({
     overrides: {
@@ -56,7 +56,7 @@ class ArchivedNavigator extends Component {
                                     </div>
                                     {key.note.remindMe ?
 
-                                        <Chip icon={<ClockIcon />}
+                                        <Chip
                                             label={key.note.remindMe}
                                             onDelete={() => this.props.reminder("", key.note._id)} />
                                         :

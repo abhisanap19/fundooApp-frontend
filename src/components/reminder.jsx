@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Popper from '@material-ui/core/Popper';
 import Fade from '@material-ui/core/Fade';
 import { MenuItem, Paper, Tooltip, ListItem, createMuiTheme, MuiThemeProvider, ClickAwayListener } from '@material-ui/core'
-import PickDateAndTime from './PickDateAndTime';
+
 
 const theme = createMuiTheme({
     overrides: {
@@ -118,12 +118,11 @@ class Reminder extends Component {
 
                                         <MenuItem className="currentDate">
                                             <div>Home</div>
-                                            <div>Seawoods Darave (W)</div>
+                                            <div>Mumbai</div>
 
                                         </MenuItem>
 
-                                       <PickDateAndTime
-                                       />
+                                       
                                         <MenuItem >Pick place</MenuItem>
                                        
                                     </div>

@@ -15,9 +15,9 @@ class RegisterInput extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      firstname: "",
-      lastname: "",
-      username: "",
+      firstName: "",
+      lastName: "",
+      userName: "",
       password: "",
       confirmPassword: "",
       showPassword: false,
@@ -26,17 +26,17 @@ class RegisterInput extends Component {
     this.baseState = this.state;
   }
 
-  handlefirstnameChange = event => {
-    const firstname = event.target.value;
-    this.setState({ firstname: firstname });
+  handlefirstNameChange = event => {
+    const firstName = event.target.value;
+    this.setState({ firstName: firstName });
   };
-  handlelastnameChange = event => {
-    const lastname = event.target.value;
-    this.setState({ lastname: lastname });
+  handlelastNameChange = event => {
+    const lastName = event.target.value;
+    this.setState({ lastName: lastName });
   };
-  handleusernameChange = event => {
-    const username = event.target.value;
-    this.setState({ username: username });
+  handleuserNameChange = event => {
+    const userName = event.target.value;
+    this.setState({ userName: userName });
   };
   handlepasswordChange = event => {
     const password = event.target.value;
@@ -48,20 +48,20 @@ class RegisterInput extends Component {
   };
   handleSubmit = event => {
     event.preventDefault();
-    if (this.state.firstname === "") {
+    if (this.state.firstName === "") {
       toast("First name cannot be empty", {
         position: toast.POSITION.BOTTOM_CENTER
       });
-    } else if (this.state.lastname === "") {
+    } else if (this.state.lastName === "") {
       toast("Last name cannot be empty", {
         position: toast.POSITION.BOTTOM_CENTER
       });
-    } else if (this.state.username === "") {
+    } else if (this.state.userName === "") {
       toast("Email cannot be empty", {
         position: toast.POSITION.BOTTOM_CENTER
       });
     } else if (
-      !/[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$/.test(this.state.username)
+      !/[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$/.test(this.state.userName)
     ) {
       toast("Invalid Email", { position: toast.POSITION.BOTTOM_CENTER });
     } else if (this.state.password === "") {
@@ -83,9 +83,9 @@ class RegisterInput extends Component {
     } else {
       event.preventDefault();
       var data = {
-        firstname: this.state.firstname,
-        lastname: this.state.lastname,
-        username: this.state.username,
+        firstName: this.state.firstName,
+        lastName: this.state.lastName,
+        userName: this.state.userName,
         password: this.state.password
       };
       userRegister(data);
@@ -107,18 +107,18 @@ class RegisterInput extends Component {
           <TextField
             id=""
             label="First Name"
-            name="firstname"
-            value={this.state.firstname}
-            onChange={this.handlefirstnameChange}
+            name="firstName"
+            value={this.state.firstName}
+            onChange={this.handlefirstNameChange}
             margin="normal"
             variant="outlined"
           />
 
           <TextField
             label="Last Name"
-            name="lastname"
-            value={this.state.lastname}
-            onChange={this.handlelastnameChange}
+            name="lastName"
+            value={this.state.lastName}
+            onChange={this.handlelastNameChange}
             margin="normal"
             variant="outlined"
           />
@@ -127,8 +127,8 @@ class RegisterInput extends Component {
           <TextField
             label="Email"
             type="email"
-            value={this.state.username}
-            onChange={this.handleusernameChange}
+            value={this.state.userName}
+            onChange={this.handleuserNameChange}
             margin="normal"
             variant="outlined"
           />

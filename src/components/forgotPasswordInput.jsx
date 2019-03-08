@@ -9,28 +9,28 @@ class ForgotPasswordInput extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      username: "",
+      userName: "",
       toast: false
     };
   }
-  handleusernameChange = event => {
-    const username = event.target.value;
-    this.setState({ username: username });
+  handleuserNameChange = event => {
+    const userName = event.target.value;
+    this.setState({ userName: userName });
   };
 
   handleSubmit = event => {
     event.preventDefault();
-    if (this.state.username === "") {
+    if (this.state.userName === "") {
       toast("Email cannot be empty", {
         position: toast.POSITION.BOTTOM_CENTER
       });
     } else if (
-      !/[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$/.test(this.state.username)
+      !/[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$/.test(this.state.userName)
     ) {
       toast("Invalid Email", { position: toast.POSITION.BOTTOM_CENTER });
     } else {
-      // console.log('31--in component--username is:',this.state.username);
-      forgotPassword(this.state.username);
+      // console.log('31--in component--userName is:',this.state.userName);
+      forgotPassword(this.state.userName);
     }
   };
   register = e => {
@@ -47,8 +47,8 @@ class ForgotPasswordInput extends Component {
               id="outlined-email-input"
               label="Enter your Email"
               type="text"
-              value={this.state.username}
-              onChange={this.handleusernameChange}
+              value={this.state.userName}
+              onChange={this.handleuserNameChange}
               margin="normal"
               variant="outlined"
             />

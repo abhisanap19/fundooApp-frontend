@@ -121,6 +121,24 @@ export function saveLabel(url,data) {
         data:data
     })
 }
+export function saveCollabs(url,data) {
+    return axios(url, {
+        method: "POST",
+        headers: {
+            "access-token": localStorage.getItem("token")
+        },
+        data:data
+    })
+}
+export function getCollabDetails(url) {
+    return axios(url, {
+        method: "GET",
+        headers: {
+            "access-token": localStorage.getItem("token")
+        }
+    })
+}
+
 
 export function updateImages(url,data) {
     return axios(url, {
