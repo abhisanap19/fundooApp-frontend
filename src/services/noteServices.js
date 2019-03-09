@@ -1,6 +1,5 @@
 import axios from 'axios'
 
-
 export function getNotes() {
     return axios('/getNotes', {
         method: "GET",
@@ -139,14 +138,11 @@ export function getCollabDetails(url) {
     })
 }
 
-
 export function updateImages(url,data) {
     return axios(url, {
         method: "PUT",
         headers: {
             "access-token": localStorage.getItem("token"),
-            // 'content-type': 'multipart/form-data'
-
         },
         data:data
     })
@@ -200,3 +196,29 @@ export function otherArray(notesData) {
     }
     return otherArr;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

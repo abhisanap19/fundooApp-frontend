@@ -51,7 +51,6 @@ class Reminder extends Component {
         this.handleClose();
         let ampm = parseInt(new Date().getHours()) >= 8 ? "PM" : "AM";
         console.log("before",note);
-        
         var date = new Date().toDateString();
         note.reminder = date+ ", 8 "+ampm;
         console.log(note.reminder);

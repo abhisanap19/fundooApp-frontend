@@ -7,10 +7,10 @@ import ReminderNavigator from './menuDrawerNavigators/reminderNavigator';
 import TrashNavigator from './menuDrawerNavigators/trashNavigator';
 import EditPin from './editPin';
 import PinAndOthers from './pinAndOtherCards';
-
 import { archiveArray, otherArray, trashArray, remiderArray, pinArray } from '../services/noteServices';
 import SearchedNotes from './SearchedNotes';
 import DialogBox from './Dialog';
+
 class Cards extends Component {
     constructor() {
         super();

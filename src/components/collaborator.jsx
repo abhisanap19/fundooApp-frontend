@@ -32,8 +32,7 @@ class Collaborator extends Component {
         }
         this.handleColab = this.handleColab.bind(this);
         this.handleInputCollab = this.handleInputCollab.bind(this);
-        this.saveCollab = this.saveCollab.bind(this);
-        // this.collabList=this.collabList.bind(this);
+        this.saveCollab = this.saveCollab.bind(this);  
     }
 
     saveCollab() {
@@ -91,7 +90,6 @@ class Collaborator extends Component {
                 this.setState({
                     collabs: result.data.data
                 })
-
                 if (this.props.collabs !== undefined && this.props.collabs.length > 0 && this.props.owner !== undefined) {
                     let newArray = [];
                     let owner = {
@@ -162,12 +160,11 @@ class Collaborator extends Component {
                         >
                             Collaborators</DialogTitle>
                         <Divider />
-                        {this.props.collabs.length === 0 ?
+                        {this.props.collabs === 0 ?
                             <div style={{ display: "flex", flexDirection: "row", paddingLeft: "10px", paddingTop: "10px", width: "530px" }}>
                                 <Avatar>{initial}</Avatar>
 
                                 <div style={{ display: "flex", flexDirection: "column", paddingLeft: "18px", paddingTop: "8px" }}>
-
                                     <div style={{ fontSize: "13px", fontFamily: "'Roboto',arial,sans-serif", fontWeight: "700" }}>
                                         {userDetails}
                                     </div>

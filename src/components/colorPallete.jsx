@@ -23,18 +23,10 @@ class ColorPallete extends Component {
 
         }
         this.handleToggle = this.handleToggle.bind(this);
-        // this.handleMouseEnter = this.handleMouseEnter.bind(this);
-        // this.handleMouseLeave = this.handleMouseLeave.bind(this);
+      
         this.handleColor = this.handleColor.bind(this);
     }
-    // handleMouseEnter() {
-    //     this.setState({ open: true });
-    //     // this.props.handleToggle(!this.state.open)
-    // }
-    // handleMouseLeave() {
-    //     this.setState({ open: false });
-    //     // this.props.handleToggle(!this.state.open)
-    // }
+   
     closePopper() {
         this.setState({
             open: false
@@ -43,8 +35,9 @@ class ColorPallete extends Component {
     handleColor(evt) {
         console.log("sasasas", this.props.noteID)
         this.props.toolsPropsToColorpallete(evt.target.value, this.props.noteID);
+     }
 
-    }
+
     handleToggle() {
         this.setState({ open: !this.state.open });
         this.props.handleToggle(!this.state.open)

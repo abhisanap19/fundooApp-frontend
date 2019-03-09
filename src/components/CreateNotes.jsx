@@ -45,8 +45,7 @@ class CreateNotes extends Component {
     }
     handleToggle() {
         this.setState({ openNote: !this.state.openNote });
-        console.log("pinned", this.state);
-
+        // console.log("pinned", this.state);
         if (this.state.title !== '' || this.state.description !== '' || this.state.color !== "rgb(255, 255, 255)") {
             const note = {
                 title: this.state.title,
@@ -165,6 +164,7 @@ class CreateNotes extends Component {
                         />
                         <div className="cardToolsClose" >
                             <Tools
+                            reminder={this.handleReminder}
                                 createNotePropsToTools={this.handleColor}
                                 archiveNote={this.handleArchive}
                                 archiveStatus={this.state.archive} />
