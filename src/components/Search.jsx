@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Card, Chip, createMuiTheme, MuiThemeProvider } from '@material-ui/core';
-import EditPin from '../components/editPin';
-import Tools from '../components/Tools';
+import EditPin from './editPin';
+import Tools from './Tools';
 
 
 const theme = createMuiTheme({

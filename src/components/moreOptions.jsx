@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { MenuItem, Popper, Paper, Fade, Tooltip, ClickAwayListener, createMuiTheme, MuiThemeProvider } from '@material-ui/core';
-import AddLabelsOnNote from './addLabelsOnNote';
+import AddLabelsOnNote from './addLabels';
 
 const theme = createMuiTheme({
     overrides: {

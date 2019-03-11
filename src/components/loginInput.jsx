@@ -4,6 +4,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { Button } from "@material-ui/core";
 import TextField from "@material-ui/core/TextField";
+import GoogleLoginPage from '../components/googleLogin'
 import { userLogin }  from "../services/user_service";
 
 class LoginInput extends Component {
@@ -106,6 +107,9 @@ class LoginInput extends Component {
               >
                 <b>CREATE ACCOUNT</b>
               </Button>
+              <div>
+             < GoogleLoginPage/>
+             </div>
               <Button
                 id="createAcc1"
                 type="submit"
@@ -113,6 +117,7 @@ class LoginInput extends Component {
               >
                 <b>FORGOT PASSWORD?</b>
               </Button>
+            
             </div>
           </div>
         </div>

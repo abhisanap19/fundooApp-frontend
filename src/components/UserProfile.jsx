@@ -28,7 +28,7 @@ class UserProfile extends Component {
     triggerInputFile() {
         this.fileInput.click();
     }
-  
+    
     render() {
 
         const { anchorEl, open, placement } = this.state;

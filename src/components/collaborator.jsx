@@ -9,8 +9,7 @@ const theme = createMuiTheme({
             paperWidthSm: {
                 width: "600px",
                 margin: "0px",
-                borderBottomLeftRadius: "20px",
-                borderTopRightRadius: "20px",
+               
                 overflowY: "hidden"
             }
         },
@@ -178,7 +177,7 @@ class Collaborator extends Component {
                             : null}
                         {collabDetails}
                         <div style={{ paddingLeft: "10px", paddingTop: "12px", paddingBottom: "10px", display: "flex", flexDirection: "row" }}>
-                            <Avatar style={{ backgroundColor: "transparent", border: "1px solid grey" }}>
+                            <Avatar style={{ backgroundColor: "transparent" }}>
                                 <img src={notePerson} alt="colabIcon" />
                             </Avatar>
                             <Input

@@ -71,3 +71,14 @@ export{
     forgotPassword,
     resetPassword
 }
+
+
+// export function cardArr(notesData) {
+//     let cardArr = [];
+//     for (let i = 0; i < notesData.length; i++) {
+//         if (!notesData[i].note.pinned && !notesData[i].note.archive && !notesData[i].note.trash) {
+//             cardArr.push(notesData[i]);
+//         }
+//     }
+//     return cardArr;
+// }

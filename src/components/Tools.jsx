@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Reminder from './reminder'
 import Collaborator from './collaborator'
-import ColorPallete from './colorPallete'
+import ColorPallete from './color'
 import UploadImage from './imageUpload'
 import Archive from './archive'
 import MoreOptions from './moreOptions'

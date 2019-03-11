@@ -2,13 +2,13 @@ import React, { Component } from 'react';
 import { Card, Chip, Tooltip, Avatar } from '@material-ui/core';
 import Tools from './Tools';
 import { getNotes, updateColor, updatePin, setReminder, isTrashed, updateArchiveStatus, deleteNoteForever, updateTitle, updateDescription, saveLabel, updateImages } from '../services/noteServices'
-import ArchivedNavigator from './menuDrawerNavigators/archivedNavigator';
-import ReminderNavigator from './menuDrawerNavigators/reminderNavigator';
-import TrashNavigator from './menuDrawerNavigators/trashNavigator';
+import ArchivedNavigator from "./menuNevigate/archivedNavigator"
+import ReminderNavigator from './menuNevigate/reminderNavigator';
+import TrashNavigator from './menuNevigate/trashNavigator';
 import EditPin from './editPin';
-import PinAndOthers from './pinAndOtherCards';
+import PinAndOthers from './otherAndPin';
 import { archiveArray, otherArray, trashArray, remiderArray, pinArray } from '../services/noteServices';
-import SearchedNotes from './SearchedNotes';
+import SearchedNotes from './Search';
 import DialogBox from './Dialog';
 
 class Cards extends Component {
@@ -234,8 +234,6 @@ class Cards extends Component {
         }
         setReminder('/remindMe', remindMe)
             .then((result) => {
-
-
                 let newArray = this.state.notes
                 for (let i = 0; i < newArray.length; i++) {
                     if (newArray[i].note._id === noteId) {

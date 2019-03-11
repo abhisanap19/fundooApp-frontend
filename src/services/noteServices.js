@@ -187,6 +187,7 @@ export function archiveArray(notesData) {
     }
     return archiveArr;
 }
+
 export function otherArray(notesData) {
     let otherArr = [];
     for (let i = 0; i < notesData.length; i++) {

@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import Popper from '@material-ui/core/Popper';
 import Fade from '@material-ui/core/Fade';
 import { MenuItem, Paper, Tooltip, ListItem, createMuiTheme, MuiThemeProvider, ClickAwayListener } from '@material-ui/core'
-
-
 const theme = createMuiTheme({
     overrides: {
         MuiMenuItem: {
