@@ -332,7 +332,7 @@ class Cards extends Component {
     }
     render() {
 
-        let cardsView = this.props.noteProps ? "cards" : "listCards";
+        let cardsView = this.props.noteProps ? "listCards" : "cards";
 
         if ((this.props.searchNote !== "" || this.state.label) && (!this.props.navigateArchived
             && !this.props.navigateReminder && !this.props.navigateTrashed)) {

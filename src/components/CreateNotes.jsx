@@ -138,6 +138,7 @@ class CreateNotes extends Component {
                         <div className="createNotePinIcon">
                             <Input
                                 className="titleInput"
+                                multiline
                                 disableUnderline={true}
                                 placeholder="Title"
                                 value={this.state.title}

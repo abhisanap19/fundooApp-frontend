@@ -1,23 +1,23 @@
 import React, { Component } from 'react';
 import notePerson from '../assests/images/addPerson.svg';
-import { Avatar, Tooltip, Dialog, DialogTitle, createMuiTheme, Button, Divider, Input, MuiThemeProvider} from '@material-ui/core';
+import { Avatar, Tooltip, Dialog, DialogTitle, Button, Divider, Input} from '@material-ui/core';
 import { getCollabDetails, saveCollabs } from '../services/noteServices';
 
-const theme = createMuiTheme({
-    overrides: {
-        MuiDialog: {
-            paperWidthSm: {
-                width: "600px",
-                margin: "0px",
+// const theme = createMuiTheme({
+//     overrides: {
+//         MuiDialog: {
+//             paperWidthSm: {
+//                 width: "600px",
+//                 margin: "0px",
                
-                overflowY: "hidden"
-            }
-        },
-    },
-    typography: {
-        useNextVariants: true,
-    },
-})
+//                 overflowY: "hidden"
+//             }
+//         },
+//     },
+//     typography: {
+//         useNextVariants: true,
+//     },
+// })
 
 class Collaborator extends Component {
     constructor() {
@@ -120,7 +120,6 @@ class Collaborator extends Component {
         const mailId = localStorage.getItem('emailId');
         const initial = userDetails.substring(0, 1);
         let collaborators = this.state.collabSelection;
-
         let collabDetails = collaborators.map((key) =>
 
             <div style={{ display: "flex", flexDirection: "row", paddingLeft: "10px", paddingTop: "10px", width: "530px" }}>
@@ -142,18 +141,14 @@ class Collaborator extends Component {
         )
 
         return (
-            <MuiThemeProvider theme={theme}>
+            <div>
                 <Tooltip title="Collaborator">
                     <img src={notePerson} alt="Add Person icon"
                         onClick={this.handleColab}
                     />
-
                 </Tooltip>
-
                 {this.state.open ?
-
                     <Dialog id="colabDialog" open={this.state.open}>
-                  
                         <DialogTitle
                             style={{ fontSize: "25px", fontFamily: "georgia", fontWeight: "700" }}
                         >
@@ -204,7 +199,7 @@ class Collaborator extends Component {
                     </Dialog>
                     :
                     null}
-            </MuiThemeProvider>
+            </div>
         )
     }
 }
