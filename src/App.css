@@ -555,15 +555,7 @@ padding-left: 1px;
   transition: 5s;
 }
 
-/* .colorPalleteCard:hover{
-position: absolute;
-padding: 10px;
-max-width: 136px;
-display: flex;
-justify-content: space-between;
-flex-wrap: wrap;
-z-index: 2;
-} */
+
 
 .colorPalleteCard div IconButton {
   margin: 5px;
@@ -729,6 +721,29 @@ div .currentDate {
   display: flex;
   line-height: 3
 }
+
+.archievedLabel{
+  font-family: georgia;
+  font-size: 15px;
+  color: grey;
+  margin-right: 760px
+}
+.commonImg{
+  max-width:100%;
+  height: auto
+}
+
+
+
+
+
+
+
+
+
+
+
+
 
 @media only screen and (min-width:320px) and (max-width:535px) {
   #appBarIcons {

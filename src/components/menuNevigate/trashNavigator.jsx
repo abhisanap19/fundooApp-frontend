@@ -21,7 +21,7 @@ const theme = createMuiTheme({
 
 class TrashNavigator extends Component {
     render() {
-        let cardsView = this.props.noteProps ? "cards" : "listCards";
+        let cardsView = this.props.noteProps ? "listCards" : "cards";
         return (
             <MuiThemeProvider theme={theme}>
                 <label style={{ fontFamily: "georgia", fontSize: "15px", color: "grey", marginRight: "760px" }}>TRASHED</label>

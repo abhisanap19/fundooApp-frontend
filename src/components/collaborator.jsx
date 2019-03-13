@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import notePerson from '../assests/images/addPerson.svg';
-import { Avatar, Tooltip, Dialog, DialogTitle, Button, Divider, Input} from '@material-ui/core';
+import {Avatar, Tooltip, Dialog, DialogTitle, Button, Divider, Input} from '@material-ui/core';
+import { toast } from "react-toastify";
 import { getCollabDetails, saveCollabs } from '../services/noteServices';
+
 
 // const theme = createMuiTheme({
 //     overrides: {
@@ -65,10 +67,12 @@ class Collaborator extends Component {
             
         }
     }
+    
     handleColab() {
         this.setState({
             open: !this.state.open
         });
+        toast("Invalid user")
     }
     handleInputCollab(e) {
         this.setState({
@@ -93,6 +97,7 @@ class Collaborator extends Component {
                     let newArray = [];
                     let owner = {
                         _id: this.props.owner._id,
+
                         firstName: this.props.owner.firstName,
                         lastName: this.props.owner.lastName + " (Owner)",
                         userName: this.props.owner.userName

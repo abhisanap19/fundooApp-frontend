@@ -10,7 +10,6 @@ class CardsView extends Component {
             view: false
         }
         this.handleCardsView = this.handleCardsView.bind(this);
-
     }
 
     handleCardsView(evt) {

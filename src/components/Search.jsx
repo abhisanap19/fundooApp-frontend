@@ -1,35 +1,35 @@
 import React, { Component } from 'react';
-import { Card, Chip, createMuiTheme, MuiThemeProvider } from '@material-ui/core';
+import { Card, Chip } from '@material-ui/core';
 import EditPin from './editPin';
 import Tools from './Tools';
 
 
-const theme = createMuiTheme({
-    overrides: {
-        MuiChip: {
-            root: {
-                fontSize: 10,
-                marginTop: 15,
-                height: 20,
-                backgroundColor: "rgba(0, 0, 0, 0.10)",
-                padding: 2
-            },
-            deleteIcon: {
-                width: 20,
-                height: 20
-            }
-        },
-    },
-    typography: {
-        useNextVariants: true,
-    },
-})
+// const theme = createMuiTheme({
+//     overrides: {
+//         MuiChip: {
+//             root: {
+//                 fontSize: 10,
+//                 marginTop: 15,
+//                 height: 20,
+//                 backgroundColor: "rgba(0, 0, 0, 0.10)",
+//                 padding: 2
+//             },
+//             deleteIcon: {
+//                 width: 20,
+//                 height: 20
+//             }
+//         },
+//     },
+//     typography: {
+//         useNextVariants: true,
+//     },
+// })
 
 class SearchedNotes extends Component {
     render() {
-        let cardsView = this.props.noteProps ? "cards" : "listCards";
+        let cardsView = this.props.noteProps ? "listCards" : "cards";
         return (
-            <MuiThemeProvider theme={theme}>
+            <div>
                 <label style={{ fontFamily: "georgia", fontSize: "15px", color: "grey", marginRight: "668px" }}>SEARCHED NOTES</label>
                 <div className="CardsView" style={{ marginBottom: "30px" }}>
                     {this.props.searchNote.map((key) => {
@@ -97,7 +97,7 @@ class SearchedNotes extends Component {
                     })
                     }
                 </div>
-            </MuiThemeProvider>
+            </div>
         )
     }
 }

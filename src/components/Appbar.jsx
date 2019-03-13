@@ -3,7 +3,6 @@ import { AppBar, Toolbar, IconButton, InputBase, MuiThemeProvider, createMuiThem
 import MenuIcon from '@material-ui/icons/Menu'
 import SearchIcon from '@material-ui/icons/Search'
 import UserProfile from './UserProfile';
-
 import DrawerMenu from './menuDrawer';
 import CardsView from './cardsView';
 const theme = createMuiTheme({
@@ -47,9 +46,9 @@ const theme = createMuiTheme({
         },
 
     },
-    typography: {
-        useNextVariants: true,
-    },
+    // typography: {
+    //     useNextVariants: true,
+    // },
 })
 
 class AppbarComponent extends Component {

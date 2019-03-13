@@ -26,10 +26,10 @@ const theme = createMuiTheme({
 })
 class ArchivedNavigator extends Component {
     render() {
-        let cardsView = this.props.noteProps ? "cards" : "listCards";
+        let cardsView = this.props.noteProps ? "listCards" : "cards";
         return (
             <MuiThemeProvider theme={theme}>
-                <label style={{ fontFamily: "georgia", fontSize: "15px", color: "grey", marginRight: "760px" }}>ARCHIVED</label>
+                <label className="archievedLabel" >ARCHIVED</label>
                 <div className="CardsView">
                     {this.props.archiveArray.map((key) => {
                         return (
@@ -37,10 +37,8 @@ class ArchivedNavigator extends Component {
                                 <div>
                                     <div>
                                         {key.note.img !== "" ?
-                                            <img style={{
-                                                maxWidth: "100%",
-                                                height: "auto"
-                                            }} src={key.note.img} alt="cardImage"></img>
+                                            <img  className="commonImg"
+                                             src={key.note.img} alt="cardImage"></img>
                                             : null}
                                     </div>
                                     <div style={{ display: "flex", justifyContent: "space-between" }}>
