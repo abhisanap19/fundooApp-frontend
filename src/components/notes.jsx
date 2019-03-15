@@ -127,7 +127,6 @@ class Cards extends Component {
 
 
     }
-
     editDescription(value, noteId) {
         const description = {
             noteID: noteId,

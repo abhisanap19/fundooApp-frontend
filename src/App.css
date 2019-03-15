@@ -384,7 +384,6 @@ padding-left: 1px;
 
 #appbar {
   background-color: white;
-  box-shadow: 0 0;
   border-bottom: 1px solid lightgray;
 }
 
@@ -705,6 +704,7 @@ div .currentDate {
 
 .editDialog {
   display: flex;
+
   flex-direction: row;
 }
 

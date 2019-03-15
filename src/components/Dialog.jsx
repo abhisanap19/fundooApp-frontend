@@ -9,7 +9,6 @@ const theme = createMuiTheme({
         MuiDialog: {
             paperWidthSm: {
                 width: "600px",
-                height: "200px",
                 margin: "0px",
             },
 
@@ -69,6 +68,7 @@ class DialogBox extends Component {
         return (
             <MuiThemeProvider theme={theme}>
                 <Dialog
+                className="dialogview"
                     id="editDialogBox"
                     open={this.props.parentProps}
                     noteID={this.props.noteID}

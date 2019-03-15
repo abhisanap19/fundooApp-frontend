@@ -105,7 +105,7 @@ class RegisterInput extends Component {
       <div >
         <div className="flname">
           <TextField
-            id=""
+            id="firstName"
             label="First Name"
             name="firstName"
             value={this.state.firstName}
@@ -115,6 +115,7 @@ class RegisterInput extends Component {
           />
 
           <TextField
+          id="lastName"
             label="Last Name"
             name="lastName"
             value={this.state.lastName}
@@ -125,6 +126,7 @@ class RegisterInput extends Component {
         </div>
         <div className="remail">
           <TextField
+          id="userName"
             label="Email"
             type="email"
             value={this.state.userName}
@@ -136,6 +138,7 @@ class RegisterInput extends Component {
 
         <div className="rpassword">
           <TextField
+          id="password"
             label="Password"
             type="password"
             value={this.state.password}
@@ -155,6 +158,7 @@ class RegisterInput extends Component {
           />
 
           <TextField
+          id="confirmPassword"
             label="confirmPassword"
             type="password"
             value={this.state.confirmPassword}

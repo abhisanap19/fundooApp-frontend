@@ -3,28 +3,6 @@ import { Card, Chip } from '@material-ui/core';
 import EditPin from './editPin';
 import Tools from './Tools';
 
-
-// const theme = createMuiTheme({
-//     overrides: {
-//         MuiChip: {
-//             root: {
-//                 fontSize: 10,
-//                 marginTop: 15,
-//                 height: 20,
-//                 backgroundColor: "rgba(0, 0, 0, 0.10)",
-//                 padding: 2
-//             },
-//             deleteIcon: {
-//                 width: 20,
-//                 height: 20
-//             }
-//         },
-//     },
-//     typography: {
-//         useNextVariants: true,
-//     },
-// })
-
 class SearchedNotes extends Component {
     render() {
         let cardsView = this.props.noteProps ? "listCards" : "cards";

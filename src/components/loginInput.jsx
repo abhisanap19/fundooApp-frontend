@@ -5,7 +5,7 @@ import "react-toastify/dist/ReactToastify.css";
 import { Button } from "@material-ui/core";
 import TextField from "@material-ui/core/TextField";
 import GoogleLoginPage from '../components/googleLogin'
-import { userLogin }  from "../services/user_service";
+import { userLogin } from "../services/user_service";
 
 class LoginInput extends Component {
   constructor(props) {
@@ -65,6 +65,7 @@ class LoginInput extends Component {
         <div>
           <div className="username">
             <TextField
+              
               id="outlined-name"
               label="Email"
               name="userName"
@@ -75,9 +76,10 @@ class LoginInput extends Component {
               variant="outlined"
             />
           </div>
-        
+
           <div className="loginPass">
             <TextField
+              
               id="outlined-password-input"
               label="Enter your Password"
               type="password"
@@ -90,7 +92,7 @@ class LoginInput extends Component {
 
           <div className="signIn1">
             <Button
-             id="signIn2"
+              id="signIn2"
               type="submit"
               onClick={this.handleSubmit}
             >
@@ -98,18 +100,18 @@ class LoginInput extends Component {
             </Button>
 
             <div
-             className="createAcc1"
+              className="createAcc1"
             >
               <Button
-               id="createAcc1"
+                id="createAcc1"
                 type="submit"
                 onClick={this.register}
               >
                 <b>CREATE ACCOUNT</b>
               </Button>
               <div>
-             < GoogleLoginPage/>
-             </div>
+                < GoogleLoginPage />
+              </div>
               <Button
                 id="createAcc1"
                 type="submit"
@@ -117,7 +119,7 @@ class LoginInput extends Component {
               >
                 <b>FORGOT PASSWORD?</b>
               </Button>
-            
+
             </div>
           </div>
         </div>

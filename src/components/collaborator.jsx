@@ -3,24 +3,6 @@ import notePerson from '../assests/images/addPerson.svg';
 import {Avatar, Tooltip, Dialog, DialogTitle, Button, Divider, Input} from '@material-ui/core';
 import { toast } from "react-toastify";
 import { getCollabDetails, saveCollabs } from '../services/noteServices';
-
-
-// const theme = createMuiTheme({
-//     overrides: {
-//         MuiDialog: {
-//             paperWidthSm: {
-//                 width: "600px",
-//                 margin: "0px",
-               
-//                 overflowY: "hidden"
-//             }
-//         },
-//     },
-//     typography: {
-//         useNextVariants: true,
-//     },
-// })
-
 class Collaborator extends Component {
     constructor() {
         super();
@@ -38,10 +20,8 @@ class Collaborator extends Component {
 
     saveCollab() {
         if (this.state.inputCollab!==""){
-
             let collabData = this.state.collabs.filter(obj => obj.userName === this.state.inputCollab);
             console.log("collabData", collabData, this.props.noteId);
-    
             let newArray = [];
             newArray.push(collabData[0]);
             this.setState({
