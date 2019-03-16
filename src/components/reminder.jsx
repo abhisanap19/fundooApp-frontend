@@ -121,7 +121,6 @@ class Reminder extends Component {
 
                                        
                                         <MenuItem >Pick place</MenuItem>
-                                       
                                     </div>
                                     </ClickAwayListener>
                                 </Paper>

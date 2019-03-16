@@ -19,6 +19,9 @@ function userLogin(data) {
             localStorage.setItem('token', response.data.token);
             localStorage.setItem('userName', response.data.userName);
             //localStorage.setItem('emailId', response.data.userName);
+            console.log("profilepice",response.data);
+            localStorage.setItem("profilePic",response.data.profilePic); 
+
             toast('Successfull Login!')
             localStorage.setItem('token1', true);
             window.location.href = 'dashboard'
@@ -65,20 +68,24 @@ function resetPassword(password,token) {
     });
 }
 
+
+function uploadProfilePic(url, data) {
+    return axios(url, {
+      method: "PUT",
+      headers: {
+        "access-token": localStorage.getItem("token")
+      },
+      data: data
+    })
+  }
+
 export{
     userRegister,
     userLogin,
     forgotPassword,
-    resetPassword
+    resetPassword,
+    uploadProfilePic
 }
 
 
-// export function cardArr(notesData) {
-//     let cardArr = [];
-//     for (let i = 0; i < notesData.length; i++) {
-//         if (!notesData[i].note.pinned && !notesData[i].note.archive && !notesData[i].note.trash) {
-//             cardArr.push(notesData[i]);
-//         }
-//     }
-//     return cardArr;
-// }
+
