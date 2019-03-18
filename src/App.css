@@ -734,11 +734,17 @@ div .currentDate {
 }
 
 
-
-
-
-
-
+.MuiBackdrop-root-1139 {
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+  position: fixed;
+  touch-action: none;
+  background-color: rgba(0, 0, 0,.15);
+  -webkit-tap-highlight-color: transparent;
+}
 
 
 

@@ -65,7 +65,6 @@ class LoginInput extends Component {
         <div>
           <div className="username">
             <TextField
-              
               id="outlined-name"
               label="Email"
               name="userName"

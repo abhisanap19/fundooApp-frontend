@@ -29,7 +29,7 @@ class ForgotPasswordInput extends Component {
     ) {
       toast("Invalid Email", { position: toast.POSITION.BOTTOM_CENTER });
     } else {
-      // console.log('31--in component--userName is:',this.state.userName);
+     
       forgotPassword(this.state.userName);
     }
   };

@@ -71,7 +71,7 @@ function resetPassword(password,token) {
 
 function uploadProfilePic(url, data) {
     return axios(url, {
-      method: "PUT",
+      method: "POST",
       headers: {
         "access-token": localStorage.getItem("token")
       },

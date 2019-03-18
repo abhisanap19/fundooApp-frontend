@@ -83,7 +83,7 @@ class Cards extends Component {
     uploadImage(value, noteId) {
         console.log("image:------------", value);
         let data = new FormData();
-        data.append('file', value);
+        data.append('image', value);
         data.append('noteID', noteId);
         console.log("request", data);
 
