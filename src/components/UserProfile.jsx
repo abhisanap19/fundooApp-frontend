@@ -4,6 +4,7 @@ import { IconButton, MenuItem, Paper, Tooltip, Avatar } from '@material-ui/core'
 import Fade from '@material-ui/core/Fade';
 import { uploadProfilePic } from '../services/user_service';
 
+
 class UserProfile extends Component {
     afdadsNote(e) {
         e.preventDefault();
@@ -138,3 +139,6 @@ class UserProfile extends Component {
     }
 }
 export default UserProfile;
+
+
+
