@@ -100,7 +100,6 @@ class Collaborator extends Component {
             })
     }
     render() {
-
         const userDetails = localStorage.getItem('userName');
         const mailId = localStorage.getItem('emailId');
         const initial = userDetails.substring(0, 1);
