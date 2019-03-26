@@ -464,6 +464,7 @@ class Cards extends Component {
                                                 </div>
 
                                                 <DialogBox
+                                                
                                                     ref={this.cardsToDialogBox}
                                                     parentProps={this.state.open}
                                                     handleEdit={this.handleClick}

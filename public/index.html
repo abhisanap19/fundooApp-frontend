@@ -37,5 +37,26 @@
       To begin the development, run `npm start` or `yarn start`.
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
+    <script>
+      // Initialize Firebase
+      var config = {
+        apiKey: "AIzaSyAWKn2Ew-WmMiMRtoUtHMnhZT7Aczi3nwM",
+        authDomain: "fundo-234204.firebaseapp.com",
+        databaseURL: "https://fundo-234204.firebaseio.com",
+        projectId: "fundo-234204",
+        storageBucket: "fundo-234204.appspot.com",
+        messagingSenderId: "1094699433519"
+      };
+      firebase.initializeApp(config);
+
+      const messaging = firebase.messaging();
+      messaging.requestPermission().then(function() {
+  console.log('Notification permission granted.');
+  // TODO(developer): Retrieve an Instance ID token for use with FCM.
+  // ...
+}).catch(function(err) {
+  console.log('Unable to get permission to notify.', err);
+});
+    </script>
   </body>
 </html>
