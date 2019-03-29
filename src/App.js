@@ -11,12 +11,14 @@ import VerifyEmail from './pages/verifyEmail';
 
 
 
+
 class App extends Component {
   render() {
     return (
       <div>
         <Router>
           <div className="App">
+        
             <Route path="/login" component={login}></Route>
             <Route path="/registration" component={register}></Route>
             <Route path="/dashboard" component={Notes}></Route>
