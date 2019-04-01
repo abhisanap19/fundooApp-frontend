@@ -8,10 +8,6 @@ import forgotPassword from './pages/forgotPassword';
 import resetPassword from './pages/resetPassword';
 import VerifyEmail from './pages/verifyEmail';
 //import Cards from './pages/complex';
-
-
-
-
 class App extends Component {
   render() {
     return (

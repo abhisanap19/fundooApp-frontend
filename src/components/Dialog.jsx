@@ -56,7 +56,7 @@ class DialogBox extends Component {
                 description: note.description,
             })
         }
-        console.log("bambjasjajasas", this.props.note);
+        console.log("bambsd", this.props.note);
 
     }
     closeDialogPopper(e) {
