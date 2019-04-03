@@ -9,7 +9,7 @@ function userRegister(data) {
         })
         .catch(function (err) {
             console.log(err);
-            toast('User with this userName already exists!!');
+            toast('User with this userName already  exists!!');
         });
 }
 
@@ -20,7 +20,7 @@ function userLogin(data) {
             localStorage.setItem('userName', response.data.userName);
             //localStorage.setItem('emailId', response.data.userName);
             console.log("profilepice",response.data);
-            localStorage.setItem("profilePic",response.data.profilePic); 
+            localStorage.setItem("profilePic",response.data.profilePic);
 
             toast('Successfull Login!')
             localStorage.setItem('token1', true);

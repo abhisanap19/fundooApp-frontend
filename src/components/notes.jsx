@@ -418,6 +418,7 @@ class Cards extends Component {
                     {pinArray(this.state.notes).length !== 0 ?
                         <PinAndOthers
                             createNotePropsToTools={this.getColor}
+                            img2={this.uploadImage}
                             addLabelToNote={this.addLabelToNote}
                             deleteLabelFromNote={this.deleteLabelFromNote}
                             pinArray={pinArray(this.state.notes)}
@@ -473,6 +474,7 @@ class Cards extends Component {
                                                     editTitle={this.editTitle}
                                                     editDescription={this.editDescription}
                                                     createNotePropsToTools={this.getColor}
+                                                    img2={this.uploadImage}
 
                                                 />
 
@@ -534,6 +536,7 @@ class Cards extends Component {
 
                                             <div className="noteicons">
                                                 <Tools createNotePropsToTools={this.getColor}
+                                                       img2={this.uploadImage}
                                                     deleteLabelFromNote={this.deleteLabelFromNote}
                                                     collab={otherArr[key].collab}
                                                     owner={otherArr[key].owner}

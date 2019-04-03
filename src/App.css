@@ -761,7 +761,18 @@ div .currentDate {
 } */
 
 
-
+.dialogInputBase{
+  margin-top: 0%;
+  width:460%;
+  overflow: '-webkit-paged-x';
+  height: 'auto';
+  
+}
+#dialogbox{
+  padding: 0px;
+  height: auto;
+  border-radius: 10px;
+}
 
 
 

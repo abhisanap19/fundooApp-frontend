@@ -107,7 +107,6 @@ class LoginInput extends Component {
               >
                 <b>CREATE ACCOUNT</b>
               </Button>
-            
               <Button
                 id="createAcc1"
                 type="submit"

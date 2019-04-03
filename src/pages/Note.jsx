@@ -70,6 +70,12 @@ class Note extends Component {
         this.noteToCards.current.makeLabelFalse();
     }
     render() {
+        if(localStorage.getItem('token1') !== "true"){
+            return(
+              window.location.href = 'login'
+            )
+          }
+          else{
         const slidingCards = this.state.slideCards ? "afterSlide" : "beforeSlide"
         return (
             <div className={slidingCards}>
@@ -97,6 +103,7 @@ class Note extends Component {
                 </div>
             </div>
         )
+          }
     }
 }
 export default Note;

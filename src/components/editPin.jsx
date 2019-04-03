@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 import { Tooltip } from '@material-ui/core';
-
-
 class EditPin extends Component {
     constructor(props) {
         super(props);
@@ -22,6 +20,7 @@ class EditPin extends Component {
         }
     }
     async handleClick() {
+        await this.setState({isPinned:this.props.pinStatus})
         await this.setState({ isPinned: !this.state.isPinned });
         this.props.cardPropsToPin(this.state.isPinned, this.props.noteID)
     }
@@ -29,7 +28,8 @@ class EditPin extends Component {
     render() {
         
         return (
-            this.state.isPinned ?
+            <div>
+            {this.props.pinStatus?
 
                 <Tooltip title="Unpin Note" onClick={this.handleClick}>
                     <img src={require('../assests/images/pinAfterClick.svg')}
@@ -42,6 +42,8 @@ class EditPin extends Component {
                     <img src={require('../assests/images/pinBeforeClick.svg')}
                         className="pinIcon" alt="pinIcon" />
                 </Tooltip>
+            }
+            </div>
         )
     }
 }
