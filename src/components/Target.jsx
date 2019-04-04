@@ -1,21 +1,14 @@
 
 // import React, { Component } from 'react';
-// import Item from './Item';
+// import notes from './Item';
 // import HTML5Backend from 'react-dnd-html5-backend'
 // import { DragDropContext } from 'react-dnd'
 
 
 // class App extends Component {
 //   state = {
-//     items: [
-//       { id: 1, name: 'Item 1' },
-//       { id: 2, name: 'Item 2' },
-//       { id: 3, name: 'Item 3' },
-//       { id: 4, name: 'Item 4' },
-//     ],
+//     notes: [],
    
-  
- 
 //   }
 //   render() {
 //     return (
@@ -23,9 +16,9 @@
         
 //         <div className="App-intro">
 //           <div className="app-container">
-//             <div className="item-container">
-//               {this.state.items.map((item, index) => (
-//                 <Item key={item.id} item={item} handleDrop={(id) => this.deleteItem(id)} />
+//             <div className="notes-container">
+//               {this.state.notes.map((notes, index) => (
+//                 <notes key={notes.id} notes={notes} handleDrop={(id) => this.deletenotes(id)} />
 //               ))}
 //             </div>
 

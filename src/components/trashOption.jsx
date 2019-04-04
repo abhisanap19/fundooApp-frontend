@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { MenuItem, Popper, Fade, Paper, Tooltip } from "@material-ui/core";
+import HTML5Backend from 'react-dnd-html5-backend'
+import { DragDropContext } from 'react-dnd'
 
 class TrashOptions extends Component {
     constructor() {
@@ -52,4 +54,4 @@ class TrashOptions extends Component {
         )
     }
 }
-export default TrashOptions;
+export default DragDropContext(HTML5Backend) (TrashOptions);

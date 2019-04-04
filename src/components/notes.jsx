@@ -10,6 +10,7 @@ import PinAndOthers from './otherAndPin';
 import { archiveArray, otherArray, trashArray, remiderArray, pinArray } from '../services/noteServices';
 import SearchedNotes from './Search';
 import DialogBox from './Dialog';
+import Draggable from 'react-draggable'; 
 
 class Cards extends Component {
     constructor() {
@@ -60,6 +61,7 @@ class Cards extends Component {
             });
     }
     getColor(value, noteId) {
+        try{
         const color = {
             noteID: noteId,
             color: value
@@ -79,8 +81,12 @@ class Cards extends Component {
             .catch((error) => {
                 alert(error)
             });
+        }catch(err){
+            console.log("error in get color");
+        }
     }
     uploadImage(value, noteId) {
+        try{
         console.log("image:------------", value);
         let data = new FormData();
         data.append('image', value);
@@ -102,6 +108,9 @@ class Cards extends Component {
                 }
 
             })
+        }catch(err){
+            console.log("error in upload image");
+        }
     }
 
     editTitle(value, noteId) {
@@ -438,8 +447,9 @@ class Cards extends Component {
 
                             {Object.keys(otherArr).map((key) => {
                                 console.log("otherArr", otherArr[key].note);
-
+                                
                                 return (
+                               <Draggable>
                                     <div key={key} id="cardsViewDiv">
                                         <Card className={cardsView}
                                             style={{ backgroundColor: otherArr[key].note.color, borderRadius: "10px", border: "1px solid #dadce0" }}
@@ -552,6 +562,7 @@ class Cards extends Component {
 
                                         </Card>
                                     </div>
+                                    </Draggable>
                                 )
                             })}
 

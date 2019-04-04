@@ -64,13 +64,19 @@ export default class DialogBox extends Component {
         await this.setState({ description: evt.target.value })
     }
     async handleToggle(e) {
+        try{
         console.log("this.state.title==>", this.state.title);
         console.log("this.state.description==>", this.state.description);
         await this.props.editTitle(this.state.title, this.state._id)
         await this.props.editDescription(this.state.description, this.state._id)
         this.props.closeEditBox(e);
+        }catch(err){
+            console.log("error in handle toggle");
+        }
     }
+
     getData(note) {
+        try{
         console.log('rfdtgdrt' + note);
         console.log("note in dialog", note);
         if (note.title !== undefined || note.description !== undefined) {
@@ -86,7 +92,10 @@ export default class DialogBox extends Component {
                 img: note.img
             })
         }
+    }catch(err){
+        console.log("error in getData");
     }
+}
 
     closeDialogPopper = (e) => {
         this.props.closeEditBox(e);
@@ -106,11 +115,16 @@ export default class DialogBox extends Component {
 
     }
     archiveNote = (value, noteID) => {
+        try{
         console.log("archive value in dialog========>", value);
         this.setState({ archive: value })
         this.props.archiveNote(value, noteID)
         this.props.closeEditBox();
+        }catch(err){
+            console.log("error in archiveNote");
+        }
     }
+    
     remindMe = (value, noteID) => {
         this.setState({ remindMe: value })
         this.props.remindMe(value, noteID);

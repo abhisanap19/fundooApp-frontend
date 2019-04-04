@@ -64,7 +64,7 @@ class LoginInput extends Component {
         <div>
           <div className="username">
             <TextField
-              id="outlined-name"
+              id="userName"
               label="Email"
               name="userName"
               type="text"
@@ -77,8 +77,7 @@ class LoginInput extends Component {
 
           <div className="loginPass">
             <TextField
-              
-              id="outlined-password-input"
+              id="password"
               label="Enter your Password"
               type="password"
               value={this.state.password}

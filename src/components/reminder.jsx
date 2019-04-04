@@ -26,6 +26,7 @@ const theme = createMuiTheme({
     },
 })
 
+
 class Reminder extends Component {
     state = {
         anchorEl: null,
@@ -51,18 +52,20 @@ class Reminder extends Component {
         this.setState(state=>({open:!state.open}))
     }
     setTodayReminder =()=> {
+        try{
         this.handleClose();
         let ampm = parseInt(new Date().getHours()) >= 8 ? "PM" : "AM";
         var date = new Date().toDateString();
         var reminder1 = date+ ", 8 "+ampm;
         console.log("in reminder1==>",reminder1);
         this.props.reminder(reminder1,this.props.noteID)
+        }catch(err){
+            console.log("error in set reminder for today");
+        }
     }
-
-
-
-
+ 
     setTomorrowReminder=()=>{
+        try{
         this.handleClose();
         let days=["Mon","Tue","Wed","Thu","Fri","Sat","Sun","Mon"]
         var date = new Date().toDateString();
@@ -71,8 +74,13 @@ class Reminder extends Component {
         var reminder1= date+ ", 8 AM" ;
         console.log("tommorow reminder==>",reminder1);
         this.props.reminder(reminder1,this.props.noteID)
+        }
+        catch(err){
+            console.log("error in set reminder for tommorrow");
+        }
     }
     setWeeklyReminder=()=>{
+        try{
         this.handleClose();
        
         var date = new Date().toDateString();
@@ -80,8 +88,11 @@ class Reminder extends Component {
         var reminder1 = date+ ", 8 AM" ;
         console.log("weekly reminder==>",reminder1);
         this.props.reminder(reminder1,this.props.noteID)
+        }
+        catch(err){
+            console.log("error in set reminder for next week");
+        }
     }
-
 
     render() {
         const setAMPM = this.props.parentToolsProps;

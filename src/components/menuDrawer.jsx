@@ -40,11 +40,6 @@ class DrawerMenu extends Component {
         this.props.searchLabels(value)
     }
     showLabels(value) {
-        // let labelArr=this.state.label;
-        // if(value!==undefined){
-        //     labelArr.push(value);
-        //     this.setState({label:labelArr});
-        // }
         this.setState({
             label: [...this.state.label, value]
         })

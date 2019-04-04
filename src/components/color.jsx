@@ -33,9 +33,13 @@ class ColorPallete extends Component {
         })
     }
     handleColor(evt) {
+        try{
         console.log("sasasas", this.props.noteID)
         this.props.toolsPropsToColorpallete(evt.target.value, this.props.noteID);
-     }
+        }catch(err){
+            console.log("error in handle color event");
+        } 
+    }
 
 
     handleToggle() {

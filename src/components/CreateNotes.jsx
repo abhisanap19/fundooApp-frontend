@@ -44,6 +44,7 @@ class CreateNotes extends Component {
         this.handlePinned = this.handlePinned.bind(this);
     }
     handleToggle() {
+        try{
         this.setState({ openNote: !this.state.openNote });
         // console.log("pinned", this.state);
         if (this.state.title !== '' || this.state.description !== '' || this.state.color !== "rgb(255, 255, 255)") {
@@ -81,7 +82,9 @@ class CreateNotes extends Component {
             })
 
         }
-
+    }catch{
+        console.log("error in handle toggle");
+    }
     }
 
     handleTitle(evt) {

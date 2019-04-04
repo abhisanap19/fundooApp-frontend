@@ -17,14 +17,19 @@ class AddLabelsOnNote extends Component {
 
     }
     addLabelPopup() {
-
+        try{
         this.setState(state => ({
             anchorEl: this.props.anchorEl,
             open: !state.open,
 
         }));
+    }catch(err){
+        console.log("error in add label pop up");
     }
+    }
+
     componentDidMount() {
+        try{
         getLabels()
             .then((result) => {
                 this.setState({
@@ -35,6 +40,9 @@ class AddLabelsOnNote extends Component {
             .catch((error) => {
                 alert(error)
             });
+        }catch(err){
+            console.log("error in did mount component");
+        }
     }
 
     showLabels(value) {

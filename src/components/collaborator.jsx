@@ -55,6 +55,7 @@ class Collaborator extends Component {
         toast("Invalid user")
     }
     handleInputCollab(e) {
+        try{
         this.setState({
             inputCollab: e.target.value
         })
@@ -65,7 +66,11 @@ class Collaborator extends Component {
             })
 
         }
+    }catch(err){
+        console.log("error in handle input collab");
     }
+    }
+    
     componentDidMount() {
         getCollabDetails('/getCollabDetails')
             .then(async (result) => {

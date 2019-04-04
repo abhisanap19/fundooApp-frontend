@@ -72,8 +72,7 @@ class UserProfile extends Component {
                         {({ TransitionProps }) => (
                             <Fade {...TransitionProps} timeout={350}>
                                 <Paper>
-
-                                    <div style={{ width: "250px", padding: "10px" }}>
+                                    <div className="userProfile">
                                         <div className="userProfileDetails">
                                             <IconButton id="avatar">
                                                 <Tooltip title="Change Profile">
@@ -103,6 +102,7 @@ class UserProfile extends Component {
                                               
                                             </div>
                                         </div>
+                                      
                                         <MenuItem style={{
                                             borderBottomRightRadius: "0px",
                                             borderTopRightRadius: "0px"
@@ -110,13 +110,15 @@ class UserProfile extends Component {
                                             onClick={this.afdadsNote}>Logout</MenuItem>
 
                                     </div>
+
+       
                                 </Paper>
                             </Fade>
                         )}
                     </Popper>
 
                     <IconButton id="userProfileIcon">
-                    <Tooltip title={<div><div id="account">Google Account</div>
+                    <Tooltip title={<div><div id="account">fundooNotes Account</div>
                         <div id="username">{userDetails}</div>
                     </div>} placement="bottom-end">
 

@@ -30,6 +30,7 @@ class MoreOptions extends Component {
         this.handleLabelsOnNote = this.handleLabelsOnNote.bind(this);
     }
     clickMoreOptions(event) {
+        try{
         const { currentTarget } = event;
 
         this.setState(state => ({
@@ -37,6 +38,9 @@ class MoreOptions extends Component {
             open: !state.open,
 
         }));
+    }catch(err){
+        console.log("error in more options");
+    }
     }
     handleTrashedNotes() {
         this.props.trashNote(this.props.noteID);

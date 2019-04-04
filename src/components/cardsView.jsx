@@ -13,9 +13,13 @@ class CardsView extends Component {
     }
 
     handleCardsView(evt) {
+        try{
         evt.preventDefault();
         this.setState({ view: !this.state.view });
         this.props.appPropstoCardsView();
+        }catch(err){
+            console.log("error in handle card view");
+        }
     }
 
     render() {

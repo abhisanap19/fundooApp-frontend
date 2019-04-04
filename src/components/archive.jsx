@@ -10,16 +10,25 @@ class Archive extends Component {
     }
 
     componentWillMount() {
+        try{
         if (typeof this.props.archiveStatus !== "undefined") {
             this.setState({
                 isArchived: this.props.archiveStatus
             })
         }
+    }catch(err){
+        console.log("error in willMount component");
     }
+    }
+
+
     async handleArchive() {
+        try{
         await this.setState({ isArchived: !this.state.isArchived });
         this.props.archiveNote(this.state.isArchived, this.props.noteID)
-
+        }catch(err){
+            console.log("error in handle archive");
+        }
     }
     render() {
         return (

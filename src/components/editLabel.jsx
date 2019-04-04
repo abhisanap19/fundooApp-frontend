@@ -44,6 +44,7 @@ class EditLabel extends Component {
     }
 
     addLabel(value) {
+        try{
         const label = {
             label: value
         }
@@ -65,6 +66,9 @@ class EditLabel extends Component {
             console.log("SAGSGAS");
             this.openSnackBar.current.handleClick();
         }
+    }catch(err){
+        console.log("error in add label");
+    }
     }
 
 
