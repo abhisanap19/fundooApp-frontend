@@ -70,3 +70,4 @@ class ForgotPasswordInput extends Component {
 }
 
 export default withRouter(ForgotPasswordInput);
+

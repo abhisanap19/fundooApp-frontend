@@ -90,6 +90,7 @@ class AppbarComponent extends Component {
                                     <Tooltip title="Menu">
                                         <MenuIcon id="menu" onClick={this.handleToggle} />
                                     </Tooltip>
+                                    
                                 </IconButton>
                             </div>
 
