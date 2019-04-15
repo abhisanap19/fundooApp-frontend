@@ -555,6 +555,7 @@ class Cards extends Component {
                                                     noteID={otherArr[key].note._id}
                                                     archiveStatus={otherArr[key].note.archive}
                                                     reminder={this.reminderNote}
+                                                    
                                                     note={otherArr[key].note}
                                                     trashNote={this.trashNote}
                                                     uploadImage={this.uploadImage} />
